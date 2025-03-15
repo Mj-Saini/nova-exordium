@@ -48,3 +48,30 @@ export const statsList = [
   { value: "10X", text: "Lorem ipsum dolor sit amet consectetur" },
   { value: "99%", text: "Lorem ipsum dolor sit amet consectetur" },
 ];
+
+export const testimonials = [
+  {
+    id: 1,
+    name: "Floyd Miles",
+    position: "Medical Assistant",
+    image: "/images/png/floyed-miles.png",
+    review:
+      "Lorem ipsum dolor sit amet consectetur. Dignissim velit egestas ac risus maecenas magna risus tellus adipiscing. Magna nunc accumsan praesent dolor.",
+  },
+  {
+    id: 2,
+    name: "Ronald Richards",
+    position: "Nursing Assistant",
+        image: "/images/png/floyed-miles.png",
+    review:
+      "Lorem ipsum dolor sit amet consectetur. Dignissim velit egestas ac risus maecenas magna risus tellus adipiscing. Magna nunc accumsan praesent dolor.",
+  },
+  {
+    id: 3,
+    name: "Esther Howard",
+    position: "President of Sales",
+        image: "/images/png/floyed-miles.png",
+    review:
+      "Lorem ipsum dolor sit amet consectetur. Dignissim velit egestas ac risus maecenas magna risus tellus adipiscing. Magna nunc accumsan praesent dolor.",
+  },
+];

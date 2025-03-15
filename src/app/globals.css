@@ -9,6 +9,9 @@
 .hero_bgimg {
   background-image: url("/images/png/hero-bg-img.png");
 }
+.start_journey_bgimg {
+  background-image: url("/images/png/start-journey-bg-img.png");
+}
 
 body {
   background: #f0f0f0;
@@ -35,3 +38,21 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+
+input[type="checkbox"]::after {
+  content: "✔";
+  font-size: 16px;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
+input[type="checkbox"]:checked::after {
+  opacity: 1;
+}
+
+

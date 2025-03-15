@@ -5,21 +5,22 @@ import { GoNextIcon } from "./Icons";
 interface CommonBtnProps {
   btnName: string;
   btnStyling?: string; // Optional prop
+  arrowIcon?: string; // Optional prop
 }
 
-const CommonBtn: React.FC<CommonBtnProps> = ({ btnName, btnStyling }) => {
+const CommonBtn: React.FC<CommonBtnProps> = ({ btnName, btnStyling,arrowIcon }) => {
   return (
-    <div>
+    <>
       <Link
         href="/"
         className={`font-bold leading-[100%] rounded-2xl px-5 pt-4 pb-3.5 whitespace-nowrap inline-flex items-center gap-3 ${btnStyling}`}
       >
         <span>{btnName}</span>{" "}
-        <span>
+        <span className={`${arrowIcon}`}>
                   <GoNextIcon iconStyling={btnStyling} />
         </span>
       </Link>
-    </div>
+    </>
   );
 };
 

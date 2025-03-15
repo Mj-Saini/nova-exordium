@@ -12,7 +12,7 @@ const Hero = () => {
   return (
     <>
       <div className="custom_container h-[calc(100%-106.2px)] ">
-              <div className="flex flex-wrap justify-center items-center pt-16 lg:pt-24">
+              <div className="flex flex-wrap justify-center items-center  pb-16 md:pb-0 pt-16 lg:pt-24">
                       <div className="flex flex-wrap justify-between items-center relative">
           <div className="w-full lg:w-5/12">
             <h1
@@ -33,7 +33,7 @@ const Hero = () => {
             </div>
           </div>
           <div className="w-full lg:w-1/2 mt-6 lg:mt-0">
-            <Image className="xl:absolute right-0 2xl:-right-28 top-0 w-full xl:w-[48%] 2xl:w-1/2" src={heroImg} alt="hero-img" />
+            <Image className="xl:absolute right-0 2xl:-right-28 top-0 w-full xl:w-[60%]" src={heroImg} alt="hero-img" />
           </div>
         </div>
     </div>
