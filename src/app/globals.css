@@ -9,3 +9,29 @@
 .hero_bgimg {
   background-image: url("/images/png/hero-bg-img.png");
 }
+
+body {
+  background: #f0f0f0;
+}
+
+/* EDIT SCROLLBAR */
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: #2c4c4b;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

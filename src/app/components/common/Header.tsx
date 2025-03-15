@@ -25,9 +25,9 @@ const Header = () => {
 
   return (
     <>
-      <div className={`max-w-[1392px] mx-auto px-5 pt-6`}>
+      <div className={`custom_container mx-auto !pt-6`}>
         <div
-          className={` flex items-center gap-6 justify-between bg-white border-white border rounded-3xl xl:bg-transparent xl:border-transparent  px-6 py-4 xl:py-0`}
+          className={` flex items-center gap-6 justify-between bg-white border-white border rounded-3xl xl:bg-transparent xl:border-transparent  px-6 py-4 xl:p-0 `}
         >
           <div className="flex gap-10 items-center bg-white border-white border rounded-3xl xl:px-6 xl:py-4 w-full lg:max-w-[1080px] 2xl:w-[1080px]">
             <Link href="/">
@@ -41,7 +41,7 @@ const Header = () => {
             </Link>
             <div
               className={` flex gap-6 max-lg:fixed top-0 max-lg:h-screen max-lg:w-screen max-lg:items-center max-lg:justify-center flex-col lg:flex-row bg-white lg:bg-transparent duration-300 ${
-                !toggleNav ? "-left-full" : "left-0"
+                !toggleNav ? "-left-[100vw]" : "left-0"
               }`}
             >
               {headerData.map((tab, index) => (

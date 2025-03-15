@@ -1,3 +1,5 @@
+import { DashboardIcon, NotificationsIcon, ProjectIcon, TempleteIcon } from "./Icons";
+
 export const headerData = [
   {
     tabs: "home",
@@ -30,4 +32,19 @@ export const headerData = [
       { label: "Our Customers", path: "/#our-customers" },
     ],
   },
+];
+
+
+export const featuredCardList = [
+  { title: "Dashboard", icon: <DashboardIcon/>},
+  { title: "Projects", icon: <ProjectIcon/> },
+  { title: "Templates", icon: <TempleteIcon/> },
+  { title: "Notifications", icon: <NotificationsIcon/> },
+];
+
+export const statsList = [
+  { value: "1000+", text: "Lorem ipsum dolor sit amet consectetur" },
+  { value: "88%", text: "Lorem ipsum dolor sit amet consectetur" },
+  { value: "10X", text: "Lorem ipsum dolor sit amet consectetur" },
+  { value: "99%", text: "Lorem ipsum dolor sit amet consectetur" },
 ];
