@@ -15,7 +15,9 @@ export default function Home() {
     <div>
       <main>
         <div className="hero_bgimg bg-cover md:min-h-screen bg-top">
-          <Header />
+          <div className="relative z-50">
+            <Header />
+          </div>
           <Hero />
         </div>
         <div className="custom_container !pb-12 md:!pb-0 !pt-12 md:!pt-16 lg:!pt-0 lg:-translate-y-1/3 ">
