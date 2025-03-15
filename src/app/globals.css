@@ -1,7 +1,11 @@
 @import "tailwindcss";
 
 .custom_container {
-  max-width: 1080px;
+  max-width: 1240px;
   padding: 0 20px;
   margin: 0 auto;
+}
+
+.hero_bgimg {
+  background-image: url("/images/png/hero-bg-img.png");
 }
