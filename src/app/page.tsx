@@ -7,6 +7,7 @@ import StatsSection from "./components/StatsSection";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Testimonial from "./components/Testimonial";
+import Footer from "./components/common/Footer";
 
 
 
@@ -66,7 +67,8 @@ export default function Home() {
            counterStyling="hidden"
         />
         <Testimonial/>
-        <StartJourney/>
+        <StartJourney />
+        <Footer/>
       </main>
     </div>
   );

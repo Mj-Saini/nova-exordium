@@ -1,7 +1,7 @@
 /* eslint-disable no-var */
 /* eslint-disable react/no-unescaped-entities */
 "use client";
-import React from "react";
+import React, { useRef } from "react";
 import Image from "next/image";
 import { testimonials } from "./common/Helper";
 import { Inter } from "next/font/google";
@@ -13,6 +13,7 @@ const inter = Inter({
 });
 
 const Testimonial: React.FC = () => {
+  const mySlider=useRef<Slider | null>(null);
   var settings = {
     dots: false,
     arrows: false,
@@ -55,16 +56,14 @@ const Testimonial: React.FC = () => {
 
         <div className="relative mt-8 lg:mt-[60px]">
           <div className="xl:block hidden">
-            <span className="absolute -left-10 top-1/2 -translate-y-1/2">
+            <span onClick={()=>mySlider.current?.slickPrev()} className="absolute cursor-pointer -left-10 top-1/2 -translate-y-1/2">
               <SliderArrowsIcon />
             </span>
-            <span className="absolute -right-10 top-1/2 -translate-y-1/2 -scale-105">
+            <span onClick={()=>mySlider.current?.slickNext()} className="absolute cursor-pointer -right-10 top-1/2 -translate-y-1/2 -scale-105">
               <SliderArrowsIcon />
             </span>
           </div>
-          <Slider {...settings}>
-            {/* Testimonials Grid */}
-            {/* <div className="mt-8 grid gap-6 md:grid-cols-3 px-6 lg:px-0"> */}
+          <Slider ref={mySlider} {...settings}>
             {testimonials.map((testimonial) => (
               <div key={testimonial.id} className="px-3">
                 <div className="bg-white shadow-lg rounded-2xl p-6 text-center">
@@ -113,7 +112,6 @@ const Testimonial: React.FC = () => {
                 </div>
               </div>
             ))}
-            {/* </div> */}
           </Slider>
         </div>
       </div>
