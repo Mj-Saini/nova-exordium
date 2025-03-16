@@ -1,3 +1,5 @@
+
+
 import Link from "next/link";
 import React from "react";
 import { GoNextIcon } from "./Icons";
@@ -8,7 +10,10 @@ interface CommonBtnProps {
   arrowIcon?: string; // Optional prop
 }
 
-const CommonBtn: React.FC<CommonBtnProps> = ({ btnName, btnStyling,arrowIcon }) => {
+const CommonBtn: React.FC<CommonBtnProps> = ({ btnName, btnStyling, arrowIcon }) => {
+  
+
+
   return (
     <>
       <Link
