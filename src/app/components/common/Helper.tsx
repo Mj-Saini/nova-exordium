@@ -1,4 +1,4 @@
-import { DashboardIcon, NotificationsIcon, ProjectIcon, TempleteIcon } from "./Icons";
+import { AdminDashboardIcon, AdminManagementIcon, AdminProjectIcon, DashboardIcon, NotificationsIcon, ProjectIcon, TempleteIcon } from "./Icons";
 
 export const headerData = [
   {
@@ -73,5 +73,47 @@ export const testimonials = [
         image: "/images/png/floyed-miles.png",
     review:
       "Lorem ipsum dolor sit amet consectetur. Dignissim velit egestas ac risus maecenas magna risus tellus adipiscing. Magna nunc accumsan praesent dolor.",
+  },
+];
+
+
+
+export const sideBarData = [
+  {
+    icon: <AdminDashboardIcon />,
+    tabs: "Dashboard",
+    path: "/dashboard",
+  },
+
+  {
+    icon: <AdminProjectIcon />,
+    tabs: "Projects List",
+    path: "/project-list",
+  },
+  {
+    icon: <AdminManagementIcon />,
+    tabs: "Leaderboard",
+    path: "/admin/spis",
+  },
+ 
+  {
+    // icon: <CommunticationIcon />,
+    tabs: "Communications",
+    path: "/communications",
+  },
+  {
+    // icon: <TransactionIcon />,
+    tabs: "Notifications",
+    path: "/admin/notifications",
+  },
+  {
+    // icon: <CatalogIcon />,
+    tabs: "Upgrade",
+    path: "/admin/membership",
+  },
+  {
+    // icon: <SettingsIcon />,
+    tabs: "Settings",
+    path: "/admin/settings",
   },
 ];
