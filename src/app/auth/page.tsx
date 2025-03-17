@@ -107,16 +107,18 @@ const Page = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col justify-between px-6 bg-white">
+    <div className={`min-h-screen flex flex-col justify-between  bg-white ${isLogin ? "px-0":"px-5"}`}>
       <div>
         {isLogin !== false && (
-          <div className="relative z-10">
+          <div className="relative z-20">
             <Header btnStyling="static" headerStyling="!bg-white pe-5 " btnName="Don’t have account?" toggleForm={toggleForm} />
           </div>
         )}
         {isLogin === false && (
           <div className="bg-no-repeat bg-cover bg-top h-[50vh] start_journey_bgimg rounded-2xl mt-6">
-           <Header btnStyling="2xl:absolute right-[84px] " buttonClr="!text-white" btnName="Already have an account?"  toggleForm={toggleForm}/>
+            <div  className="relative z-30">
+               <Header btnStyling="2xl:absolute right-[84px] " buttonClr="!text-white" btnName="Already have an account?"  toggleForm={toggleForm}/>
+          </div>
            <div className="relative flex justify-center h-full text-white text-center py-[60px] px-5">
              <div className="relative z-10 max-w-[450px]">
                <h1
@@ -139,7 +141,7 @@ const Page = () => {
       </div>
 
       {/* Footer */}
-      <p className="font-normal text-xsm text-[#9A9999] text-center pb-6 lg:pb-[52px] pt-6">
+      <p className={`font-normal text-xsm text-[#9A9999] text-center pb-6 lg:pb-[52px] pt-6 ${isLogin ? "":"-translate-y-[20%]"}`}>
         This site is protected by reCAPTCHA and the Google Privacy Policy and
         Terms of Service apply.
       </p>

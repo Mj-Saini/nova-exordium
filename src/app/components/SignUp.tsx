@@ -43,7 +43,7 @@ const SignUp: React.FC<SignUpProps>= ({toggleForm}) => {
 
   return (
     <>
-      <div className="flex flex-col items-center justify-between -translate-y-[30%] relative z-20 w-full">
+      <div className="flex flex-col items-center justify-between -translate-y-[50%] relative z-20 w-full mt-[60px]">
         <div className="bg-white p-5 lg:p-10 rounded-2xl custom_shadow w-full md:w-1/2 2xl:w-3/12">
           <form onSubmit={handleSubmit}>
             <div className="mb-4 lg:mb-6 flex flex-col gap-1.5">
