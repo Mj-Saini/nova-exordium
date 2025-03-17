@@ -17,7 +17,7 @@ export default function Home() {
       <main>
         <div className="hero_bgimg bg-cover md:min-h-screen bg-top">
           <div className="relative z-50">
-            <Header />
+            <Header btnStyling="2xl:absolute right-[84px]" btnName="Log in"/>
           </div>
           <Hero />
         </div>

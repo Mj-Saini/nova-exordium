@@ -8,7 +8,11 @@ const inter = Inter({
   weight: ["300", "400", "600", "700", "900"],
 });
 
-const SignUp = () => {
+interface SignUpProps {
+  toggleForm: () => void;
+}
+
+const SignUp: React.FC<SignUpProps>= ({toggleForm}) => {
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -32,9 +36,14 @@ const SignUp = () => {
     console.log(formData);
   };
 
+    const handleSwitchToggle = () => {
+    setFormData((prev) => ({ ...prev, remember: !prev.remember }));
+  };
+
+
   return (
     <>
-      <div className="flex flex-col items-center justify-between h-[calc(50vh-124px)] -translate-y-[50%] relative z-20 w-full">
+      <div className="flex flex-col items-center justify-between -translate-y-[30%] relative z-20 w-full">
         <div className="bg-white p-5 lg:p-10 rounded-2xl custom_shadow w-full md:w-1/2 2xl:w-3/12">
           <form onSubmit={handleSubmit}>
             <div className="mb-4 lg:mb-6 flex flex-col gap-1.5">
@@ -111,15 +120,16 @@ const SignUp = () => {
                 {showConfirmPassword ? "Hide" : "Show"}
               </button>
             </div>
-            <div className="mb-4 lg:mb-6 flex items-center">
-              <input
-                type="checkbox"
-                id="remember"
-                name="remember"
-                checked={formData.remember}
-                onChange={handleChange}
-                className="mr-2"
-              />
+            <div className="mb-4 lg:mb-6 flex items-center gap-4">
+              <button
+                type="button"
+                onClick={handleSwitchToggle}
+                className={`w-12 h-6 flex items-center rounded-full p-0.5 duration-300 ease-in-out ${formData.remember ? 'bg-[#477D7C]' : 'bg-gray-400'}`}
+              >
+                <div
+                  className={`w-5 h-5 bg-white rounded-full shadow-md transform duration-300 ease-in-out ${formData.remember ? 'translate-x-6' : 'translate-x-0'}`}
+                ></div>
+              </button>
               <label
                 htmlFor="remember"
                 className="className={`${inter.className} font-medium text-base text-[#213737]`}"
@@ -135,9 +145,9 @@ const SignUp = () => {
           </form>
           <p className="font-bold text-base text-center text-[#333333] mt-6">
             Already have an account?{" "}
-            <a href="#" className="text-[#2C4C4B]">
+            <span onClick={toggleForm} className="text-[#2C4C4B] cursor-pointer">
               Sign In
-            </a>
+            </span>
           </p>
               </div>
           

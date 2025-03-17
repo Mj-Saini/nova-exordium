@@ -6,7 +6,15 @@ import { usePathname } from "next/navigation";
 import Image from "next/image";
 import logo from "../../../../public/images/svg/logo.svg";
 
-const Header = () => {
+interface HeaderProps {
+  btnStyling?: string;
+  headerStyling?: string;
+  btnName?: string;
+  buttonClr?: string;
+ toggleForm: () => void;
+}
+
+const Header: React.FC<HeaderProps> = ({btnStyling,headerStyling,btnName,toggleForm,buttonClr}) => {
   const pathName = usePathname();
 
   const [toggleNav, setToggleNav] = useState(false);
@@ -27,7 +35,7 @@ const Header = () => {
     <>
       <div className={`custom_container mx-auto !pt-6`}>
         <div
-          className={` flex items-center gap-6 justify-between bg-white border-white border rounded-3xl xl:bg-transparent xl:border-transparent  px-6 py-4 xl:p-0 `}
+          className={` flex items-center gap-6 justify-between bg-white border-white border rounded-3xl xl:bg-transparent xl:border-transparent  px-6 py-4 xl:p-0 ${headerStyling} custom_shadow`}
         >
           <div className="flex gap-10 items-center bg-white border-white border rounded-3xl xl:px-6 xl:py-4 w-full lg:max-w-[1080px] 2xl:w-[1080px]">
             <Link href="/">
@@ -58,12 +66,12 @@ const Header = () => {
                   </Link>
                 </div>
               ))}
-              <div className="flex flex-col gap-6 items-center 2xl:absolute right-[84px] lg:hidden">
+              <div className={`flex flex-col gap-6 items-center 2xl:absolute right-[84px] lg:hidden  ${btnStyling}`}>
                 <Link
                   href={"/"}
                   className={`capitalize font-bold text-[#333333] whitespace-nowrap`}
                 >
-                  log in
+                 {btnName}
                 </Link>
                 <Link
                   href={"/"}
@@ -74,13 +82,13 @@ const Header = () => {
               </div>
             </div>
           </div>
-          <div className="hidden gap-6 items-center 2xl:absolute right-[84px] lg:flex">
-            <Link
-              href={"/"}
-              className={`capitalize font-bold text-[#333333] whitespace-nowrap`}
+          <div className={`hidden gap-6 items-center lg:flex ${btnStyling}`}>
+            <button
+              onClick={toggleForm}
+              className={`capitalize font-bold text-[#333333] whitespace-nowrap ${buttonClr}`}
             >
-              log in
-            </Link>
+             {btnName}
+            </button>
             <Link
               href={"/"}
               className={`capitalize font-bold text-[#fff] bg-[#2C4C4B] rounded-2xl px-5 py-3  whitespace-nowrap`}

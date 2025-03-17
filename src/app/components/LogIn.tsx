@@ -8,7 +8,11 @@ const inter = Inter({
   weight: ["300", "400", "600", "700", "900"],
 });
 
-const Login = () => {
+interface SignInProps {
+  toggleForm: () => void;
+}
+
+const Login: React.FC<SignInProps> = ({toggleForm}) => {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -28,11 +32,14 @@ const Login = () => {
     console.log(formData);
   };
 
+    const handleSwitchToggle = () => {
+    setFormData((prev) => ({ ...prev, remember: !prev.remember }));
+  };
+
   return (
     <div className="w-full flex items-center justify-center ">
       <div className=" rounded-lg flex overflow-hidden custom_container w-full">
-        {/* Left Section */}
-        <div className="w-1/2 p-10">
+        <div className="w-full lg:w-1/2 md:p-10">
           <h1
             className={`${inter.className} font-bold text-2xl sm:text-3xl md:text-4xl lg:text-[40px] text-[#2C4C4B]`}
           >
@@ -70,40 +77,42 @@ const Login = () => {
                 placeholder="Your password"
               />
             </div>
-              <a href="#" className="text-green-700 text-sm mt-2 inline-block">
-                Forgot password?
-              </a>
-            <div className="mb-4 flex items-center">
-              <input
-                type="checkbox"
-                id="remember"
-                name="remember"
-                checked={formData.remember}
-                onChange={handleChange}
-                className="mr-2"
-              />
-              <label htmlFor="remember" className="text-gray-700">
+           
+            <div className="mb-4 lg:mb-6 flex items-center gap-4">
+              <button
+                type="button"
+                onClick={handleSwitchToggle}
+                className={`w-12 h-6 flex items-center rounded-full p-0.5 duration-300 ease-in-out ${formData.remember ? 'bg-[#477D7C]' : 'bg-gray-400'}`}
+              >
+                <div
+                  className={`w-5 h-5 bg-white rounded-full shadow-md transform duration-300 ease-in-out ${formData.remember ? 'translate-x-6' : 'translate-x-0'}`}
+                ></div>
+              </button>
+              <label
+                htmlFor="remember"
+                className="className={`${inter.className} font-medium text-base text-[#213737]`}"
+              >
                 Remember me
               </label>
             </div>
             <button
               type="submit"
-              className="w-full bg-green-700 text-white py-3 rounded-lg hover:bg-green-800"
+             className="pt-4 text-[#fff] bg-[#213737] fill-[#fff] uppercase relative z-10 w-full text-center justify-center !text-sm font-bold leading-[100%] rounded-2xl px-5 pb-3.5 whitespace-nowrap inline-flex items-center gap-3"
             >
               Sign In
             </button>
           </form>
-          <p className="text-gray-600 mt-4 text-center">
+          <p className="font-bold text-base text-center text-[#333333] mt-6">
             Don’t have an account?{" "}
-            <a href="#" className="text-green-700">
+            <span onClick={toggleForm} className="text-[#2C4C4B] cursor-pointer">
               Sign up
-            </a>
+            </span>
           </p>
         </div>
 
         {/* Right Section */}
-        <div className="w-1/2 bg-green-900 text-white flex items-center justify-center p-10">
-          <h2 className="text-4xl font-bold">NOVA EXORDIUM</h2>
+        <div className="w-1/2 hidden lg:flex absolute top-0 right-0 h-[80%] rounded-b-3xl bg-cover bg-right login_bgimg text-white  items-center justify-center p-10">
+          <h2 className={`${inter.className} font-black text-5xl lg:text-7xl xl:text-[102px] text-[#fff] uppercase text-center`}>NOVA <span className={`${inter.className} font-black text-3xl lg:text-5xl xl:text-[54] text-[#fff] uppercase block`}>EXORDIUM</span></h2>
         </div>
       </div>
     </div>
