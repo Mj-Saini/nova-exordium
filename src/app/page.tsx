@@ -1,3 +1,4 @@
+'use client'
 import FeaturedCommonSections from "./components/common/FeaturedCommonSections";
 import Header from "./components/common/Header";
 import FeatureCard from "./components/FeatureCard";
@@ -17,7 +18,7 @@ export default function Home() {
       <main>
         <div className="hero_bgimg bg-cover md:min-h-screen bg-top">
           <div className="relative z-50">
-            <Header btnStyling="2xl:absolute right-[84px]" btnName="Log in"/>
+            <Header btnStyling="2xl:absolute right-[84px]" btnName="Log in" toggleForm={() => console.log("btn clicked")} />
           </div>
           <Hero />
         </div>

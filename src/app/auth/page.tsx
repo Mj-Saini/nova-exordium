@@ -111,7 +111,7 @@ const Page = () => {
       <div>
         {isLogin !== false && (
           <div className="relative z-20">
-            <Header btnStyling="static" headerStyling="!bg-white pe-5 " btnName="Don’t have account?" toggleForm={toggleForm} />
+            <Header btnStyling="static xl:pe-5" headerStyling="!bg-white" btnName="Don’t have account?" toggleForm={toggleForm} />
           </div>
         )}
         {isLogin === false && (

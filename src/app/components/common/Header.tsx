@@ -74,7 +74,7 @@ const Header: React.FC<HeaderProps> = ({btnStyling,headerStyling,btnName,toggleF
                  {btnName}
                 </Link>
                 <Link
-                  href={"/"}
+                  href={"/auth"}
                   className={`capitalize font-bold text-[#fff] bg-[#2C4C4B] rounded-2xl px-5 py-3  whitespace-nowrap`}
                 >
                   Sign Up
@@ -85,12 +85,12 @@ const Header: React.FC<HeaderProps> = ({btnStyling,headerStyling,btnName,toggleF
           <div className={`hidden gap-6 items-center lg:flex ${btnStyling}`}>
             <button
               onClick={toggleForm}
-              className={`capitalize font-bold text-[#333333] whitespace-nowrap ${buttonClr}`}
+              className={`capitalize font-bold text-[#333333] whitespace-nowrap cursor-pointer ${buttonClr}`}
             >
              {btnName}
             </button>
             <Link
-              href={"/"}
+              href={"/auth"}
               className={`capitalize font-bold text-[#fff] bg-[#2C4C4B] rounded-2xl px-5 py-3  whitespace-nowrap`}
             >
               Sign Up
