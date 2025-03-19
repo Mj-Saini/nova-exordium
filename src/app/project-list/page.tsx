@@ -19,9 +19,10 @@ const DashboardPage = () => {
     };
   }, [showSideBar]);
   const [value, setValue] = useState(0);
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="h-screen">
+    <div className="h-screen relative">
       <div className="flex flex-wrap h-full">
         <div
           className={` w-full md:w-3/12 xl:w-2/12 max-md:fixed left-0 duration-300  ${
@@ -41,11 +42,13 @@ const DashboardPage = () => {
                   <h3 className=" font-bold text-sm text-[#9A9999] ps-[5px]">30 done this month</h3>
                 </div>
               </div>
-              <div className=" flex items-center">
-                <div className="border border-[var(--Color-2,#EAEAEA)] w-[45px] h-[36px] rounded-[16px] p-[12px] gap-[6px] flex items-center justify-center bg-white cursor-pointer me-[16px]">
+              <div className=" flex items-center mt-4 lg:mt-0">
+                <div
+                  className="border border-[var(--Color-2,#EAEAEA)] w-[45px] h-[36px] rounded-[16px] p-[12px] gap-[6px] flex items-center justify-center bg-white cursor-pointer me-[16px]"
+                  onClick={() => setIsOpen(!isOpen)}>
                   <FleterIcon />
                 </div>
-                <button className=" bg-[#2C4C4B] text-white rounded-[16px] py-2 px-4  flex items-center gap-2 cursor-pointer font-bold text-xs sm:text-sm">
+                <button className=" bg-[#2C4C4B]  text-white rounded-[16px] py-[12px] px-5  flex items-center gap-2 cursor-pointer font-bold text-xs sm:text-sm">
                   <CreateIcon />
                   Create New Project
                 </button>
@@ -151,9 +154,13 @@ const DashboardPage = () => {
                     },
                   ].map((task, index) => (
                     <tr key={task.id} className="border-b border-[#EAEBEB]">
-                      <td className="px-4 py-3 lg: text-xs text-sm font-bold">{task.id}</td>
-                      <td className="px-4 py-3 text-xs lg:text-sm font-bold">{task.name}</td>
-                      <td className="px-4 py-3 text-sm font-bold flex items-center relative">
+                      <td className="px-4  lg: text-xs lg:text-sm font-bold py-[16px]">
+                        {task.id}
+                      </td>
+                      <td className="px-4 py-2 lg:py-[16px] text-xs lg:text-sm font-bold">
+                        {task.name}
+                      </td>
+                      <td className="px-4 py-[16px] text-sm font-bold flex items-center relative">
                         {[
                           'girlimg.png',
                           'assigned2.png',
@@ -176,15 +183,15 @@ const DashboardPage = () => {
                           />
                         ))}
                       </td>
-                      <td className="px-4 py-3">
+                      <td className="px-4 py-[16px]">
                         <span
                           className="text-white font-bold text-xs lg:text-sm py-1 px-4 rounded-lg"
                           style={{ backgroundColor: task.color }}>
                           {task.status}
                         </span>
                       </td>
-                      <td className="px-4 py-3 text-xs lg:text-sm font-bold">{task.due}</td>
-                      <td className="px-4 py-3">
+                      <td className="px-4 py-[16px] text-xs lg:text-sm font-bold">{task.due}</td>
+                      <td className="px-4 py-[16px]">
                         <div className="flex flex-col w-32">
                           <span className="text-sm text-gray-700">{task.progress * 10}%</span>
                           <div className="relative w-full h-2 bg-[#D6D6D6] rounded-lg">
@@ -203,7 +210,7 @@ const DashboardPage = () => {
                           />
                         </div>
                       </td>
-                      <td className="px-4 py-3">
+                      <td className="px-4 py-[16px] cursor-pointer">
                         <DottedIcon />
                       </td>
                     </tr>
@@ -211,7 +218,13 @@ const DashboardPage = () => {
                 </tbody>
               </table>
             </div>
-            <Filter />
+            {isOpen && (
+              <div className="fixed inset-0 z-10 flex items-center justify-center bg-black/50">
+                <div className="relative bg-white p-4 rounded-lg shadow-lg">
+                  <Filter closePopup={setIsOpen} />
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>
