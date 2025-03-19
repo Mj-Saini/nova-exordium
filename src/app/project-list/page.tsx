@@ -20,6 +20,88 @@ const DashboardPage = () => {
   }, [showSideBar]);
   const [value, setValue] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
+  const tasks = [
+    {
+      id: 1,
+      name: "Develop the app's core features",
+      status: 'ACTIVE',
+      color: '#747EBD',
+      due: 'Today',
+      progress: 5,
+    },
+    {
+      id: 2,
+      name: 'Monitor app performance and user feedback',
+      status: 'COMPLETED',
+      color: '#408C62',
+      due: 'Today',
+      progress: 3,
+    },
+    {
+      id: 3,
+      name: 'Implement security and data privacy measures',
+      status: 'COMPLETED',
+      color: '#408C62',
+      due: '2/3/2025',
+      progress: 10,
+    },
+    {
+      id: 4,
+      name: 'Deploy to production',
+      status: 'ARCHIVED',
+      color: '#EBA055',
+      due: '2/3/2025',
+      progress: 3,
+    },
+    {
+      id: 5,
+      name: 'Develop the app’s core features',
+      status: 'ACTIVE',
+      color: '#747EBD',
+      due: 'Tomorrow',
+      progress: 4,
+    },
+    {
+      id: 6,
+      name: 'Develop interactive prototypes to test',
+      status: 'COMPLETED',
+      color: '#408C62',
+      due: 'Tomorrow',
+      progress: 10,
+    },
+    {
+      id: 7,
+      name: 'Test and refine each feature before moving forward',
+      status: 'ACTIVE',
+      color: '#747EBD',
+      due: 'Today',
+      progress: 4,
+    },
+    {
+      id: 8,
+      name: 'Test and iterate on the functionalities',
+      status: 'ARCHIVED',
+      color: '#EBA055',
+      due: '2/3/2025',
+      progress: 3,
+    },
+    {
+      id: 9,
+      name: 'Establish protocols to protect user data',
+      status: 'ACTIVE',
+      color: '#747EBD',
+      due: 'Today',
+      progress: 5,
+    },
+    {
+      id: 10,
+      name: 'Identify strengths, weaknesses, and gaps',
+      status: 'ARCHIVED',
+      color: '#EBA055',
+      due: '2/3/2025',
+      progress: 6,
+    },
+  ];
 
   return (
     <div className="h-screen relative">
@@ -56,13 +138,11 @@ const DashboardPage = () => {
             </div>
             <div className="overflow-x-auto md:max-w-full lg:overflow-visible">
               <table className="w-full mt-7 border-collapse">
-                <thead className="border-b border-solid border-[#EAEBEB] sticky top-0 bg-white z-20">
-                  <tr className="text-left font-bold text-xs lg:text-sm">
+                <thead>
+                  <tr className="border-b border-gray-300 text-left font-bold text-sm">
                     {['#', 'Project Name', 'Assigned To', 'Status', 'Due Date', 'Progress', ''].map(
                       (head, index) => (
-                        <th
-                          key={index}
-                          className="px-4 py-3 text-xs font-bold text-[#9A9999] capitalize whitespace-nowrap">
+                        <th key={index} className="px-4 py-3 text-gray-600">
                           {head}
                         </th>
                       )
@@ -70,94 +150,48 @@ const DashboardPage = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {[...Array(10)].map((_, index) => {
-                    const task = {
-                      id: index + 1,
-                      name: `Project Task ${index + 1}`,
-                      status: ['ACTIVE', 'COMPLETED', 'ARCHIVED'][index % 3],
-                      color: ['#747EBD', '#408C62', '#EBA055'][index % 3],
-                      due: 'Today',
-                      progress: (index % 10) + 1,
-                    };
-                    return (
-                      <tr key={task.id} className="border-b border-[#EAEBEB]">
-                        <td className="px-4 text-xs lg:text-sm font-bold py-[16px]">{task.id}</td>
-                        <td className="px-4 py-2 lg:py-[16px] text-xs lg:text-sm font-bold">
-                          {task.name}
-                        </td>
-
-                        {/* <td className="px-4 py-[16px] relative z-10 text-sm font-bold flex items-center">
-                        {[
-                          'girlimg.png',
-                          'assigned2.png',
-                          'assiged3.png',
-                          'assigned3.png',
-                          'asseigned4.png',
-                        ].map((img, idx) => (
-                          <Image
-                            key={idx}
-                            className="absolute  rounded-full border border-white"
-                            src={/images/png/${img}}
-                            alt=""
-                            width={22}
-                            height={22}
-                            style={{
-                              left: ${idx * 12}px,
-                              top: idx % 2 === 0 ? '13px' : '13px',
-                              // zIndex: idx,
-                            }}
-                          />
-                        ))}
-                      </td>  */}
-
-                        <td className="px-4 py-[16px] relative z-10 text-sm font-bold">
-                          {[
-                            'girlimg.png',
-                            'assigned2.png',
-                            'assiged3.png',
-                            'assigned3.png',
-                            'asseigned4.png',
-                          ].map((img, idx) => (
+                  {tasks.map((task) => (
+                    <tr key={task.id} className="border-b border-gray-200">
+                      <td className="px-4 py-2 font-bold text-sm">{task.id}</td>
+                      <td className="px-4 py-2 font-bold text-sm">{task.name}</td>
+                      <td className="px-4 py-2 relative">
+                        {['girlimg.png', 'assigned2.png', 'assigned3.png', 'asseigned4.png'].map(
+                          (img, idx) => (
                             <Image
                               key={idx}
                               className="absolute rounded-full border border-white"
                               src={`/images/png/${img}`}
-                              alt=""
+                              alt="Assigned"
                               width={22}
                               height={22}
-                              style={{
-                                left: `${idx * 12}px`,
-                                top: '13px',
-                                zIndex: idx,
-                              }}
+                              style={{ left: `${idx * 12}px`, top: '13px', zIndex: idx }}
                             />
-                          ))}
-                        </td>
-
-                        <td className="px-4 py-[16px]">
-                          <span
-                            className="text-white font-bold text-xs lg:text-sm py-1 px-4 rounded-lg"
-                            style={{ backgroundColor: task.color }}>
-                            {task.status}
-                          </span>
-                        </td>
-                        <td className="px-4 py-[16px] text-xs lg:text-sm font-bold">{task.due}</td>
-                        <td className="px-4 py-[16px]">
-                          <div className="flex flex-col w-32">
-                            <span className="text-sm text-gray-700">{task.progress * 10}%</span>
-                            <div className="relative w-full h-2 bg-[#D6D6D6] rounded-lg z-10">
-                              <div
-                                className="absolute h-full bg-[#2C4C4B] rounded-lg z-20"
-                                style={{ width: `${(task.progress / 10) * 100}%` }}></div>
-                            </div>
+                          )
+                        )}
+                      </td>
+                      <td className="px-4 py-2">
+                        <span
+                          className="text-white font-bold text-xs py-1 px-4 rounded-lg"
+                          style={{ backgroundColor: task.color }}>
+                          {task.status}
+                        </span>
+                      </td>
+                      <td className="px-4 py-2 font-bold text-sm">{task.due}</td>
+                      <td className="px-4 py-2">
+                        <div className="flex flex-col w-32">
+                          <span className="text-sm text-gray-700">{task.progress * 10}%</span>
+                          <div className="relative w-full h-2 bg-gray-300 rounded-lg">
+                            <div
+                              className="absolute h-full bg-[#408C62] rounded-lg"
+                              style={{ width: `${task.progress * 10}%` }}></div>
                           </div>
-                        </td>
-                        <td className="px-4 py-[16px] cursor-pointer">
-                          <DottedIcon />
-                        </td>
-                      </tr>
-                    );
-                  })}
+                        </div>
+                      </td>
+                      <td className="px-4 py-2 cursor-pointer">
+                        <DottedIcon />
+                      </td>
+                    </tr>
+                  ))}
                 </tbody>
               </table>
             </div>
