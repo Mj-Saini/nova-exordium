@@ -17,7 +17,7 @@ const inter = Inter({
 
 const AdminHeader = () => {
   return (
-    <div className="py-[22px] px-2.5 lg:px-5 top-0 sticky flex items-center justify-between">
+    <div className="py-[22px] top-0 sticky flex items-center justify-between">
       <div>
         <h2 className="font-normal text-lg lg:text-2xl leading-[150%] text-[#213737]">
           <span className="text-xs text-[#9A9999]">Pages</span> / Dashboard

@@ -121,7 +121,7 @@ const Sidebar: React.FC<SidebarProps> = () => {
         ))}
       </div>
 
-      <div className="p-4 !rounded-[12px]  mt-16 login_bgimg bg-cover bg-top bg-no-repeat">
+      <div className="p-4 !rounded-[12px]  mt-16 login_bgimg bg-cover bg-top bg-no-repeat hidden md:block">
         <QuestionIcon />
         <h3
           className={` ${inter.className} font-bold text-sm text-white leading-[140%] mt-2.5 md:mt-5`}

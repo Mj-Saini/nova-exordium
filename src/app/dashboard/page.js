@@ -29,7 +29,7 @@ const DashboardPage = () => {
             <Sidebar setShowSideBar={setShowSideBar} />
           </div>
         </div>
-        <div className=" w-[calc(100%-200px)] lg:w-[calc(100%-296px)]">
+        <div className=" w-full md:w-[calc(100%-200px)] lg:w-[calc(100%-296px)]  px-2.5 lg:px-5">
           <div className="top-0 sticky z-10">
             <AdminHeader
               showSideBar={showSideBar}
