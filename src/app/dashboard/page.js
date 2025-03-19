@@ -20,7 +20,7 @@ const DashboardPage = () => {
     <div className="h-screen">
       <div className="flex flex-wrap h-full">
         <div
-          className={` w-full md:w-3/12 xl:w-2/12 max-md:fixed left-0 duration-300  ${
+          className={` w-full md:w-[296px] max-md:fixed left-0 duration-300  ${
             showSideBar ? "top-0" : "-top-full"
           }`}
         >
@@ -28,7 +28,7 @@ const DashboardPage = () => {
             <Sidebar setShowSideBar={setShowSideBar} />
           </div>
         </div>
-        <div className="w-full md:w-9/12 xl:w-10/12">
+        <div className="w-full md:w-[calc(100%-296px)]">
           {/* <div className="top-0 sticky bg-white z-10">
             <AdminHeader
               showSideBar={showSideBar}

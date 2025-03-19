@@ -1,4 +1,4 @@
-import { AdminDashboardIcon, AdminManagementIcon, AdminProjectIcon, DashboardIcon, NotificationsIcon, ProjectIcon, TempleteIcon } from "./Icons";
+import { AdminDashboardIcon, AdminManagementIcon, AdminNotificationsIcon, AdminProjectIcon, AdminTempletIcon, DashboardIcon, NotificationsIcon, ProjectIcon, SurveyIcon, TempleteIcon, UserIcon } from "./Icons";
 
 export const headerData = [
   {
@@ -92,28 +92,28 @@ export const sideBarData = [
   },
   {
     icon: <AdminManagementIcon />,
-    tabs: "Leaderboard",
-    path: "/admin/spis",
+    tabs: "Management",
+    path: "/management",
   },
  
   {
-    // icon: <CommunticationIcon />,
-    tabs: "Communications",
-    path: "/communications",
+    icon: <AdminTempletIcon />,
+    tabs: "Templates",
+    path: "/templates",
   },
   {
-    // icon: <TransactionIcon />,
+    icon: <UserIcon />,
+    tabs: "Admin Settings",
+    path: "/admin-settngs",
+  },
+  {
+    icon: <AdminNotificationsIcon />,
     tabs: "Notifications",
-    path: "/admin/notifications",
+    path: "/notifications",
   },
   {
-    // icon: <CatalogIcon />,
-    tabs: "Upgrade",
-    path: "/admin/membership",
-  },
-  {
-    // icon: <SettingsIcon />,
-    tabs: "Settings",
-    path: "/admin/settings",
+    icon: <SurveyIcon />,
+    tabs: "Survey",
+    path: "/survey",
   },
 ];
