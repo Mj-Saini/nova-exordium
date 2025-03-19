@@ -8,7 +8,6 @@ import { usePathname } from "next/navigation";
 import { QuestionIcon } from "./common/Icons";
 import CommonBtn from "./common/CommonBtn";
 
-
 const inter = Inter({
   subsets: ["latin"],
   weight: ["300", "400", "600", "700", "900"],
@@ -28,8 +27,7 @@ interface SidebarProps {
 }
 
 const Sidebar: React.FC<SidebarProps> = () => {
-const pathname=usePathname()
-
+  const pathname = usePathname();
 
   return (
     <div id="sidebar" className="top-0 sticky">
@@ -45,16 +43,29 @@ const pathname=usePathname()
           EXORDIUM
         </span>
       </div>
-      <div className="flex flex-col gap-2 h-full mt-[50px]">
+      <div className="flex flex-col gap-2 h-full mt-6 lg:mt-[50px]">
         {sideBarData?.slice(0, 4)?.map((item: SidebarItem, index: number) => (
           <div key={index}>
-            <Link href={`${item.path}`} className={`flex items-center justify-between px-5 py-3 gap-2.5 hover:bg-[#fff] rounded-2xl hover:custom_shadow w-full duration-300 icon cursor-pointer group 
-             ${pathname === item.path ? "bg-[#fff] custom_shadow" : "bg-transparent"}
-            `}>
+            <Link
+              href={`${item.path}`}
+              className={`flex items-center justify-between px-2.5 lg:px-5 py-3 gap-2.5 hover:bg-[#fff] rounded-2xl hover:custom_shadow w-full duration-300 icon cursor-pointer group 
+             ${
+               pathname === item.path
+                 ? "bg-[#fff] custom_shadow"
+                 : "bg-transparent"
+             }
+            `}
+            >
               <div className="flex items-center gap-2.5 ">
-                <span className={`flex h-[30px] w-[30px] justify-center items-center rounded-[12px]  group-hover:bg-[#2C4C4B] duration-300
-                               ${pathname === item.path ? "bg-[#2C4C4B]":"bg-[#fff]"}
-                  `}>
+                <span
+                  className={`flex h-[30px] w-[30px] justify-center items-center rounded-[12px]  group-hover:bg-[#2C4C4B] duration-300
+                               ${
+                                 pathname === item.path
+                                   ? "bg-[#2C4C4B]"
+                                   : "bg-[#fff]"
+                               }
+                  `}
+                >
                   {item.icon}
                 </span>
                 <h2
@@ -66,8 +77,10 @@ const pathname=usePathname()
             </Link>
           </div>
         ))}
-        <div className="my-6 px-5">
-          <h3 className={`text-[#213737] text-xs font-bold uppercase ${inter.className}`}>
+        <div className="my-6 px-2.5 lg:px-5">
+          <h3
+            className={`text-[#213737] text-xs font-bold uppercase ${inter.className}`}
+          >
             ACCOUNT PAGES
           </h3>
         </div>
@@ -75,13 +88,26 @@ const pathname=usePathname()
         {/* Render last 3 items under "Settings" */}
         {sideBarData?.slice(4)?.map((item: SidebarItem, index: number) => (
           <div key={index + 4}>
-            <Link href={`${item.path}`} className={`flex items-center justify-between px-5 py-3 gap-2.5 hover:bg-[#fff] rounded-2xl hover:custom_shadow w-full duration-300 icon cursor-pointer group 
-            ${pathname === item.path ? "bg-[#fff] custom_shadow" : "bg-transparent"}
-            `}>
+            <Link
+              href={`${item.path}`}
+              className={`flex items-center justify-between px-2.5 lg:px-5 py-3 gap-2.5 hover:bg-[#fff] rounded-2xl hover:custom_shadow w-full duration-300 icon cursor-pointer group 
+            ${
+              pathname === item.path
+                ? "bg-[#fff] custom_shadow"
+                : "bg-transparent"
+            }
+            `}
+            >
               <div className="flex items-center gap-2.5 ">
-                <span className={`flex h-[30px] w-[30px] justify-center items-center rounded-[12px]  group-hover:bg-[#2C4C4B] duration-300
-                               ${pathname === item.path ? "bg-[#2C4C4B]":"bg-[#fff]"}
-                  `}>
+                <span
+                  className={`flex h-[30px] w-[30px] justify-center items-center rounded-[12px]  group-hover:bg-[#2C4C4B] duration-300
+                               ${
+                                 pathname === item.path
+                                   ? "bg-[#2C4C4B]"
+                                   : "bg-[#fff]"
+                               }
+                  `}
+                >
                   {item.icon}
                 </span>
                 <h2
@@ -95,12 +121,22 @@ const pathname=usePathname()
         ))}
       </div>
 
-      <div className="p-4 rounded-[12px] bg-[#2C4C4B] mt-16 bg-cover bg-center bg-no-repeat" >
+      <div className="p-4 !rounded-[12px]  mt-16 login_bgimg bg-cover bg-top bg-no-repeat">
         <QuestionIcon />
-        <h3 className={` ${inter.className} font-bold text-sm text-white leading-[140%] mt-2.5 md:mt-5`}>Need help?</h3>
-        <p className="text-xs font-normal text-white pb-2">Please check our docs</p>
+        <h3
+          className={` ${inter.className} font-bold text-sm text-white leading-[140%] mt-2.5 md:mt-5`}
+        >
+          Need help?
+        </h3>
+        <p className="text-xs font-normal text-white pb-2">
+          Please check our docs
+        </p>
         <div>
-          <CommonBtn btnName="DOCUMENTATION" btnStyling="!bg-white !text-[#2C4C4B] w-full justify-center" arrowIcon="hidden"/>
+          <CommonBtn
+            btnName="DOCUMENTATION"
+            btnStyling="!bg-white !text-[#2C4C4B] w-full justify-center"
+            arrowIcon="hidden"
+          />
         </div>
       </div>
     </div>
