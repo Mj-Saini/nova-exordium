@@ -1,6 +1,71 @@
 "use client";
 import { usePathname } from "next/navigation";
 
+export const InProgressIcon = () => {
+  return (
+    <svg
+      width="57"
+      height="57"
+      viewBox="0 0 57 57"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g filter="url(#filter0_d_120_10262)">
+        <rect x="6" y="2.5" width="45" height="45" rx="12" fill="#2C4C4B" />
+      </g>
+      <g clip-path="url(#clip0_120_10262)">
+        <path
+          d="M28.25 36.5C31.2337 36.5 34.0952 35.3147 36.205 33.205C38.3147 31.0952 39.5 28.2337 39.5 25.25C39.5 22.2663 38.3147 19.4048 36.205 17.295C34.0952 15.1853 31.2337 14 28.25 14C25.2663 14 22.4048 15.1853 20.295 17.295C18.1853 19.4048 17 22.2663 17 25.25C17 28.2337 18.1853 31.0952 20.295 33.205C22.4048 35.3147 25.2663 36.5 28.25 36.5ZM22.937 23.5537L27.6436 19.1636C27.8105 19.0098 28.0259 18.9219 28.25 18.9219C28.4741 18.9219 28.6938 19.0098 28.8564 19.1636L33.563 23.5537C33.7607 23.7383 33.875 23.9976 33.875 24.27C33.875 24.8105 33.4355 25.25 32.895 25.25H30.3594V29.4688C30.3594 30.2466 29.731 30.875 28.9531 30.875H27.5469C26.769 30.875 26.1406 30.2466 26.1406 29.4688V25.25H23.605C23.0645 25.25 22.625 24.8105 22.625 24.27C22.625 23.9976 22.7393 23.7383 22.937 23.5537Z"
+          fill="white"
+        />
+      </g>
+      <defs>
+        <filter
+          id="filter0_d_120_10262"
+          x="0.5"
+          y="0.5"
+          width="56"
+          height="56"
+          filterUnits="userSpaceOnUse"
+          color-interpolation-filters="sRGB"
+        >
+          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feColorMatrix
+            in="SourceAlpha"
+            type="matrix"
+            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+            result="hardAlpha"
+          />
+          <feOffset dy="3.5" />
+          <feGaussianBlur stdDeviation="2.75" />
+          <feColorMatrix
+            type="matrix"
+            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.02 0"
+          />
+          <feBlend
+            mode="normal"
+            in2="BackgroundImageFix"
+            result="effect1_dropShadow_120_10262"
+          />
+          <feBlend
+            mode="normal"
+            in="SourceGraphic"
+            in2="effect1_dropShadow_120_10262"
+            result="shape"
+          />
+        </filter>
+        <clipPath id="clip0_120_10262">
+          <rect
+            width="22.5"
+            height="22.5"
+            fill="white"
+            transform="translate(17 14)"
+          />
+        </clipPath>
+      </defs>
+    </svg>
+  );
+};
 export const LogOutIcon = () => {
   return (
     <svg
