@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import Sidebar from '../components/Sidebar';
 import { CheckIcon, CreateIcon, DottedIcon, FleterIcon } from '../components/common/Icons';
 import Image from 'next/image';
+import Filter from '../components/popues/Filter';
 
 const DashboardPage = () => {
   const [showSideBar, setShowSideBar] = useState(false);
@@ -150,7 +151,7 @@ const DashboardPage = () => {
                     },
                   ].map((task, index) => (
                     <tr key={task.id} className="border-b border-[#EAEBEB]">
-                      <td className="px-4 py-3 text-sm font-bold">{task.id}</td>
+                      <td className="px-4 py-3 lg: text-xs text-sm font-bold">{task.id}</td>
                       <td className="px-4 py-3 text-xs lg:text-sm font-bold">{task.name}</td>
                       <td className="px-4 py-3 text-sm font-bold flex items-center relative">
                         {[
@@ -198,7 +199,7 @@ const DashboardPage = () => {
                             step="1"
                             value={task.progress}
                             onChange={(e) => setValue(e.target.value)}
-                            className="absolute h-2 opacity-0 cursor-pointer"
+                            className="absolute h-2 opacity-10 hidden cursor-pointer"
                           />
                         </div>
                       </td>
@@ -210,6 +211,7 @@ const DashboardPage = () => {
                 </tbody>
               </table>
             </div>
+            <Filter />
           </div>
         </div>
       </div>
