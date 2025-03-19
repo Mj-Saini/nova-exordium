@@ -25,7 +25,7 @@ const DashboardPage = () => {
     <div className="h-screen relative">
       <div className="flex flex-wrap h-full">
         <div
-          className={` w-full md:w-3/12 xl:w-2/12 max-md:fixed left-0 duration-300  ${
+          className={` w-full md:w-3/12 xl:w-2/12 max-md:fixed left-0 duration-300 ${
             showSideBar ? 'top-0' : '-top-full'
           }`}>
           <div className="h-full z-10 relative pt-11 px-6">
@@ -33,8 +33,8 @@ const DashboardPage = () => {
           </div>
         </div>
         <div className="w-full md:w-9/12 xl:w-10/12">
-          <div className="shadow-[0px_3.5px_5.5px_0px_#00000005] p-4 bg-white rounded-[15px]">
-            <div className=" sm:flex justify-between items-center pt-[28px]">
+          <div className="shadow-[0px_3.5px_5.5px_0px_#00000005] p-[28px_23px_64px_21px] bg-white rounded-[15px]">
+            <div className=" sm:flex justify-between items-center">
               <div>
                 <h2 className=" font-bold text-lg">Projects</h2>
                 <div className=" flex pt-[6px] items-center">
@@ -56,8 +56,8 @@ const DashboardPage = () => {
             </div>
             <div className="overflow-x-auto md:max-w-full lg:overflow-visible">
               <table className="w-full mt-7 border-collapse">
-                <thead className="border-b border-solid border-[#EAEBEB] sticky top-0 bg-white">
-                  <tr className="text-left">
+                <thead className="border-b border-solid border-[#EAEBEB] sticky top-0 bg-white z-20">
+                  <tr className="text-left font-bold text-xs lg:text-sm">
                     {['#', 'Project Name', 'Assigned To', 'Status', 'Due Date', 'Progress', ''].map(
                       (head, index) => (
                         <th
@@ -70,97 +70,23 @@ const DashboardPage = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {[
-                    {
-                      id: 1,
-                      name: "Develop the app's core features",
-                      status: 'ACTIVE',
-                      color: '#747EBD',
+                  {[...Array(10)].map((_, index) => {
+                    const task = {
+                      id: index + 1,
+                      name: `Project Task ${index + 1}`,
+                      status: ['ACTIVE', 'COMPLETED', 'ARCHIVED'][index % 3],
+                      color: ['#747EBD', '#408C62', '#EBA055'][index % 3],
                       due: 'Today',
-                      progress: 5,
-                    },
-                    {
-                      id: 2,
-                      name: 'Monitor app performance and user feedback',
-                      status: ' COMPLETED',
-                      color: '#408C62',
-                      due: 'Today',
-                      progress: 3,
-                    },
-                    {
-                      id: 3,
-                      name: 'Implement security and data privacy measures',
-                      status: 'COMPLETED',
-                      color: '#408C62',
-                      due: '2/3/2025',
-                      progress: 10,
-                    },
-                    {
-                      id: 4,
-                      name: 'Deploy to production',
-                      status: 'ARCHIVED',
-                      color: '#EBA055',
-                      due: '2/3/2025',
-                      progress: 3,
-                    },
-                    {
-                      id: 5,
-                      name: 'Develop the app s core features',
-                      status: 'ACTIVE',
-                      color: '#747EBD',
-                      due: 'Tomorrow',
-                      progress: 4,
-                    },
-                    {
-                      id: 6,
-                      name: 'Develop interactive prototypes to test',
-                      status: ' COMPLETED',
-                      color: '#408C62',
-                      due: 'Tomorrow',
-                      progress: 10,
-                    },
+                      progress: (index % 10) + 1,
+                    };
+                    return (
+                      <tr key={task.id} className="border-b border-[#EAEBEB]">
+                        <td className="px-4 text-xs lg:text-sm font-bold py-[16px]">{task.id}</td>
+                        <td className="px-4 py-2 lg:py-[16px] text-xs lg:text-sm font-bold">
+                          {task.name}
+                        </td>
 
-                    {
-                      id: 7,
-                      name: 'Test and refine each feature before moving forward',
-                      status: 'ACTIVE',
-                      color: '#747EBD',
-                      due: 'Today',
-                      progress: 4,
-                    },
-                    {
-                      id: 8,
-                      name: 'Test and iterate on the functionalities',
-                      status: 'ARCHIVED',
-                      color: '#EBA055',
-                      due: '2/3/2025',
-                      progress: 3,
-                    },
-                    {
-                      id: 9,
-                      name: 'Establish protocols to protect user data',
-                      status: 'ACTIVE',
-                      color: '#747EBD',
-                      due: 'Today',
-                      progress: 5,
-                    },
-                    {
-                      id: 10,
-                      name: 'Identify strengths, weaknesses, and gaps ',
-                      status: 'ARCHIVED',
-                      color: '#EBA055',
-                      due: '2/3/2025',
-                      progress: 6,
-                    },
-                  ].map((task, index) => (
-                    <tr key={task.id} className="border-b border-[#EAEBEB]">
-                      <td className="px-4  lg: text-xs lg:text-sm font-bold py-[16px]">
-                        {task.id}
-                      </td>
-                      <td className="px-4 py-2 lg:py-[16px] text-xs lg:text-sm font-bold">
-                        {task.name}
-                      </td>
-                      <td className="px-4 py-[16px] text-sm font-bold flex items-center relative">
+                        {/* <td className="px-4 py-[16px] relative z-10 text-sm font-bold flex items-center">
                         {[
                           'girlimg.png',
                           'assigned2.png',
@@ -170,51 +96,68 @@ const DashboardPage = () => {
                         ].map((img, idx) => (
                           <Image
                             key={idx}
-                            className="absolute rounded-full border border-white"
-                            src={`/images/png/${img}`}
+                            className="absolute  rounded-full border border-white"
+                            src={/images/png/${img}}
                             alt=""
                             width={22}
                             height={22}
                             style={{
-                              left: `${idx * 12}px`,
+                              left: ${idx * 12}px,
                               top: idx % 2 === 0 ? '13px' : '13px',
-                              zIndex: idx,
+                              // zIndex: idx,
                             }}
                           />
                         ))}
-                      </td>
-                      <td className="px-4 py-[16px]">
-                        <span
-                          className="text-white font-bold text-xs lg:text-sm py-1 px-4 rounded-lg"
-                          style={{ backgroundColor: task.color }}>
-                          {task.status}
-                        </span>
-                      </td>
-                      <td className="px-4 py-[16px] text-xs lg:text-sm font-bold">{task.due}</td>
-                      <td className="px-4 py-[16px]">
-                        <div className="flex flex-col w-32">
-                          <span className="text-sm text-gray-700">{task.progress * 10}%</span>
-                          <div className="relative w-full h-2 bg-[#D6D6D6] rounded-lg">
-                            <div
-                              className="absolute h-full bg-[#2C4C4B] rounded-lg"
-                              style={{ width: `${(task.progress / 10) * 100}%` }}></div>
+                      </td>  */}
+
+                        <td className="px-4 py-[16px] relative z-10 text-sm font-bold">
+                          {[
+                            'girlimg.png',
+                            'assigned2.png',
+                            'assiged3.png',
+                            'assigned3.png',
+                            'asseigned4.png',
+                          ].map((img, idx) => (
+                            <Image
+                              key={idx}
+                              className="absolute rounded-full border border-white"
+                              src={`/images/png/${img}`}
+                              alt=""
+                              width={22}
+                              height={22}
+                              style={{
+                                left: `${idx * 12}px`,
+                                top: '13px',
+                                zIndex: idx,
+                              }}
+                            />
+                          ))}
+                        </td>
+
+                        <td className="px-4 py-[16px]">
+                          <span
+                            className="text-white font-bold text-xs lg:text-sm py-1 px-4 rounded-lg"
+                            style={{ backgroundColor: task.color }}>
+                            {task.status}
+                          </span>
+                        </td>
+                        <td className="px-4 py-[16px] text-xs lg:text-sm font-bold">{task.due}</td>
+                        <td className="px-4 py-[16px]">
+                          <div className="flex flex-col w-32">
+                            <span className="text-sm text-gray-700">{task.progress * 10}%</span>
+                            <div className="relative w-full h-2 bg-[#D6D6D6] rounded-lg z-10">
+                              <div
+                                className="absolute h-full bg-[#2C4C4B] rounded-lg z-20"
+                                style={{ width: `${(task.progress / 10) * 100}%` }}></div>
+                            </div>
                           </div>
-                          <input
-                            type="range"
-                            min="0"
-                            max="10"
-                            step="1"
-                            value={task.progress}
-                            onChange={(e) => setValue(e.target.value)}
-                            className="absolute h-2 opacity-10 hidden cursor-pointer"
-                          />
-                        </div>
-                      </td>
-                      <td className="px-4 py-[16px] cursor-pointer">
-                        <DottedIcon />
-                      </td>
-                    </tr>
-                  ))}
+                        </td>
+                        <td className="px-4 py-[16px] cursor-pointer">
+                          <DottedIcon />
+                        </td>
+                      </tr>
+                    );
+                  })}
                 </tbody>
               </table>
             </div>

@@ -24,22 +24,22 @@ const Filter = ({ closePopup }) => {
         <h2 className=" font-semibold text-base pb-[10px] pt-[10px]">Status</h2>
         <div className=" ">
           <div className="flex gap-2">
-            <div className=" border-2 border-solid w-4/12 border-[#9A9999] hover:border-[#2C4C4B] rounded-[16px] py-[13px] px-[19px] flex items-center gap-4 justify-center ">
+            <div className=" border-2 border-solid w-4/12 border-[#9A9999] hover:border-[#2C4C4B] rounded-[16px] py-[13px] px-[19px] flex items-center  hover:bg-[#F4ECF7] gap-4 justify-center ">
               <input
-                className=" outline-0 text-center placeholder:text-sm   placeholder:font-bold placeholder:text-[#2C4C4B]"
+                className=" outline-0 text-center placeholder:text-sm    placeholder:font-bold placeholder:text-[#2C4C4B]"
                 placeholder="Active"
                 type="text"
               />
             </div>
 
-            <div className=" border-2 border-solid w-4/12 border-[#9A9999] hover:border-[#2C4C4B] rounded-[16px] py-[13px] px-[19px] flex items-center gap-4 justify-center ">
+            <div className=" border-2 border-solid w-4/12 hover:bg-[#F4ECF7] border-[#9A9999] hover:border-[#2C4C4B] rounded-[16px] py-[13px] px-[19px] flex items-center gap-4 justify-center ">
               <input
                 className=" outline-0 text-center placeholder:text-sm   placeholder:font-bold placeholder:text-[#2C4C4B]"
                 placeholder="Completed"
                 type="text"
               />
             </div>
-            <div className=" border-2 border-solid w-4/12 border-[#9A9999] hover:border-[#2C4C4B] rounded-[16px] py-[13px] px-[19px] flex items-center gap-4 justify-center ">
+            <div className=" border-2 border-solid w-4/12 border-[#9A9999] hover:bg-[#F4ECF7] hover:border-[#2C4C4B] rounded-[16px] py-[13px] px-[19px] flex items-center gap-4 justify-center ">
               <input
                 className=" outline-0 text-center placeholder:text-sm   placeholder:font-bold placeholder:text-[#2C4C4B]"
                 placeholder="Archived"
@@ -51,7 +51,7 @@ const Filter = ({ closePopup }) => {
           <div className="flex justify-end w-full relative">
             {/* Input Field & Icon */}
             <div
-              className="w-full pt-[10px] border-2 border-solid border-[#9A9999] hover:border-[#2C4C4B] rounded-[16px] py-[13px] px-[20px] flex justify-between items-center  cursor-pointer"
+              className="w-full pt-[10px] border-2 border-solid border-[#9A9999] hover:bg-[#F4ECF7] hover:border-[#2C4C4B] rounded-[16px] py-[13px] px-[20px] flex justify-between items-center  cursor-pointer"
               onClick={() => setIsOpen(!isOpen)}>
               <input
                 className="outline-0 w-full cursor-pointer placeholder:text-sm   placeholder:font-bold placeholder:text-[#2C4C4B]"
@@ -83,7 +83,7 @@ const Filter = ({ closePopup }) => {
           </div>
           <h2 className=" font-semibold text-base pt-[24px]">Select Date</h2>
           <div className=" flex justify-between pt-[10px]">
-            <div className="border-2 border-solid border-[#9A9999] hover:border-[#2C4C4B] rounded-[16px] py-[13px] px-[20px] flex items-center justify-between  w-[250px]">
+            <div className="border-2 border-solid border-[#9A9999] hover:border-[#2C4C4B] rounded-[16px] py-[13px] px-[20px] flex items-center hover:bg-[#F4ECF7] justify-between  w-[250px]">
               <input
                 className="outline-0 w-full bg-transparent placeholder:text-sm   placeholder:font-bold placeholder:text-[#2C4C4B]"
                 placeholder="From"
@@ -91,11 +91,11 @@ const Filter = ({ closePopup }) => {
               />
               <DateIcon />
             </div>
-            <div className="border-2 border-solid border-[#9A9999] hover:border-[#2C4C4B] rounded-[16px] py-[13px] px-[20px] flex items-center justify-between  w-[250px]">
+            <div className="border-2 border-solid border-[#9A9999] hover:border-[#2C4C4B] rounded-[16px] py-[13px] px-[20px] flex items-center hover:bg-[#F4ECF7]  justify-between  w-[250px]">
               <input
-                className="outline-0 w-full bg-transparent  placeholder:text-sm   placeholder:font-bold placeholder:text-[#2C4C4B]"
+                className="outline-0 w-full bg-transparent placeholder:text-sm font-bold text-[#2C4C4B] cursor-pointer"
                 placeholder="To"
-                type="text"
+                type="date"
               />
               <DateIcon />
             </div>
