@@ -47,9 +47,9 @@ const DashboardPage = () => {
             />
           </div>
           <div className="flex flex-wrap lg:mt-2 -mx-2.5 xl:-mx-3">
-            {[1, 1, 1, 1].map((items) => (
+            {[1, 1, 1, 1].map((items, index) => (
               <div
-                key={items.id}
+                key={index}
                 className="w-full sm:w-1/2 lg:w-3/12 px-2.5 xl:px-3 mt-5"
               >
                 <div className="flex justify-between px-3 2xl:px-6 py-4 rounded-2xl bg-white custom_shadow">
@@ -97,17 +97,17 @@ const DashboardPage = () => {
                   </div>
                 </div>
                 <div className="w-full xl:w-5/12">
-                  <div className="p-4 !rounded-[12px] login_bgimg bg-cover bg-top bg-no-repeat flex items-center justify-center py-12 2xl:py-24">
+                  <div className="p-4 !rounded-[12px] login_bgimg bg-cover bg-top bg-no-repeat flex flex-col items-center justify-center py-12 2xl:py-24">
                     <h2
                       className={`${inter.className} font-black text-3xl lg:text-3xl xl:text-[52.83px] text-[#fff] uppercase text-center`}
                     >
                       NOVA{" "}
-                      <span
-                        className={`${inter.className} font-black text-xl lg:text-2xl xl:text-[27px] text-[#fff] uppercase block`}
-                      >
-                        EXORDIUM
-                      </span>
                     </h2>
+                    <span
+                      className={`font-black text-xl lg:text-2xl xl:text-[27px] text-[#fff] uppercase block tracking-[1px]`}
+                    >
+                      EXORDIUM
+                    </span>
                   </div>
                 </div>
               </div>
