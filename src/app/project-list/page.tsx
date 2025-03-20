@@ -139,7 +139,7 @@ const DashboardPage = () => {
             <div className="overflow-x-auto md:max-w-full lg:overflow-visible">
               <table className="w-full mt-7 border-collapse">
                 <thead>
-                  <tr className="border-b border-gray-300 text-left font-bold text-sm">
+                  <tr className="border-b border-gray-300 text-left font-bold text-xs lg:text-sm whitespace-nowrap">
                     {['#', 'Project Name', 'Assigned To', 'Status', 'Due Date', 'Progress', ''].map(
                       (head, index) => (
                         <th key={index} className="px-4 py-3 text-gray-600">
@@ -149,11 +149,11 @@ const DashboardPage = () => {
                     )}
                   </tr>
                 </thead>
-                <tbody>
+                <tbody className="whitespace-nowrap">
                   {tasks.map((task) => (
                     <tr key={task.id} className="border-b border-gray-200">
-                      <td className="px-4 py-2 font-bold text-sm">{task.id}</td>
-                      <td className="px-4 py-2 font-bold text-sm">{task.name}</td>
+                      <td className="px-4 py-2 font-bold text-xs lg:text-sm">{task.id}</td>
+                      <td className="px-4 py-2 font-bold text-xs lg:text-sm">{task.name}</td>
                       <td className="px-4 py-2 relative">
                         {['girlimg.png', 'assigned2.png', 'assigned3.png', 'asseigned4.png'].map(
                           (img, idx) => (
@@ -176,10 +176,12 @@ const DashboardPage = () => {
                           {task.status}
                         </span>
                       </td>
-                      <td className="px-4 py-2 font-bold text-sm">{task.due}</td>
+                      <td className="px-4 py-2 font-bold text-xs lg:text-sm">{task.due}</td>
                       <td className="px-4 py-2">
                         <div className="flex flex-col w-32">
-                          <span className="text-sm text-gray-700">{task.progress * 10}%</span>
+                          <span className=" text-xs lg:text-sm text-gray-700">
+                            {task.progress * 10}%
+                          </span>
                           <div className="relative w-full h-2 bg-gray-300 rounded-lg">
                             <div
                               className="absolute h-full bg-[#408C62] rounded-lg"
