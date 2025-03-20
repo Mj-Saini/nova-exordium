@@ -117,3 +117,10 @@ export const sideBarData = [
     path: "/survey",
   },
 ];
+
+
+export const progressData = [
+  { label: "Completed", value: 50 },
+  { label: "In Progress", value: 30 },
+  { label: "Not started", value: 20 },
+];
