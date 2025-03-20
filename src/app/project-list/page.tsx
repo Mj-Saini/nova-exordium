@@ -4,6 +4,7 @@ import Sidebar from '../components/Sidebar';
 import { CheckIcon, CreateIcon, DottedIcon, FleterIcon } from '../components/common/Icons';
 import Image from 'next/image';
 import Filter from '../components/popues/Filter';
+import { tasks2 } from '../components/common/Helper';
 
 const DashboardPage = () => {
   const [showSideBar, setShowSideBar] = useState(false);
@@ -20,88 +21,6 @@ const DashboardPage = () => {
   }, [showSideBar]);
   const [value, setValue] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
-  const tasks = [
-    {
-      id: 1,
-      name: "Develop the app's core features",
-      status: 'ACTIVE',
-      color: '#747EBD',
-      due: 'Today',
-      progress: 5,
-    },
-    {
-      id: 2,
-      name: 'Monitor app performance and user feedback',
-      status: 'COMPLETED',
-      color: '#408C62',
-      due: 'Today',
-      progress: 3,
-    },
-    {
-      id: 3,
-      name: 'Implement security and data privacy measures',
-      status: 'COMPLETED',
-      color: '#408C62',
-      due: '2/3/2025',
-      progress: 10,
-    },
-    {
-      id: 4,
-      name: 'Deploy to production',
-      status: 'ARCHIVED',
-      color: '#EBA055',
-      due: '2/3/2025',
-      progress: 3,
-    },
-    {
-      id: 5,
-      name: 'Develop the app’s core features',
-      status: 'ACTIVE',
-      color: '#747EBD',
-      due: 'Tomorrow',
-      progress: 4,
-    },
-    {
-      id: 6,
-      name: 'Develop interactive prototypes to test',
-      status: 'COMPLETED',
-      color: '#408C62',
-      due: 'Tomorrow',
-      progress: 10,
-    },
-    {
-      id: 7,
-      name: 'Test and refine each feature before moving forward',
-      status: 'ACTIVE',
-      color: '#747EBD',
-      due: 'Today',
-      progress: 4,
-    },
-    {
-      id: 8,
-      name: 'Test and iterate on the functionalities',
-      status: 'ARCHIVED',
-      color: '#EBA055',
-      due: '2/3/2025',
-      progress: 3,
-    },
-    {
-      id: 9,
-      name: 'Establish protocols to protect user data',
-      status: 'ACTIVE',
-      color: '#747EBD',
-      due: 'Today',
-      progress: 5,
-    },
-    {
-      id: 10,
-      name: 'Identify strengths, weaknesses, and gaps',
-      status: 'ARCHIVED',
-      color: '#EBA055',
-      due: '2/3/2025',
-      progress: 6,
-    },
-  ];
 
   return (
     <div className="h-screen relative">
@@ -136,13 +55,13 @@ const DashboardPage = () => {
                 </button>
               </div>
             </div>
-            <div className="overflow-x-auto md:max-w-full lg:overflow-visible">
+            <div className="overflow-x-auto md:max-w-full overflow-visible">
               <table className="w-full mt-7 border-collapse">
                 <thead>
                   <tr className="border-b border-gray-300 text-left font-bold text-xs lg:text-sm whitespace-nowrap">
                     {['#', 'Project Name', 'Assigned To', 'Status', 'Due Date', 'Progress', ''].map(
                       (head, index) => (
-                        <th key={index} className="px-4 py-3 text-gray-600">
+                        <th key={index} className="px-4 py-3 text-[#9A9999]">
                           {head}
                         </th>
                       )
@@ -150,11 +69,11 @@ const DashboardPage = () => {
                   </tr>
                 </thead>
                 <tbody className="whitespace-nowrap">
-                  {tasks.map((task) => (
+                  {tasks2.map((task) => (
                     <tr key={task.id} className="border-b border-gray-200">
-                      <td className="px-4 py-2 font-bold text-xs lg:text-sm">{task.id}</td>
-                      <td className="px-4 py-2 font-bold text-xs lg:text-sm">{task.name}</td>
-                      <td className="px-4 py-2 relative">
+                      <td className="px-4 py-[16px] font-bold text-xs lg:text-sm">{task.id}</td>
+                      <td className="px-4 py-[16px] font-bold text-xs lg:text-sm">{task.name}</td>
+                      <td className="px-4 py-[16px] relative">
                         {['girlimg.png', 'assigned2.png', 'assigned3.png', 'asseigned4.png'].map(
                           (img, idx) => (
                             <Image
@@ -169,15 +88,15 @@ const DashboardPage = () => {
                           )
                         )}
                       </td>
-                      <td className="px-4 py-2">
+                      <td className="px-4 py-[16px]">
                         <span
                           className="text-white font-bold text-xs py-1 px-4 rounded-lg"
                           style={{ backgroundColor: task.color }}>
                           {task.status}
                         </span>
                       </td>
-                      <td className="px-4 py-2 font-bold text-xs lg:text-sm">{task.due}</td>
-                      <td className="px-4 py-2">
+                      <td className="px-4 py-[16px] font-bold text-xs lg:text-sm">{task.due}</td>
+                      <td className="px-4 py-[16px]">
                         <div className="flex flex-col w-32">
                           <span className=" text-xs lg:text-sm text-gray-700">
                             {task.progress * 10}%

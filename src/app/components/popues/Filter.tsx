@@ -14,32 +14,32 @@ const Filter = ({ closePopup }) => {
 
   return (
     <div>
-      <div className="w-[535px] shadow-custom  bg-white p-4 rounded-lg">
+      <div className="w-full  max-w-xl  shadow-custom  bg-white p-4 rounded-lg overflow-y-auto max-h-[90vh]">
         <div className=" flex justify-between items-center border-b border-solid border-[#EAEBEB] pb-4">
           <h3 className=" font-semibold text-xl ">Filter</h3>
           <div className="cursor-pointer" onClick={() => closePopup(false)}>
             <CloseIcon />
           </div>
         </div>
-        <h2 className=" font-semibold text-base pb-[10px] pt-[10px]">Status</h2>
+        <h2 className=" font-semibold text-base pb-2 lg:pb-[10px] pt-2 lg:pt-[10px]">Status</h2>
         <div className=" ">
-          <div className="flex gap-2">
-            <div className=" border-2 border-solid w-4/12 border-[#9A9999] hover:border-[#2C4C4B] rounded-[16px] py-[13px] px-[19px] flex items-center  hover:bg-[#F4ECF7] gap-4 justify-center ">
+          <div className="lg:flex gap-2">
+            <div className=" border-2 border-solid w-full lg:w-4/12 border-[#9A9999] hover:border-[#2C4C4B] rounded-[16px] py-[13px] px-[19px] flex items-center  hover:bg-[#F4ECF7] gap-4 justify-center ">
               <input
-                className=" outline-0 text-center placeholder:text-sm    placeholder:font-bold placeholder:text-[#2C4C4B]"
+                className=" outline-0 text-center placeholder:text-sm placeholder:font-bold placeholder:text-[#2C4C4B]"
                 placeholder="Active"
                 type="text"
               />
             </div>
 
-            <div className=" border-2 border-solid w-4/12 hover:bg-[#F4ECF7] border-[#9A9999] hover:border-[#2C4C4B] rounded-[16px] py-[13px] px-[19px] flex items-center gap-4 justify-center ">
+            <div className=" border-2 border-solid w-full lg:w-4/12 hover:bg-[#F4ECF7] border-[#9A9999] hover:border-[#2C4C4B] rounded-[16px] py-[13px] px-[19px] flex items-center gap-4 justify-center mt-2 mb-2 lg:mb-0 lg:mt-0 ">
               <input
                 className=" outline-0 text-center placeholder:text-sm   placeholder:font-bold placeholder:text-[#2C4C4B]"
                 placeholder="Completed"
                 type="text"
               />
             </div>
-            <div className=" border-2 border-solid w-4/12 border-[#9A9999] hover:bg-[#F4ECF7] hover:border-[#2C4C4B] rounded-[16px] py-[13px] px-[19px] flex items-center gap-4 justify-center ">
+            <div className=" border-2 border-solid w-full lg:w-4/12 border-[#9A9999] hover:bg-[#F4ECF7] hover:border-[#2C4C4B] rounded-[16px] py-[13px] px-[19px] flex items-center gap-4 justify-center ">
               <input
                 className=" outline-0 text-center placeholder:text-sm   placeholder:font-bold placeholder:text-[#2C4C4B]"
                 placeholder="Archived"
@@ -47,11 +47,11 @@ const Filter = ({ closePopup }) => {
               />
             </div>
           </div>
-          <h2 className=" font-semibold text-base pt-[24px] pb-[10px]">Assigned to</h2>
+          <h2 className=" font-semibold text-base pt-3 lg:pt-[24px] pb-[10px]">Assigned to</h2>
           <div className="flex justify-end w-full relative">
             {/* Input Field & Icon */}
             <div
-              className="w-full pt-[10px] border-2 border-solid border-[#9A9999] hover:bg-[#F4ECF7] hover:border-[#2C4C4B] rounded-[16px] py-[13px] px-[20px] flex justify-between items-center  cursor-pointer"
+              className="w-full pt-3 lg:pt-[10px] border-2 border-solid border-[#9A9999] hover:bg-[#F4ECF7] hover:border-[#2C4C4B] rounded-[16px] py-[13px] px-[20px] flex justify-between items-center  cursor-pointer"
               onClick={() => setIsOpen(!isOpen)}>
               <input
                 className="outline-0 w-full cursor-pointer placeholder:text-sm   placeholder:font-bold placeholder:text-[#2C4C4B]"
@@ -81,8 +81,8 @@ const Filter = ({ closePopup }) => {
               </div>
             )}
           </div>
-          <h2 className=" font-semibold text-base pt-[24px]">Select Date</h2>
-          <div className=" flex justify-between pt-[10px]">
+          <h2 className=" font-semibold text-base pt-3 lg:pt-[24px]">Select Date</h2>
+          <div className=" flex justify-between pt-[10px] gap-3">
             <div className="border-2 border-solid border-[#9A9999] hover:border-[#2C4C4B] rounded-[16px] py-[13px] px-[20px] flex items-center hover:bg-[#F4ECF7] justify-between  w-[250px]">
               <input
                 className="outline-0 w-full bg-transparent placeholder:text-sm   placeholder:font-bold placeholder:text-[#2C4C4B]"
@@ -99,7 +99,7 @@ const Filter = ({ closePopup }) => {
             </div>
           </div>
         </div>
-        <div className=" flex justify-end pt-[24px]">
+        <div className=" flex justify-end pt-3 lg:pt-[24px]">
           <button className="text-[#2C4C4B] text-sm  border border-[#EAEAEA] rounded-[16px] mt-[24px] py-[15px] px-[30px] font-bold cursor-pointer">
             Clear
           </button>
