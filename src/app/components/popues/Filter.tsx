@@ -87,9 +87,8 @@ const Filter = ({ closePopup }) => {
               <input
                 className="outline-0 w-full bg-transparent placeholder:text-sm   placeholder:font-bold placeholder:text-[#2C4C4B]"
                 placeholder="From"
-                type="text"
+                type="date"
               />
-              <DateIcon />
             </div>
             <div className="border-2 border-solid border-[#9A9999] hover:border-[#2C4C4B] rounded-[16px] py-[13px] px-[20px] flex items-center hover:bg-[#F4ECF7]  justify-between  w-[250px]">
               <input
@@ -97,7 +96,6 @@ const Filter = ({ closePopup }) => {
                 placeholder="To"
                 type="date"
               />
-              <DateIcon />
             </div>
           </div>
         </div>
