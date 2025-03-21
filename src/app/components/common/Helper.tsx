@@ -309,6 +309,62 @@ export const tasks5 = [
   },
 ];
 
+export const notification_urgent_task = [
+  {
+    name: 'Quick Insights Survey',
+    due: 'Today',
+    color: '#CB2F00',
+    progress: 1,
+  },
+  {
+    name: 'Help Us Improve',
+    due: 'Today',
+    color: '#CB2F00',
+    progress: 10,
+  },
+  {
+    name: 'App-solutely Honest Feedback',
+    due: 'Tomorrow',
+    color: '#CB2F00',
+    progress: 10,
+  },
+  {
+    name: 'Our Next Update',
+    due: '2/3/2025',
+    color: '#333333',
+    progress: 2.5,
+  },
+  {
+    name: 'Next Level App Experience',
+    due: '2/3/2025',
+    color: '#333333',
+    progress: 4,
+  },
+  {
+    name: "Develop the app's core features",
+    due: 'Today',
+    color: '#CB2F00',
+    progress: 1,
+  },
+  {
+    name: 'Next Level App Experience',
+    due: 'Today',
+    color: '#CB2F00',
+    progress: 10,
+  },
+]
+
+export const notification_new_message = Array(5).fill(
+  {
+    image: "/images/png/avatar_40x40.png",
+    name: "Esthera Jackson",
+    time: "2/25/25 1:33PM",
+    message: "Lorem ipsum dolor sit amet consectetur. Euismod proin non mauris sit sed egestas. Cum egestas non leo nibh adipiscing. Luctus et lacus eget maecenas condimentum scelerisque."
+  }
+);
+
+
+
 
 export const progressData = [
   { label: "Completed", value: 50 },

@@ -10,12 +10,31 @@
 .hero_bgimg {
   background-image: url("/images/png/hero-bg-img.png");
 }
+
 .start_journey_bgimg {
   background-image: url("/images/png/start-journey-bg-img.png");
 }
+
 .login_bgimg {
   background-image: url("/images/png/login-img.png");
   border-radius: 0 0 0 16px;
+}
+
+.bg_notification_project {
+  background-image: url("/images/png/bg-notification-project.png");
+  border-radius: 15px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.one-line-ellipsis {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+  /* Limit to 1 line */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 body {
