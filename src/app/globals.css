@@ -7,6 +7,10 @@
   margin: 0 auto;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .hero_bgimg {
   background-image: url("/images/png/hero-bg-img.png");
 }
@@ -37,6 +41,15 @@
   text-overflow: ellipsis;
 }
 
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  scrollbar-width: none;
+}
+
+
 body {
   background: #f0f0f0;
 }
@@ -44,7 +57,7 @@ body {
 /* EDIT SCROLLBAR */
 
 ::-webkit-scrollbar {
-  width: 4px;
+  width: 6px;
   height: 4px;
 }
 

@@ -30,23 +30,25 @@ const page = () => {
   }, [showSideBar]);
 
   return (
-    <div className="h-screen">
+    <div className="">
       <div className="flex flex-wrap h-full">
         <div
-          className={`  w-[200px] xl:w-[296px] max-md:fixed left-0 duration-300  ${showSideBar ? "top-0" : "-top-[100vh]"
+          className={`h-screen overflow-y-scroll hide-scrollbar  w-[200px] xl:w-[296px] max-md:fixed left-0 duration-300  ${showSideBar ? "top-0" : "-top-[100vh]"
             }`}
         >
-          <div className="h-full z-10 relative pt-11 px-3 lg:px-6">
-            <Sidebar setShowSideBar={setShowSideBar} />
+          <div className="h-full z-10 relative  pt-11  px-3 lg:px-6">
+            <div className="pb-6">
+              <Sidebar setShowSideBar={setShowSideBar} />
+            </div>
           </div>
         </div>
-        <div className=" w-full md:w-[calc(100%-200px)] xl:w-[calc(100%-296px)] mb-6  px-2.5 lg:px-6">
+        <div className="h-screen overflow-y-scroll custom_scrollbar  w-full md:w-[calc(100%-200px)] xl:w-[calc(100%-296px)]  px-2.5 lg:px-6">
           <div className="top-0 sticky z-10 bg-[#F0F0F0]">
             <AdminHeader heading="dashboard" />
           </div>
-          <div className="flex flex-wrap   bg-[#F0F0F0]    ">
+          <div className="flex flex-wrap pb-6  bg-[#F0F0F0]    ">
             <div className="w-full xl:w-[62.32%] xl:pe-3">
-              <div className="flex">
+              <div className="flex ">
                 <div className="w-[40%] pe-3">
                   <div className="flex flex-col h-full items-center justify-between bg_notification_project p-5 ">
                     <div className="text-center">
@@ -57,7 +59,7 @@ const page = () => {
                       <p className="font-bold text-[14px] text-[#F9F9F9]">Projects finished Today</p>
                     </div>
                     <div>
-                      <div className="my-4 !w-[70%]" style={{
+                      <div className="my-4 !w-[70%] mx-auto" style={{
                         border: "1px solid",
                         borderImageSource:
                           "linear-gradient(90deg, rgba(224, 225, 226, 0) 0%, #E0E1E2 49.52%, rgba(224, 225, 226, 0.15625) 99.04%)",
@@ -78,7 +80,7 @@ const page = () => {
                       <p className="font-bold text-[14px] text-center text-[#CB2F00]">Tasks Due Today</p>
                     </div>
                     <div>
-                      <div className="my-4 !w-[70%]" style={{
+                      <div className="my-4 !w-[70%] mx-auto" style={{
                         border: "1px solid",
                         borderImageSource:
                           "linear-gradient(90deg, rgba(224, 225, 226, 0) 0%, #E0E1E2 49.52%, rgba(224, 225, 226, 0.15625) 99.04%)",
