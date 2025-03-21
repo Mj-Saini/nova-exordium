@@ -15,17 +15,21 @@ const inter = Inter({
   weight: ["300", "400", "600", "700", "900"],
 });
 
-const AdminHeader = () => {
+interface AdminHeaderProps {
+  heading: string;
+}
+
+const AdminHeader: React.FC<AdminHeaderProps> = ({ heading }) => {
   return (
     <div className="py-[22px] top-0 sticky flex items-center justify-between">
       <div>
-        <h2 className="font-normal text-lg lg:text-2xl leading-[150%] text-[#213737]">
-          <span className="text-xs text-[#9A9999]">Pages</span> / Dashboard
+        <h2 className="font-normal text-lg lg:text-2xl leading-[150%] text-[#213737] capitalize">
+          <span className="text-xs text-[#9A9999]">Pages</span> / {heading}
         </h2>
         <h2
-          className={`font-bold text-sm  leading-[140%] text-[#213737] ${inter.className}`}
+          className={`font-bold text-sm  leading-[140%] text-[#213737] capitalize ${inter.className}`}
         >
-          Dashboard
+          {heading}
         </h2>
       </div>
       <div className="flex gap-3 lg:gap-6  items-center">
