@@ -74,9 +74,9 @@ const MangTable = ({ progress = 50 }) => {
                       {task.status}
                     </span>
                   </td>
-                  <td className="px-4">
-                    <td className="px-4 "> {task.img}</td>
-                  </td>
+
+                  <td className="px-4 "> {task.img}</td>
+
                   <td className="px-4 font-bold text-xs lg:text-sm">{task.due}</td>
 
                   <td className="px-4  cursor-pointer">
@@ -166,9 +166,9 @@ const MangTable = ({ progress = 50 }) => {
                       {task.status}
                     </span>
                   </td>
-                  <td className="px-4">
-                    <td className="px-4 "> {task.img}</td>
-                  </td>
+
+                  <td className="px-4 "> {task.img}</td>
+
                   <td className="px-4 font-bold text-xs lg:text-sm">{task.due}</td>
 
                   <td className="px-4  cursor-pointer">

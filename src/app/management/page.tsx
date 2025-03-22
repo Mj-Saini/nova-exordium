@@ -7,6 +7,8 @@ import { tasks } from '../components/common/Helper';
 import MangTable from '../components/tableData/MangTable';
 import AddTask from '../components/popues/AddTask';
 import Newtaskgroup from '../components/popues/Newtaskgroup';
+import Changestatus from '../components/popues/Changestatus';
+import Workflow from '../components/popues/Workflow';
 
 interface PageProps {
   progress: number;
@@ -31,7 +33,7 @@ const Page: React.FC<PageProps> = ({ progress }) => {
   const [isOpen2, setIsOpen2] = useState(false);
 
   return (
-    <div className="h-screen relative ">
+    <div className="h-screen relative bg-[#f0f0f0] ">
       <div className="flex flex-wrap h-full">
         <div
           className={`  w-[200px] lg:w-[296px] max-md:fixed left-0 duration-300  ${
@@ -217,6 +219,8 @@ const Page: React.FC<PageProps> = ({ progress }) => {
               </div>
             </div>
           )}
+          {/* <Changestatus /> */}
+          <Workflow />
         </div>
       </div>
     </div>
