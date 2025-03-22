@@ -1,10 +1,14 @@
 'use client';
-import React from 'react';
+import React, { useState } from 'react';
 import { CheckIcon, CreateIcon, DottedIcon } from '../common/Icons';
 import { tasks3, tasks5 } from '../common/Helper';
+import AddTask from '../popues/AddTask';
+import Newtaskgroup from '../popues/Newtaskgroup';
 
 const MangTable = ({ progress = 50 }) => {
   const progressWidth = Math.max(5, Math.min(progress, 100));
+  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen2, setIsOpen2] = useState(false);
 
   return (
     <div>
@@ -86,11 +90,15 @@ const MangTable = ({ progress = 50 }) => {
 
         {/* Buttons */}
         <div className="flex justify-end gap-3 pt-[16px]">
-          <button className="bg-[#2C4C4B] text-white rounded-[16px] py-[8.5px] px-5 flex items-center gap-2 cursor-pointer font-normal text-xs sm:text-sm">
+          <button
+            className="bg-[#2C4C4B] text-white rounded-[16px] py-[8.5px] px-5 flex items-center gap-2 cursor-pointer font-normal text-xs sm:text-sm"
+            onClick={() => setIsOpen(true)}>
             <CreateIcon />
             Add Task
           </button>
-          <button className="bg-[#2C4C4B] text-white rounded-[16px] lg:py-[12px] px-5 flex items-center gap-2 cursor-pointer font-bold text-xs sm:text-sm">
+          <button
+            className=" bg-[#2C4C4B]  text-white rounded-[16px] lg:py-[12px] px-5  flex items-center gap-2 cursor-pointer font-bold text-xs sm:text-sm"
+            onClick={() => setIsOpen2(true)}>
             <CreateIcon />
             New Task Group
           </button>
@@ -174,16 +182,34 @@ const MangTable = ({ progress = 50 }) => {
 
         {/* Buttons */}
         <div className="flex justify-end gap-3 pt-[16px]">
-          <button className="bg-[#2C4C4B] text-white rounded-[16px] py-[8.5px] px-5 flex items-center gap-2 cursor-pointer font-normal text-xs sm:text-sm">
+          <button
+            className="bg-[#2C4C4B] text-white rounded-[16px] py-[8.5px] px-5 flex items-center gap-2 cursor-pointer font-normal text-xs sm:text-sm"
+            onClick={() => setIsOpen(true)}>
             <CreateIcon />
             Add Task
           </button>
-          <button className="bg-[#2C4C4B] text-white rounded-[16px] lg:py-[12px] px-5 flex items-center gap-2 cursor-pointer font-bold text-xs sm:text-sm">
+          <button
+            className=" bg-[#2C4C4B]  text-white rounded-[16px] lg:py-[12px] px-5  flex items-center gap-2 cursor-pointer font-bold text-xs sm:text-sm"
+            onClick={() => setIsOpen2(true)}>
             <CreateIcon />
             New Task Group
           </button>
         </div>
       </div>
+      {isOpen && (
+        <div className="fixed inset-0 flex items-center justify-center bg-[#0000005a] bg-opacity-50 z-50">
+          <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-[600px] mx-4">
+            <AddTask closePopup={() => setIsOpen(false)} />
+          </div>
+        </div>
+      )}
+      {isOpen2 && (
+        <div className="fixed inset-0 flex items-center justify-center bg-[#0000005a] bg-opacity-50 z-50">
+          <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-[600px] mx-4">
+            <Newtaskgroup closePopup={() => setIsOpen2(false)} />
+          </div>
+        </div>
+      )}
     </div>
   );
 };

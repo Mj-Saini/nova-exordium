@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import Sidebar from "../components/Sidebar";
 import AdminHeader from "../components/AdminHeader";
-import { GreenEditIcons, WhiteEditIcons } from "../components/common/Icons";
+import { GreenArrowIcons, WhiteEditIcons } from "../components/common/Icons";
 import { Inter } from "next/font/google";
 
 import Image from "next/image";
@@ -71,7 +71,7 @@ const DashboardPage = ({ isModalClose }) => {
                         className="rounded-2xl"
                       />
                       <span className="bg-white p-[7px] rounded-[8px] absolute -right-[0.521vw] bottom-0 shadow-[0px_2px_5.5px_0px_rgba(0,0,0,0.06)]">
-                        <GreenEditIcons />
+                        <GreenArrowIcons />
                       </span>
                     </div>
 
