@@ -30,7 +30,7 @@ const Sidebar: React.FC<SidebarProps> = () => {
   const pathname = usePathname();
 
   return (
-    <div id="sidebar" className="top-0 sticky">
+    <div id="sidebar" className="top-0 sticky ">
       <div className="cursor-pointer inline-flex items-end">
         <span
           className={`${inter.className} text-lg sm:text-xl md:text-2xl lg:text-[28px] text-[#2C4C4B] font-black leading-[100%] uppercase`}
@@ -49,21 +49,19 @@ const Sidebar: React.FC<SidebarProps> = () => {
             <Link
               href={`${item.path}`}
               className={`flex items-center justify-between px-2.5 lg:px-5 py-3 gap-2.5 hover:bg-[#fff] rounded-2xl hover:custom_shadow w-full duration-300 icon cursor-pointer group 
-             ${
-               pathname === item.path
-                 ? "bg-[#fff] custom_shadow"
-                 : "bg-transparent"
-             }
+             ${pathname === item.path
+                  ? "bg-[#fff] custom_shadow"
+                  : "bg-transparent"
+                }
             `}
             >
               <div className="flex items-center gap-2.5 ">
                 <span
                   className={`flex h-[30px] w-[30px] justify-center items-center rounded-[12px]  group-hover:bg-[#2C4C4B] duration-300
-                               ${
-                                 pathname === item.path
-                                   ? "bg-[#2C4C4B]"
-                                   : "bg-[#fff]"
-                               }
+                               ${pathname === item.path
+                      ? "bg-[#2C4C4B]"
+                      : "bg-[#fff]"
+                    }
                   `}
                 >
                   {item.icon}
@@ -91,21 +89,19 @@ const Sidebar: React.FC<SidebarProps> = () => {
             <Link
               href={`${item.path}`}
               className={`flex items-center justify-between px-2.5 lg:px-5 py-3 gap-2.5 hover:bg-[#fff] rounded-2xl hover:custom_shadow w-full duration-300 icon cursor-pointer group 
-            ${
-              pathname === item.path
-                ? "bg-[#fff] custom_shadow"
-                : "bg-transparent"
-            }
+            ${pathname === item.path
+                  ? "bg-[#fff] custom_shadow"
+                  : "bg-transparent"
+                }
             `}
             >
               <div className="flex items-center gap-2.5 ">
                 <span
                   className={`flex h-[30px] w-[30px] justify-center items-center rounded-[12px]  group-hover:bg-[#2C4C4B] duration-300
-                               ${
-                                 pathname === item.path
-                                   ? "bg-[#2C4C4B]"
-                                   : "bg-[#fff]"
-                               }
+                               ${pathname === item.path
+                      ? "bg-[#2C4C4B]"
+                      : "bg-[#fff]"
+                    }
                   `}
                 >
                   {item.icon}

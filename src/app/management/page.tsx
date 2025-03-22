@@ -102,7 +102,7 @@ const Page: React.FC<PageProps> = ({ progress }) => {
                 <h2 className=" font-bold text-[12px] text-[#9A9999]"> PROGRESS:</h2>
                 <div className="flex flex-col w-32 pt-[16px]">
                   <span className="text-xs lg:text-sm text-gray-700">
-                    {progress ? progressWidth : 50}%
+                    {progress ? progressWidth : 60}%
                   </span>
 
                   <div className="relative w-full h-[3px] bg-gray-300 rounded-lg overflow-hidden">
@@ -152,7 +152,7 @@ const Page: React.FC<PageProps> = ({ progress }) => {
               <table className="w-full mt-7 border-collapse">
                 <thead>
                   <tr className="border-b border-gray-300 text-left font-bold text-xs lg:text-sm whitespace-nowrap">
-                    {['#', 'TASK NAME', 'STARUS', ' DUE DATE', 'PRIORITIES', ''].map(
+                    {['#', 'TASK NAME', 'STATUS', ' DUE DATE', 'PRIORITIES', ''].map(
                       (head, index) => (
                         <th key={index} className="px-4 py-3 text-[#9A9999]">
                           {head}
