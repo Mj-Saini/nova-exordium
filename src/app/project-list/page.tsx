@@ -19,11 +19,11 @@ const DashboardPage = () => {
       document.body.style.overflow = 'auto';
     };
   }, [showSideBar]);
-  const [value, setValue] = useState(0);
+
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="h-screen relative">
+    <div className="h-screen relative bg-[#f0f0f0]">
       <div className="flex flex-wrap h-full">
         <div
           className={` w-full md:w-3/12 xl:w-2/12 max-md:fixed left-0 duration-300 ${
@@ -61,7 +61,7 @@ const DashboardPage = () => {
                   <tr className="border-b border-gray-300 text-left font-bold text-xs lg:text-sm whitespace-nowrap">
                     {['#', 'Project Name', 'Assigned To', 'Status', 'Due Date', 'Progress', ''].map(
                       (head, index) => (
-                        <th  className="px-4 py-3 text-[#9A9999]">
+                        <th key={index} className="px-4 py-3 text-[#9A9999]">
                           {head}
                         </th>
                       )
