@@ -2,19 +2,19 @@
 import React, { useEffect, useState } from 'react';
 import Sidebar from '../components/Sidebar';
 import Image from 'next/image';
-import {
-  CheckIcon,
-  CreateIcon,
-  DottedIcon,
-  PrioritiesIcon,
-  PrioritiesIcon2,
-} from '../components/common/Icons';
+import { CheckIcon, CreateIcon, DottedIcon } from '../components/common/Icons';
 import { tasks } from '../components/common/Helper';
 import MangTable from '../components/tableData/MangTable';
 import AddTask from '../components/popues/AddTask';
+import Newtaskgroup from '../components/popues/Newtaskgroup';
 
-const page = ({ progress }) => {
-  const [showSideBar, setShowSideBar] = useState(false);
+interface PageProps {
+  progress: number;
+}
+
+const Page: React.FC<PageProps> = ({ progress }) => {
+  const [showSideBar, setShowSideBar] = useState<boolean>(false);
+
   useEffect(() => {
     if (showSideBar) {
       document.body.style.overflow = 'hidden';
@@ -27,6 +27,8 @@ const page = ({ progress }) => {
     };
   }, [showSideBar]);
   const progressWidth = Math.max(5, Math.min(progress ? progress : 50, 100));
+  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen2, setIsOpen2] = useState(false);
 
   return (
     <div className="h-screen relative ">
@@ -140,9 +142,7 @@ const page = ({ progress }) => {
                   </div>
                 </div>
                 <div>
-                  <h3>
-                    <h2 className=" text-[#CB2F00] font-bold text-sm xl:text-base">2/28/25 </h2>
-                  </h3>
+                  <h2 className=" text-[#CB2F00] font-bold text-sm xl:text-base">2/28/25 </h2>
                 </div>
                 <div className=" w-3/12"></div>
                 <DottedIcon />
@@ -185,22 +185,42 @@ const page = ({ progress }) => {
               </table>
             </div>
             <div className=" flex justify-end gap-3 pt-[16px]">
-              <button className=" bg-[#2C4C4B]  text-white rounded-[16px] py-[8.5px] px-5  flex items-center gap-2 cursor-pointer  font-normal text-xs sm:text-sm">
+              <button
+                className="bg-[#2C4C4B] text-white rounded-[16px] py-[8.5px] px-5 flex items-center gap-2 cursor-pointer font-normal text-xs sm:text-sm"
+                onClick={() => setIsOpen(true)} // Open the popup
+              >
                 <CreateIcon />
                 Add Task
               </button>
-              <button className=" bg-[#2C4C4B]  text-white rounded-[16px] lg:py-[12px] px-5  flex items-center gap-2 cursor-pointer font-bold text-xs sm:text-sm">
+              <button
+                className=" bg-[#2C4C4B]  text-white rounded-[16px] lg:py-[12px] px-5  flex items-center gap-2 cursor-pointer font-bold text-xs sm:text-sm"
+                onClick={() => setIsOpen2(true)}>
                 <CreateIcon />
                 New Task Group
               </button>
             </div>
           </div>
+
           <MangTable />
-          <AddTask />
+
+          {isOpen && (
+            <div className="fixed inset-0 flex items-center justify-center bg-[#0000005a] bg-opacity-50 z-50">
+              <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-[600px] mx-4">
+                <AddTask closePopup={() => setIsOpen(false)} />
+              </div>
+            </div>
+          )}
+          {isOpen2 && (
+            <div className="fixed inset-0 flex items-center justify-center bg-[#0000005a] bg-opacity-50 z-50">
+              <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-[600px] mx-4">
+                <Newtaskgroup closePopup={() => setIsOpen2(false)} />
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>
   );
 };
 
-export default page;
+export default Page;

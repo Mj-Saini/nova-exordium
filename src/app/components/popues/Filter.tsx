@@ -1,16 +1,15 @@
 import React, { useState } from 'react';
-import { CloseIcon, DateIcon, DropdownIcon } from '../common/Icons';
+import { CloseIcon, DropdownIcon } from '../common/Icons';
 
-const Filter = ({ closePopup }) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [selectedOption, setSelectedOption] = useState('');
-  const options = ['Option 1', 'Option 2', 'Option 3']; // Dropdown options
+const Filter = ({ closePopup }: { closePopup: (value: boolean) => void }) => {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [selectedOption, setSelectedOption] = useState<string>('');
+  const options: string[] = ['Option 1', 'Option 2', 'Option 3'];
 
-  const handleSelect = (option) => {
+  const handleSelect = (option: string) => {
     setSelectedOption(option);
     setIsOpen(false);
   };
-  const [isOpen2, setIsOpen2] = useState(false);
 
   return (
     <div>
@@ -24,34 +23,22 @@ const Filter = ({ closePopup }) => {
         <h2 className=" font-semibold text-base pb-2 lg:pb-[10px] pt-2 lg:pt-[10px]">Status</h2>
         <div className=" ">
           <div className="lg:flex gap-2">
-            <div className=" border-2 border-solid w-full lg:w-4/12 border-[#9A9999] hover:border-[#2C4C4B] rounded-[16px] py-[13px] px-[19px] flex items-center  hover:bg-[#F4ECF7] gap-4 justify-center ">
-              <input
-                className=" outline-0 text-center placeholder:text-sm placeholder:font-bold placeholder:text-[#2C4C4B]"
-                placeholder="Active"
-                type="text"
-              />
-            </div>
-
-            <div className=" border-2 border-solid w-full lg:w-4/12 hover:bg-[#F4ECF7] border-[#9A9999] hover:border-[#2C4C4B] rounded-[16px] py-[13px] px-[19px] flex items-center gap-4 justify-center mt-2 mb-2 lg:mb-0 lg:mt-0 ">
-              <input
-                className=" outline-0 text-center placeholder:text-sm   placeholder:font-bold placeholder:text-[#2C4C4B]"
-                placeholder="Completed"
-                type="text"
-              />
-            </div>
-            <div className=" border-2 border-solid w-full lg:w-4/12 border-[#9A9999] hover:bg-[#F4ECF7] hover:border-[#2C4C4B] rounded-[16px] py-[13px] px-[19px] flex items-center gap-4 justify-center ">
-              <input
-                className=" outline-0 text-center placeholder:text-sm   placeholder:font-bold placeholder:text-[#2C4C4B]"
-                placeholder="Archived"
-                type="text"
-              />
-            </div>
+            {['Active', 'Completed', 'Archived'].map((status, index) => (
+              <div
+                key={index}
+                className=" border border-solid w-full lg:w-4/12 border-[#9A9999] hover:border-[#2C4C4B] rounded-[16px] py-[13px] px-[19px] flex items-center  hover:bg-[#F4ECF7] gap-4 justify-center ">
+                <input
+                  className=" outline-0 text-center placeholder:text-sm placeholder:font-bold placeholder:text-[#2C4C4B]"
+                  placeholder={status}
+                  type="text"
+                />
+              </div>
+            ))}
           </div>
           <h2 className=" font-semibold text-base pt-3 lg:pt-[24px] pb-[10px]">Assigned to</h2>
           <div className="flex justify-end w-full relative">
-            {/* Input Field & Icon */}
             <div
-              className="w-full pt-3 lg:pt-[10px] border-2 border-solid border-[#9A9999] hover:bg-[#F4ECF7] hover:border-[#2C4C4B] rounded-[16px] py-[13px] px-[20px] flex justify-between items-center  cursor-pointer"
+              className="w-full pt-3 lg:pt-[10px] border border-solid border-[#9A9999] hover:bg-[#F4ECF7] hover:border-[#2C4C4B] rounded-[16px] py-[13px] px-[20px] flex justify-between items-center  cursor-pointer"
               onClick={() => setIsOpen(!isOpen)}>
               <input
                 className="outline-0 w-full cursor-pointer placeholder:text-sm   placeholder:font-bold placeholder:text-[#2C4C4B]"
@@ -68,12 +55,11 @@ const Filter = ({ closePopup }) => {
             {isOpen && (
               <div className="absolute top-full mt-2 w-full bg-white shadow-lg rounded-lg border border-gray-300 z-10">
                 <ul className="py-2">
-                  {options.map((option, index) => (
+                  {options.map((option: string, index: number) => (
                     <li
                       key={index}
                       className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
-                      onClick={() => handleSelect(option)} // Set input value on click
-                    >
+                      onClick={() => handleSelect(option)}>
                       {option}
                     </li>
                   ))}
@@ -83,20 +69,17 @@ const Filter = ({ closePopup }) => {
           </div>
           <h2 className=" font-semibold text-base pt-3 lg:pt-[24px]">Select Date</h2>
           <div className=" flex justify-between pt-[10px] gap-3">
-            <div className="border-2 border-solid border-[#9A9999] hover:border-[#2C4C4B] rounded-[16px] py-[13px] px-[20px] flex items-center hover:bg-[#F4ECF7] justify-between  w-[250px]">
-              <input
-                className="outline-0 w-full bg-transparent placeholder:text-sm   placeholder:font-bold placeholder:text-[#2C4C4B]"
-                placeholder="From"
-                type="date"
-              />
-            </div>
-            <div className="border-2 border-solid border-[#9A9999] hover:border-[#2C4C4B] rounded-[16px] py-[13px] px-[20px] flex items-center hover:bg-[#F4ECF7]  justify-between  w-[250px]">
-              <input
-                className="outline-0 w-full bg-transparent placeholder:text-sm font-bold text-[#2C4C4B] cursor-pointer"
-                placeholder="To"
-                type="date"
-              />
-            </div>
+            {['From', 'To'].map((label, index) => (
+              <div
+                key={index}
+                className="border border-solid border-[#9A9999] hover:border-[#2C4C4B] rounded-[16px] py-[13px] px-[20px] flex items-center hover:bg-[#F4ECF7] justify-between  w-[250px]">
+                <input
+                  className="outline-0 w-full bg-transparent placeholder:text-sm font-bold text-[#2C4C4B] cursor-pointer"
+                  placeholder={label}
+                  type="date"
+                />
+              </div>
+            ))}
           </div>
         </div>
         <div className=" flex justify-end pt-3 lg:pt-[24px]">
