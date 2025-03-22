@@ -2,20 +2,15 @@
 import React, { useEffect, useState } from "react";
 import Sidebar from "../components/Sidebar";
 import AdminHeader from "../components/AdminHeader";
-import { Inter } from "next/font/google";
 import Link from "next/link";
 import Image from "next/image";
-import { Newresponse_icon, Oops_icon, Schedule_icon, Tickmark_box_icon } from "../components/common/Icons";
 import CommonBtn from "../components/common/CommonBtn";
 import { notification_new_message, notification_urgent_task } from "../components/common/Helper";
 
 
-const inter = Inter({
-  subsets: ["latin"],
-  weight: ["300", "400", "600", "700", "900"],
-});
 
-const page = () => {
+
+const Page = () => {
   const [showSideBar, setShowSideBar] = useState(false);
   useEffect(() => {
     if (showSideBar) {
@@ -53,7 +48,7 @@ const page = () => {
                   <div className="flex flex-col h-full items-center justify-between bg_notification_project p-5 ">
                     <div className="text-center">
                       <div className="rounded-xl  m-auto  flex items-center justify-center w-[50px] 2xl:w-[64px] h-[50px] 2xl:h-[64px] bg-[#F9F9F9]" >
-                        <Tickmark_box_icon />
+                        {/* <Tickmark_box_icon /> */}
                       </div>
                       <h3 className="text-2xl font-bold text-[#F9F9F9] mt-3 2xl:mt-4 mb-2 2xl:mb-3" >10</h3>
                       <p className="font-bold text-[14px] text-[#F9F9F9]">Projects finished Today</p>
@@ -74,7 +69,7 @@ const page = () => {
                   <div className="flex h-full flex-col items-center justify-between shadow-[0px_3.5px_5.5px_0px_#00000005] bg-[#FFFFFF] rounded-[15px]  p-5">
                     <div className="text-center">
                       <div className="rounded-xl m-auto   flex items-center justify-center w-[50px] 2xl:w-[64px] h-[50px] 2xl:h-[64px] bg-[#2C4C4B]" >
-                        <Schedule_icon />
+                        {/* <Schedule_icon /> */}
                       </div>
                       <h3 className="text-[20px] font-bold text-[#213737] mt-3 2xl:mt-4 mb-2 2xl:mb-3" >3</h3>
                       <p className="font-bold text-[14px] text-center text-[#CB2F00]">Tasks Due Today</p>
@@ -94,7 +89,7 @@ const page = () => {
                 <div className="w-[30%] ps-3">
                   <div className="flex h-full flex-col items-center shadow-[0px_3.5px_5.5px_0px_#00000005] bg-[#FFFFFF] rounded-[15px]  p-5">
                     <div className="rounded-xl    flex items-center justify-center w-[50px] 2xl:w-[64px] h-[50px] 2xl:h-[64px] bg-[#2C4C4B]" >
-                      <Newresponse_icon />
+                      {/* <Newresponse_icon /> */}
                     </div>
                     <h3 className="text-[20px] font-bold text-[#213737] mt-3 2xl:mt-4 mb-2 2xl:mb-3" >3</h3>
                     <p className="font-bold text-[14px] text-[#213737] text-center">New Survey responses</p>
@@ -114,7 +109,7 @@ const page = () => {
                   <div>
                     <p className="font-bold text-[#213737] ">Urgent Tasks</p>
                     <div className="flex items-center gap-[10px] mt-[6px] ">
-                      <span> <Oops_icon /></span>
+                      {/* <span> <Oops_icon /></span> */}
                       <p className="text-[#CB2F00] font-bold text-[14px]"> 2 Task is due Today ; 1  - Tomorrow </p>
                     </div>
                   </div>
@@ -163,7 +158,7 @@ const page = () => {
                   <div>
                     <p className="font-bold text-[#213737] ">Urgent Projects</p>
                     <div className="flex items-center gap-[10px] mt-[6px] ">
-                      <span> <Oops_icon /></span>
+                      {/* <span> <Oops_icon /></span> */}
                       <p className="text-[#CB2F00] font-bold text-[14px] "> 2 Project is due Today </p>
                     </div>
                   </div>
@@ -253,5 +248,5 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
 
