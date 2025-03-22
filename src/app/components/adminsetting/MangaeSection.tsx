@@ -11,13 +11,12 @@ import {
 } from "../common/Icons";
 import Link from "next/link";
 import Image from "next/image";
+import { Inter } from "next/font/google";
 
-// interface ToggleOption {
-//   id: string;
-//   label: string;
-//   category: "roles" | "application";
-// }
-
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["300", "400", "600", "700", "900"],
+});
 const MangaeSection: React.FC = () => {
   const [enabledOptions, setEnabledOptions] = useState<string[]>([
     "internal-team",
@@ -294,10 +293,10 @@ const MangaeSection: React.FC = () => {
 
         {/* mapping of cards  */}
 
-        <div className="flex gap-6  max-2xl:overflow-x-scroll max-2xl:whitespace-nowrap pb-5">
+        <div className="flex gap-6  max-2xl:overflow-x-scroll max-2xl:whitespace-nowrap pb-5 pt-6">
           {projectCardData.map((items, index) => (
             <div key={index}>
-              <div className={`max-w-[370px] w-full mt-6 ${items.forthh}`}>
+              <div className={`max-w-[370px] w-full  ${items.forthh}`}>
                 <Image
                   src={items.img}
                   alt="project_card_img"
@@ -310,11 +309,13 @@ const MangaeSection: React.FC = () => {
                     {items.number}
                   </p>
 
-                  <h2 className="text-lg font-bold leading-[140%] text-[#213737]">
+                  <h2
+                    className={`text-lg font-bold leading-[140%] text-[#213737] ${inter.className}`}
+                  >
                     {items.heading}
                   </h2>
 
-                  <p className="text-[#9A9999] text-xs pt-[10px] font-normal leading-[150%]">
+                  <p className="text-[#9A9999] text-xs pt-[10px] font-normal leading-[150%] line-clamp-1">
                     {items.decs}
                   </p>
 
@@ -340,7 +341,7 @@ const MangaeSection: React.FC = () => {
               </div>
 
               {items.forthh && (
-                <div className="border border-[#E0E1E2] rounded-2xl flex justify-center items-center px-[92px] w-full aspect-1  mt-6 h-full">
+                <div className="border border-[#E0E1E2] rounded-2xl flex justify-center items-center px-[92px] w-full aspect-1   h-full">
                   <div className="w-fit flex flex-col items-center">
                     <span className="mx-auto">
                       <PulseIcons />
