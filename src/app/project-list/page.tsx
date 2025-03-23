@@ -61,7 +61,7 @@ const DashboardPage = () => {
                   <tr className="border-b border-gray-300 text-left font-bold text-xs lg:text-sm whitespace-nowrap">
                     {['#', 'Project Name', 'Assigned To', 'Status', 'Due Date', 'Progress', ''].map(
                       (head, index) => (
-                        <th key={index} className="px-4 py-3 text-[#9A9999]">
+                        <th  className="px-4 py-3 text-[#9A9999]">
                           {head}
                         </th>
                       )
