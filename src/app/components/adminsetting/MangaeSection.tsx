@@ -135,9 +135,6 @@ const MangaeSection: React.FC = () => {
           </div>
         </div>
 
-
-
-        
         {/* Profile Information  Section */}
         <div className="w-full xl:max-w-[517px] p-[28px_21px_50px_21px] bg-white shadow-[0px_3.5px_5.5px_0px_rgba(0,0,0,0.02)] rounded-[15px]">
           <h2 className="text-lg font-bold leading-[140%] text-[#213737]">
@@ -297,61 +294,65 @@ const MangaeSection: React.FC = () => {
 
         {/* mapping of cards  */}
 
-        <div className="flex gap-6 items-center max-2xl:overflow-x-scroll max-2xl:whitespace-nowrap">
+        <div className="flex gap-6  max-2xl:overflow-x-scroll max-2xl:whitespace-nowrap pb-5">
           {projectCardData.map((items, index) => (
-            <div className="max-w-[370px] w-full mt-6" key={index}>
-              <Image
-                src={items.img}
-                alt="project_card_img"
-                width={370}
-                height={191}
-              />
+            <div key={index}>
+              <div className={`max-w-[370px] w-full mt-6 ${items.forthh}`}>
+                <Image
+                  src={items.img}
+                  alt="project_card_img"
+                  width={370}
+                  height={191}
+                />
 
-              <div className="pt-5 px-2">
-                <p className="text-[#9A9999] text-[10px] font-normal leading-[150%]">
-                  {items.number}
-                </p>
+                <div className="pt-5 px-2">
+                  <p className="text-[#9A9999] text-[10px] font-normal leading-[150%]">
+                    {items.number}
+                  </p>
 
-                <h2 className="text-lg font-bold leading-[140%] text-[#213737]">
-                  {items.heading}
-                </h2>
+                  <h2 className="text-lg font-bold leading-[140%] text-[#213737]">
+                    {items.heading}
+                  </h2>
 
-                <p className="text-[#9A9999] text-xs pt-[10px] font-normal leading-[150%]">
-                  {items.decs}
-                </p>
+                  <p className="text-[#9A9999] text-xs pt-[10px] font-normal leading-[150%]">
+                    {items.decs}
+                  </p>
 
-                <div className="flex justify-between items-center pt-[19px]">
-                  <button
-                    className="border-[#2C4C4B] border p-[12px_20px] rounded-full inline-flex gap-4 items-center hover:bg-gray-200 text-[#2C4C4B] text-sm font-bold leading-[140%] capitalize cursor-pointer duration-500
+                  <div className="flex justify-between items-center pt-[19px]">
+                    <button
+                      className="border-[#2C4C4B] border p-[12px_20px] rounded-full inline-flex gap-4 items-center hover:bg-gray-200 text-[#2C4C4B] text-sm font-bold leading-[140%] capitalize cursor-pointer duration-500
                 "
-                  >
-                    View more
-                    <span>
-                      <GreenArrowIcons />
-                    </span>
-                  </button>
+                    >
+                      View more
+                      <span>
+                        <GreenArrowIcons />
+                      </span>
+                    </button>
 
-                  <Image
-                    src="/images/png/avatart_gp_img.png"
-                    alt="avatart_gp_img"
-                    width={59}
-                    height={29}
-                  />
+                    <Image
+                      src="/images/png/avatart_gp_img.png"
+                      alt="avatart_gp_img"
+                      width={59}
+                      height={29}
+                    />
+                  </div>
                 </div>
               </div>
+
+              {items.forthh && (
+                <div className="border border-[#E0E1E2] rounded-2xl flex justify-center items-center px-[92px] w-full aspect-1  mt-6 h-full">
+                  <div className="w-fit flex flex-col items-center">
+                    <span className="mx-auto">
+                      <PulseIcons />
+                    </span>
+                    <h2 className="text-lg font-bold leading-[140%] text-[#9A9999] pt-[10px] whitespace-nowrap">
+                      Create a New Project
+                    </h2>
+                  </div>
+                </div>
+              )}
             </div>
           ))}
-
-          <div className="border border-[#E0E1E2] rounded-2xl flex justify-center items-center  max-w-[376px] w-full">
-            <div className="w-fit flex flex-col items-center">
-              <span className="mx-auto">
-                <PulseIcons />
-              </span>
-              <h2 className="text-lg font-bold leading-[140%] text-[#9A9999] pt-[10px]">
-                Create a New Project
-              </h2>
-            </div>
-          </div>
         </div>
       </section>
     </>

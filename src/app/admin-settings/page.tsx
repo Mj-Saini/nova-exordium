@@ -15,7 +15,7 @@ const inter = Inter({
   weight: ["300", "400", "600", "700", "900"],
 });
 
-const DashboardPage = () => {
+const DashboardPage = ({ isModalClose }) => {
   const [showSideBar, setShowSideBar] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -45,90 +45,92 @@ const DashboardPage = () => {
             <Sidebar setShowSideBar={setShowSideBar} />
           </div>
         </div>
-        <div className="flex-1 px-2.5 lg:px-5 pb-8">
-          {/* admin section  */}
-          <div className="relative">
-            <div className="bg-[url('/images/png/adminsetting_bg_img.png')] bg-no-repeat bg-cover bg-center px-6 mt-6 rounded-2xl h-[300px]">
-              {/* AdminHeader section  */}
-              <div className="top-0 sticky z-10">
-                <AdminHeader heading="Profile" />
-              </div>
-              {/* AdminHeader section  */}
-            </div>
-
-            {/* profile section  */}
-            <div className="w-full flex justify-center">
-              <div className="rounded-[15px] p-4 flex flex-col md:flex-row justify-between items-center gap-5 shadow-[0px_2px_5.5px_0px_rgba(0,0,0,0.02)] backdrop-blur-[10.5px] border-[1.5px] border-white bg-gradient-to-tr from-white/82 to-white/80 absolute -bottom-[3.333vw] max-w-[1540px] w-full">
-                {/* profile */}
-                <div className="flex items-center gap-5">
-                  <div className="w-fit relative">
-                    <Image
-                      src="/images/png/gorge_img.png"
-                      alt="gorge_img"
-                      width={91}
-                      height={115}
-                      className="rounded-2xl"
-                    />
-                    <span className="bg-white p-[7px] rounded-[8px] absolute -right-[0.521vw] bottom-0 shadow-[0px_2px_5.5px_0px_rgba(0,0,0,0.06)]">
-                      <GreenEditIcons />
-                    </span>
-                  </div>
-
-                  <div>
-                    <h3 className="text-base lg:text-lg font-bold leading-[140%] text-[#213737]">
-                      Gregory Hodkiewicz
-                    </h3>
-                    <p className="text-sm font-normal leading-[140%] text-[#9A9999]">
-                      Gregory68@gmail.com
-                    </p>
-                  </div>
+        <div className="w-full md:w-[calc(100%-200px)] lg:w-[calc(100%-296px)]  px-2.5 lg:px-5">
+          <div>
+            {/* admin section  */}
+            <div className="relative">
+              <div className="bg-[url('/images/png/adminsetting_bg_img.png')] bg-no-repeat bg-cover bg-center px-6 mt-6 rounded-2xl h-[300px]">
+                {/* AdminHeader section  */}
+                <div className="top-0 sticky z-10">
+                  <AdminHeader heading="Profile" />
                 </div>
+                {/* AdminHeader section  */}
+              </div>
 
-                <button
-                  onClick={() => setIsModalOpen(true)}
-                  className="bg-[#2C4C4B] p-[12px_20px] rounded-full inline-flex gap-2 items-center hover:bg-[#3b6261] text-white text-sm font-bold leading-[140%] capitalize cursor-pointer duration-500"
-                >
-                  <span>
-                    <WhiteEditIcons />
-                  </span>
-                  Edit Profile
-                </button>
+              {/* profile section  */}
+              <div className="w-full flex justify-center">
+                <div className="rounded-[15px] p-4 flex flex-col md:flex-row justify-between items-center gap-5 shadow-[0px_2px_5.5px_0px_rgba(0,0,0,0.02)] backdrop-blur-[10.5px] border-[1.5px] border-white bg-gradient-to-tr from-white/82 to-white/80 absolute -bottom-[3.333vw] max-w-[1540px] w-[97%] mx-auto">
+                  {/* profile */}
+                  <div className="flex items-center gap-5">
+                    <div className="w-fit relative">
+                      <Image
+                        src="/images/png/gorge_img.png"
+                        alt="gorge_img"
+                        width={91}
+                        height={115}
+                        className="rounded-2xl"
+                      />
+                      <span className="bg-white p-[7px] rounded-[8px] absolute -right-[0.521vw] bottom-0 shadow-[0px_2px_5.5px_0px_rgba(0,0,0,0.06)]">
+                        <GreenEditIcons />
+                      </span>
+                    </div>
+
+                    <div>
+                      <h3 className="text-base lg:text-lg font-bold leading-[140%] text-[#213737]">
+                        Gregory Hodkiewicz
+                      </h3>
+                      <p className="text-sm font-normal leading-[140%] text-[#9A9999]">
+                        Gregory68@gmail.com
+                      </p>
+                    </div>
+                  </div>
+
+                  <button
+                    onClick={() => setIsModalOpen(true)}
+                    className="bg-[#2C4C4B] p-[12px_20px] rounded-full inline-flex gap-2 items-center hover:bg-[#3b6261] text-white text-sm font-bold leading-[140%] capitalize cursor-pointer duration-500"
+                  >
+                    <span>
+                      <WhiteEditIcons />
+                    </span>
+                    Edit Profile
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div className="mt-[80px]">
-            {/* MangaeSection  */}
-            <MangaeSection />
-          </div>
-          <AnimatePresence>
-            {isModalOpen && (
-              <div
-                className="fixed inset-0 flex items-center justify-center bg-black/20 z-20"
-                onClick={() => setIsModalOpen(false)}
-                aria-hidden="true"
-              >
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.9 }} // Start hidden
-                  animate={{ opacity: 1, scale: 1 }} // Fade in and scale up
-                  exit={{ opacity: 0, scale: 0.9 }} // Fade out and shrink
-                  transition={{ duration: 0.3, ease: "easeOut" }}
-                  className="relative bg-white rounded-lg max-w-md w-full p-6 shadow-lg"
-                  role="dialog"
-                  aria-modal="true"
-                  onClick={(e) => e.stopPropagation()} // Prevents closing when clicking inside
+            <div className="mt-[80px]">
+              {/* MangaeSection  */}
+              <MangaeSection />
+            </div>
+            <AnimatePresence>
+              {isModalOpen && (
+                <div
+                  className="fixed inset-0 flex items-center justify-center bg-black/20 z-20"
+                  onClick={() => setIsModalOpen(false)}
+                  aria-hidden="true"
                 >
-                  <button
-                    onClick={() => setIsModalOpen(false)}
-                    className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 cursor-pointer"
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.9 }} // Start hidden
+                    animate={{ opacity: 1, scale: 1 }} // Fade in and scale up
+                    exit={{ opacity: 0, scale: 0.9 }} // Fade out and shrink
+                    transition={{ duration: 0.3, ease: "easeOut" }}
+                    className="relative bg-white rounded-lg max-w-md w-full p-6 shadow-lg"
+                    role="dialog"
+                    aria-modal="true"
+                    onClick={(e) => e.stopPropagation()} // Prevents closing when clicking inside
                   >
-                    ✕
-                  </button>
-                  <AdminForm/>
-                </motion.div>
-              </div>
-            )}
-          </AnimatePresence>
+                    {/* <button
+                      onClick={() => setIsModalOpen(false)}
+                      className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 cursor-pointer"
+                    >
+                      ✕
+                    </button> */}
+                    <AdminForm />
+                  </motion.div>
+                </div>
+              )}
+            </AnimatePresence>
+          </div>
         </div>
       </div>
     </div>

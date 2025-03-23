@@ -1,11 +1,13 @@
 "use client";
 
 import React, { useState } from "react";
+import { AdminCloseIcons } from "../common/Icons";
 
 const AdminForm = () => {
   // const [isOpen, setIsOpen] = useState(true);
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [isModalClose, setIsModalClose] = useState(false);
 
   // const handleClose = () => {
   //   setIsOpen(false);
@@ -16,7 +18,16 @@ const AdminForm = () => {
   return (
     <div className="">
       <div className="flex justify-between items-center p-4 border-b">
-        <h2 className="text-lg font-medium text-gray-800">Edit Profile</h2>    
+        <h2 className="text-xl font-semibold leading-[90%] tracking-[0.4px]">
+          Edit Profile
+        </h2>
+
+        <button
+          onClick={() => setIsModalClose(isModalClose)}
+          className="cursor-pointer border border-[#EAEAEA] rounded-full p-[6px]"
+        >
+          <AdminCloseIcons />
+        </button>
       </div>
 
       <form className="py-4 space-y-4">

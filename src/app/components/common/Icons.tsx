@@ -1169,3 +1169,34 @@ export const PulseIcons = () => {
     </svg>
   );
 };
+
+
+export const AdminCloseIcons = () => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="21"
+      height="20"
+      viewBox="0 0 21 20"
+      fill="none"
+    >
+      <mask
+        id="mask0_22_214"
+       
+        maskUnits="userSpaceOnUse"
+        x="0"
+        y="0"
+        width="21"
+        height="20"
+      >
+        <rect x="0.5" width="20" height="20" fill="#D9D9D9" />
+      </mask>
+      <g mask="url(#mask0_22_214)">
+        <path
+          d="M5.83329 15.8333L4.66663 14.6667L9.33329 9.99999L4.66663 5.33332L5.83329 4.16666L10.5 8.83332L15.1666 4.16666L16.3333 5.33332L11.6666 9.99999L16.3333 14.6667L15.1666 15.8333L10.5 11.1667L5.83329 15.8333Z"
+          fill="#1C1B1F"
+        />
+      </g>
+    </svg>
+  );
+};

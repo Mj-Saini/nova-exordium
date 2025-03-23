@@ -435,4 +435,11 @@ export const projectCardData = [
     heading: "   Lorem ipsum dolor",
     decs: "As Uber works through a huge amount of internal management turmoil.",
   },
+  {
+    img: "/images/png/project_card_img.png",
+    number: "  Project #1",
+    heading: "   Lorem ipsum dolor",
+    decs: "As Uber works through a huge amount of internal management turmoil.",
+    forthh:"hidden"
+  },
 ];
