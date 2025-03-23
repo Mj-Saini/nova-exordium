@@ -134,6 +134,10 @@ const MangaeSection: React.FC = () => {
             </div>
           </div>
         </div>
+
+
+
+        
         {/* Profile Information  Section */}
         <div className="w-full xl:max-w-[517px] p-[28px_21px_50px_21px] bg-white shadow-[0px_3.5px_5.5px_0px_rgba(0,0,0,0.02)] rounded-[15px]">
           <h2 className="text-lg font-bold leading-[140%] text-[#213737]">
@@ -152,7 +156,7 @@ const MangaeSection: React.FC = () => {
           </div>
 
           <div className="pt-[30px]">
-            <ul className="flex flex-col gap-[18px]">
+            <ul className="flex flex-col gap-3 2xl:gap-[18px]">
               <li className="text-[12px] font-normal leading-[150%] text-[#333]">
                 <span className="font-bold pe-3">Full Name:</span> Gregory
                 Hodkiewicz

@@ -115,7 +115,7 @@ export const sideBarData = [
   {
     icon: <UserIcon />,
     tabs: "Admin Settings",
-    path: "/admin-settngs",
+    path: "/admin-settings",
   },
   {
     icon: <AdminNotificationsIcon />,
@@ -338,24 +338,24 @@ export const options = [
 
 export const converstationData = [
   {
-    img: "/images/png/gorge_img.png",
+    img: "/images/png/edanaWaber_img.png",
     name: "Edna Weber",
     comment: "Hi! I need more informations...",
   },
   {
-    img: "/images/png/gorge_img.png",
-    name: "Edna Weber",
-    comment: "Hi! I need more informations...",
+    img: "/images/png/rooseevltHarris_img.png",
+    name: "Roosevelt Harris",
+    comment: "Awesome work, can you change...",
   },
   {
-    img: "/images/png/gorge_img.png",
-    name: "Edna Weber",
-    comment: "Hi! I need more informations...",
+    img: "/images/png/vernoicaRippin_img.png",
+    name: "Veronica Rippin",
+    comment: "Have a great afternoon...",
   },
   {
-    img: "/images/png/gorge_img.png",
-    name: "Edna Weber",
-    comment: "Hi! I need more informations...",
+    img: "/images/png/francisKuphal_img.png",
+    name: "Francis Kuphal",
+    comment: "About files I can...",
   },
 ];
 
