@@ -3,11 +3,13 @@
 import React, { useState } from "react";
 import { AdminCloseIcons } from "../common/Icons";
 
-const AdminForm = () => {
+interface AdminFormProps {
+  isModalClose: boolean;
+}
+const AdminForm = ({ setIsModalOpen }) => {
   // const [isOpen, setIsOpen] = useState(true);
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  const [isModalClose, setIsModalClose] = useState(false);
 
   // const handleClose = () => {
   //   setIsOpen(false);
@@ -23,7 +25,7 @@ const AdminForm = () => {
         </h2>
 
         <button
-          onClick={() => setIsModalClose(isModalClose)}
+          onClick={() => setIsModalOpen(false)}
           className="cursor-pointer border border-[#EAEAEA] rounded-full p-[6px]"
         >
           <AdminCloseIcons />
