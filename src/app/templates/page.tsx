@@ -1,8 +1,8 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import Sidebar from '../components/Sidebar';
-import Image from 'next/image';
-import { CheckIcon, CreateIcon, DottedIcon, FleterIcon } from '../components/common/Icons';
+
+import { CheckIcon, CreateIcon, FleterIcon } from '../components/common/Icons';
 
 import { templates } from '../components/common/Helper';
 
@@ -12,7 +12,6 @@ interface PageProps {
 
 const Page: React.FC<PageProps> = ({ progress }) => {
   const [showSideBar, setShowSideBar] = useState<boolean>(false);
-  const [openDottedMenu, setOpenDottedMenu] = useState<number | null>(null);
 
   useEffect(() => {
     if (showSideBar) {
@@ -81,7 +80,7 @@ const Page: React.FC<PageProps> = ({ progress }) => {
                       <td className="px-4 py-[16px] font-bold text-xs lg:text-sm">{task.id}</td>
                       <td className="px-4 py-[16px] font-bold text-xs lg:text-sm">{task.name}</td>
                       <td className="px-4 py-[16px]">{task.Categoty}</td>
-                      <td className="px-4 py-[16px] font-bold text-xs lg:text-sm">{task.due}</td>
+
                       <td className="px-4 py-[16px]">{task.UpdateDate}</td>
                       <td className="px-4 py-2 cursor-pointer">{task.Action}</td>
                     </tr>
