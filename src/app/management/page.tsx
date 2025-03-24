@@ -1,35 +1,31 @@
 /* eslint-disable react/no-unescaped-entities */
-'use client';
-import React, { useEffect, useState } from 'react';
-import Sidebar from '../components/Sidebar';
-import Image from 'next/image';
-import { CheckIcon, CreateIcon, DottedIcon } from '../components/common/Icons';
-import { tasks } from '../components/common/Helper';
-import MangTable from '../components/tableData/MangTable';
-import AddTask from '../components/popues/AddTask';
-import Newtaskgroup from '../components/popues/Newtaskgroup';
-import Changestatus from '../components/popues/Changestatus';
+"use client";
+import React, { useEffect, useState } from "react";
+import Sidebar from "../components/Sidebar";
+import Image from "next/image";
+import { CheckIcon, CreateIcon, DottedIcon } from "../components/common/Icons";
+import { tasks } from "../components/common/Helper";
+import MangTable from "../components/tableData/MangTable";
+import AddTask from "../components/popues/AddTask";
+import Newtaskgroup from "../components/popues/Newtaskgroup";
+import Changestatus from "../components/popues/Changestatus";
 
-interface PageProps {
-  progress: number;
-}
-
-const Page: React.FC<PageProps> = ({ progress }) => {
+const Page = () => {
   const [showSideBar, setShowSideBar] = useState<boolean>(false);
   const [openDottedMenu, setOpenDottedMenu] = useState<number | null>(null);
 
   useEffect(() => {
     if (showSideBar) {
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = 'auto';
+      document.body.style.overflow = "auto";
     }
 
     return () => {
-      document.body.style.overflow = 'auto';
+      document.body.style.overflow = "auto";
     };
   }, [showSideBar]);
-  const progressWidth = Math.max(5, Math.min(progress ? progress : 50, 100));
+  // const progressWidth = Math.max(5, Math.min(  : 50, 100));
   const [isOpen, setIsOpen] = useState(false);
   const [isOpen2, setIsOpen2] = useState(false);
 
@@ -38,8 +34,9 @@ const Page: React.FC<PageProps> = ({ progress }) => {
       <div className="flex flex-wrap h-full">
         <div
           className={`  w-[200px] lg:w-[296px] max-md:fixed left-0 duration-300  ${
-            showSideBar ? 'top-0' : '-top-[100vh]'
-          }`}>
+            showSideBar ? "top-0" : "-top-[100vh]"
+          }`}
+        >
           <div className="h-full z-10 relative pt-11 px-3 lg:px-6">
             <Sidebar setShowSideBar={setShowSideBar} />
           </div>
@@ -49,7 +46,7 @@ const Page: React.FC<PageProps> = ({ progress }) => {
             <div className=" xl:flex justify-between">
               <div>
                 <h2 className=" font-semibold sm:text-lg md:text-xl lg:text-[28px] text-[#213737]">
-                  Develop the app's core features{' '}
+                  Develop the app's core features{" "}
                 </h2>
               </div>
               <div className="flex space-x-4 pt-5 lg:pt-0">
@@ -65,23 +62,27 @@ const Page: React.FC<PageProps> = ({ progress }) => {
               </div>
             </div>
             <p className=" font-normal text-sm lg:text-base text-[#333333] pt-[24px]">
-              This project focuses on developing the app's core features to enhance functionality
-              and user experience. Key tasks include designing the UI, integrating essential
-              components, and ensuring seamless performance through testing and optimization
+              This project focuses on developing the app's core features to
+              enhance functionality and user experience. Key tasks include
+              designing the UI, integrating essential components, and ensuring
+              seamless performance through testing and optimization
             </p>
             <div className=" pt-[24px] flex ">
               <div className="xl:w-2/12 w-full">
-                <h2 className=" font-bold text-[12px] text-[#9A9999]"> ASSIGNED TEAM:</h2>
+                <h2 className=" font-bold text-[12px] text-[#9A9999]">
+                  {" "}
+                  ASSIGNED TEAM:
+                </h2>
 
                 <div className="relative h-[40px]">
                   {[
-                    'teams1.png',
-                    'tems2.png',
-                    'tems3.png',
-                    'tems4.png',
-                    'tmes5.png',
-                    'tems6.png',
-                    'tems7.png',
+                    "teams1.png",
+                    "tems2.png",
+                    "tems3.png",
+                    "tems4.png",
+                    "tmes5.png",
+                    "tems6.png",
+                    "tems7.png",
                   ].map((img, idx) => (
                     <Image
                       key={idx}
@@ -90,28 +91,39 @@ const Page: React.FC<PageProps> = ({ progress }) => {
                       alt={`Assigned ${idx + 1}`}
                       width={50}
                       height={50}
-                      style={{ left: `${idx * 13}px`, top: '13px', zIndex: idx }}
+                      style={{
+                        left: `${idx * 13}px`,
+                        top: "13px",
+                        zIndex: idx,
+                      }}
                     />
                   ))}
                 </div>
               </div>
               <div className="xl:w-2/12 w-full">
-                <h2 className=" font-bold text-[12px] text-[#9A9999] pb-[16px]">STATUS:</h2>
+                <h2 className=" font-bold text-[12px] text-[#9A9999] pb-[16px]">
+                  STATUS:
+                </h2>
                 <h3 className=" font-semibold text-base bg-[#747EBD] text-white inline-block rounded-[8px] px-[16px] py-[5px]">
                   ACTIVE
                 </h3>
               </div>
               <div className="xl:w-2/12 w-full">
-                <h2 className=" font-bold text-[12px] text-[#9A9999]"> PROGRESS:</h2>
+                <h2 className=" font-bold text-[12px] text-[#9A9999]">
+                  {" "}
+                  PROGRESS:
+                </h2>
                 <div className="flex flex-col w-32 pt-[16px]">
                   <span className="text-xs lg:text-sm text-gray-700">
-                    {progress ? progressWidth : 60}%
+                    {/* {progress ? progressWidth : 60}% */}
+                    60%
                   </span>
 
                   <div className="relative w-full h-[3px] bg-gray-300 rounded-lg overflow-hidden">
                     <div
                       className="absolute h-full bg-[#408C62] rounded-lg min-w-[5px] transition-all duration-500 ease-in-out"
-                      style={{ width: `${progressWidth}%` }}></div>
+                      style={{ width: `60%` }}
+                    ></div>
                   </div>
                 </div>
               </div>
@@ -121,7 +133,7 @@ const Page: React.FC<PageProps> = ({ progress }) => {
             <div className=" flex justify-between">
               <div className=" xl:w-2/12">
                 <h2 className=" font-bold text-sm md:text-base lg:text-lg text-[#213737]">
-                  Phase 1 - Strategy{' '}
+                  Phase 1 - Strategy{" "}
                 </h2>
                 <div className=" flex pt-[6px] items-center">
                   <CheckIcon />
@@ -134,18 +146,21 @@ const Page: React.FC<PageProps> = ({ progress }) => {
                 <div className="flex flex-col w-32 ">
                   <div>
                     <span className="text-xs lg:text-sm text-[#2C4C4B] font-bold">
-                      {progressWidth}% Complete
+                      60% Complete
                     </span>
                   </div>
 
                   <div className="relative w-full h-[3px] bg-gray-300 rounded-lg overflow-hidden mt-[5px]">
                     <div
                       className="absolute h-full bg-[#408C62] rounded-lg min-w-[5px] transition-all duration-500 ease-in-out"
-                      style={{ width: `${progressWidth}%` }}></div>
+                      style={{ width: `60%` }}
+                    ></div>
                   </div>
                 </div>
                 <div>
-                  <h2 className=" text-[#CB2F00] font-bold text-sm xl:text-base">2/28/25 </h2>
+                  <h2 className=" text-[#CB2F00] font-bold text-sm xl:text-base">
+                    2/28/25{" "}
+                  </h2>
                 </div>
                 <div className=" w-3/12"></div>
                 <DottedIcon />
@@ -155,36 +170,51 @@ const Page: React.FC<PageProps> = ({ progress }) => {
               <table className="w-full mt-7 border-collapse">
                 <thead>
                   <tr className="border-b border-gray-300 text-left font-bold text-xs lg:text-sm whitespace-nowrap">
-                    {['#', 'TASK NAME', 'STATUS', ' DUE DATE', 'PRIORITIES', ''].map(
-                      (head, index) => (
-                        <th key={index} className="px-4 py-3 text-[#9A9999]">
-                          {head}
-                        </th>
-                      )
-                    )}
+                    {[
+                      "#",
+                      "TASK NAME",
+                      "STATUS",
+                      " DUE DATE",
+                      "PRIORITIES",
+                      "",
+                    ].map((head, index) => (
+                      <th key={index} className="px-4 py-3 text-[#9A9999]">
+                        {head}
+                      </th>
+                    ))}
                   </tr>
                 </thead>
                 <tbody className="whitespace-nowrap">
                   {tasks.map((task) => (
                     <tr key={task.id} className="border-b border-gray-200">
-                      <td className="px-4 py-[16px] font-bold text-xs lg:text-sm">{task.id}</td>
-                      <td className="px-4 py-[16px] font-bold text-xs lg:text-sm">{task.name}</td>
+                      <td className="px-4 py-[16px] font-bold text-xs lg:text-sm">
+                        {task.id}
+                      </td>
+                      <td className="px-4 py-[16px] font-bold text-xs lg:text-sm">
+                        {task.name}
+                      </td>
 
                       <td className="px-4 py-[16px]">
                         <span
                           className="text-white font-bold text-xs py-1 px-4 rounded-lg"
-                          style={{ backgroundColor: task.color }}>
+                          style={{ backgroundColor: task.color }}
+                        >
                           {task.status}
                         </span>
                       </td>
-                      <td className="px-4 py-[16px] font-bold text-xs lg:text-sm">{task.due}</td>
+                      <td className="px-4 py-[16px] font-bold text-xs lg:text-sm">
+                        {task.due}
+                      </td>
                       <td className="px-4 py-[16px]"> {task.img}</td>
                       <td className="cursor-pointer relative ">
                         <div
                           className=" z-50 "
                           onClick={() =>
-                            setOpenDottedMenu(openDottedMenu === task.id ? null : task.id)
-                          }>
+                            setOpenDottedMenu(
+                              openDottedMenu === task.id ? null : task.id
+                            )
+                          }
+                        >
                           <DottedIcon />
                         </div>
                         {openDottedMenu === task.id && (
@@ -208,7 +238,8 @@ const Page: React.FC<PageProps> = ({ progress }) => {
               </button>
               <button
                 className=" bg-[#2C4C4B]  text-white rounded-[16px] lg:py-[12px] px-5  flex items-center gap-2 cursor-pointer font-bold text-xs sm:text-sm"
-                onClick={() => setIsOpen2(true)}>
+                onClick={() => setIsOpen2(true)}
+              >
                 <CreateIcon />
                 New Task Group
               </button>

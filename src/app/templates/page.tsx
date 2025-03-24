@@ -6,11 +6,9 @@ import { CheckIcon, CreateIcon, FleterIcon } from "../components/common/Icons";
 
 import { templates } from "../components/common/Helper";
 
-interface PageProps {
-  progress: number;
-}
 
-const Page: React.FC<PageProps> = () => {
+
+const Page = () => {
   const [showSideBar, setShowSideBar] = useState<boolean>(false);
 
   useEffect(() => {

@@ -145,7 +145,7 @@ export const tasks = [
     status: 'COMPLETED',
     color: '#408C62',
     due: 'Today',
-    progress: 3,
+    progress: '3',
     img: <PrioritiesIcon2 />,
   },
   {
@@ -163,7 +163,7 @@ export const tasks = [
     status: 'TO DO',
     color: '#EBA055',
     due: '2/3/2025',
-    progress: 10,
+    progress: '10',
     img: <PrioritiesIcon2 />,
   },
 ];
