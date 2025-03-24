@@ -12,6 +12,9 @@ import {
 
 import { templates } from "../components/common/Helper";
 import AdminHeader from "../components/AdminHeader";
+import Filtertemplates from "../components/popues/Filtertemplates";
+
+import Template from "../components/popues/Template";
 
 const Page = () => {
   const [showSideBar, setShowSideBar] = useState<boolean>(false);
@@ -27,7 +30,7 @@ const Page = () => {
       document.body.style.overflow = "auto";
     };
   }, [showSideBar]);
-  const [isOpen, setIsOpen] = useState(false);
+
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 0) {
@@ -43,7 +46,7 @@ const Page = () => {
     };
   }, []);
   const [isScrolled, setIsScrolled] = useState(false);
-
+  const [isOpen2, setIsOpen2] = useState(false);
   return (
     <div className="h-screen relative bg-[#f0f0f0] ">
       <div className="flex flex-wrap h-full">
@@ -78,7 +81,7 @@ const Page = () => {
               <div className=" flex items-center mt-4 lg:mt-0">
                 <div
                   className="border border-[var(--Color-2,#EAEAEA)] w-[45px] h-[36px] rounded-[16px] p-[12px] gap-[6px] flex items-center justify-center bg-white cursor-pointer me-[16px]"
-                  onClick={() => setIsOpen(!isOpen)}
+                  onClick={() => setIsOpen2(!isOpen2)}
                 >
                   <FleterIcon />
                 </div>
@@ -187,6 +190,15 @@ const Page = () => {
                 </button>
               </div>
             </div>
+
+            {isOpen2 && (
+              <div className="fixed inset-0 flex items-center justify-center bg-[#0000005a] bg-opacity-50 z-50">
+                <Filtertemplates closePopup={() => setIsOpen2(false)} />
+              </div>
+            )}
+          </div>
+          <div className="fixed inset-0 flex items-center justify-center bg-[#0000005a] bg-opacity-50 z-50">
+            <Template closePopup={() => setIsOpen2(false)} />
           </div>
         </div>
       </div>
