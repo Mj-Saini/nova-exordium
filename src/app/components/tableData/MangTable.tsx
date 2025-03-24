@@ -30,25 +30,25 @@ const MangTable = ({ progress = 50 }) => {
           </div>
 
           {/* Right Side - Progress Bar */}
-          <div className="flex items-center pt-[16px] xl:w-4/12">
-            <div className="flex flex-col w-32">
-              <span className="text-xs lg:text-sm text-[#2C4C4B] font-bold">
-                {progressWidth}% Complete
-              </span>
+          <div className="flex items-center gap-5 pt-[16px] w-fit">
+            <div className="flex flex-col  ">
+              <div>
+                <span className="text-xs lg:text-sm text-[#2C4C4B] font-bold">60% Complete</span>
+              </div>
+
               <div className="relative w-full h-[3px] bg-gray-300 rounded-lg overflow-hidden mt-[5px]">
                 <div
-                  className="absolute h-full bg-[#408C62] rounded-lg min-w-[5px] transition-all duration-500 ease-in-out"
-                  style={{ width: `${progressWidth}%` }}></div>
+                  className="absolute h-full bg-[#2C4C4B] rounded-lg min-w-[5px] transition-all duration-500 ease-in-out"
+                  style={{ width: `60%` }}></div>
               </div>
             </div>
 
-            {/* Due Date */}
-            <h2 className="text-[#CB2F00] font-bold text-sm xl:text-base ml-4">2/28/25</h2>
-
-            {/* Dotted Icon */}
-            <div className="ml-auto pe-5">
-              <DottedIcon />
+            <div>
+              <h2 className=" text-[#CB2F00] font-bold text-sm xl:text-base">2/28/25 </h2>
             </div>
+
+            {/* <div className=" w-5/12"></div> */}
+            <DottedIcon />
           </div>
         </div>
 
@@ -133,25 +133,25 @@ const MangTable = ({ progress = 50 }) => {
           </div>
 
           {/* Right Side - Progress Bar */}
-          <div className="flex items-center pt-[16px] xl:w-4/12">
-            <div className="flex flex-col w-32">
-              <span className="text-xs lg:text-sm text-[#2C4C4B] font-bold">
-                {progressWidth}% Complete
-              </span>
+          <div className="flex items-center gap-5 pt-[16px] w-fit">
+            <div className="flex flex-col  ">
+              <div>
+                <span className="text-xs lg:text-sm text-[#2C4C4B] font-bold">60% Complete</span>
+              </div>
+
               <div className="relative w-full h-[3px] bg-gray-300 rounded-lg overflow-hidden mt-[5px]">
                 <div
-                  className="absolute h-full bg-[#408C62] rounded-lg min-w-[5px] transition-all duration-500 ease-in-out"
-                  style={{ width: `${progressWidth}%` }}></div>
+                  className="absolute h-full bg-[#2C4C4B] rounded-lg min-w-[5px] transition-all duration-500 ease-in-out"
+                  style={{ width: `60%` }}></div>
               </div>
             </div>
 
-            {/* Due Date */}
-            <h2 className="text-[#CB2F00] font-bold text-sm xl:text-base ml-4">2/28/25</h2>
-
-            {/* Dotted Icon */}
-            <div className="ml-auto pe-5">
-              <DottedIcon />
+            <div>
+              <h2 className=" text-[#CB2F00] font-bold text-sm xl:text-base">2/28/25 </h2>
             </div>
+
+            {/* <div className=" w-5/12"></div> */}
+            <DottedIcon />
           </div>
         </div>
 

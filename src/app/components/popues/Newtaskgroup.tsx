@@ -1,6 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState } from 'react';
 import { CloseIcon, CreateIcon, DeletIcon, EditIcon, PrioritiesIcon2 } from '../common/Icons';
-import Changestatus from './Changestatus';
 import Workflow from './Workflow';
 import Cancel from './Cancel';
 
@@ -14,7 +14,7 @@ interface Task {
   status: string;
   color: string;
   due: string;
-  img: JSX.Element;
+  img: any;
 }
 
 const Newtaskgroup: React.FC<NewTaskGroupProps> = ({ closePopup }) => {

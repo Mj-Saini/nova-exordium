@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 'use client';
 import React, { useEffect, useState } from 'react';
 import Sidebar from '../components/Sidebar';
@@ -8,12 +9,9 @@ import MangTable from '../components/tableData/MangTable';
 import AddTask from '../components/popues/AddTask';
 import Newtaskgroup from '../components/popues/Newtaskgroup';
 import Changestatus from '../components/popues/Changestatus';
+import AdminHeader from '../components/AdminHeader';
 
-interface PageProps {
-  progress: number;
-}
-
-const Page: React.FC<PageProps> = ({ progress }) => {
+const Page = () => {
   const [showSideBar, setShowSideBar] = useState<boolean>(false);
   const [openDottedMenu, setOpenDottedMenu] = useState<number | null>(null);
 
@@ -28,9 +26,24 @@ const Page: React.FC<PageProps> = ({ progress }) => {
       document.body.style.overflow = 'auto';
     };
   }, [showSideBar]);
-  const progressWidth = Math.max(5, Math.min(progress ? progress : 50, 100));
+  // const progressWidth = Math.max(5, Math.min(  : 50, 100));
   const [isOpen, setIsOpen] = useState(false);
   const [isOpen2, setIsOpen2] = useState(false);
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   return (
     <div className="h-screen relative bg-[#f0f0f0] ">
@@ -44,6 +57,12 @@ const Page: React.FC<PageProps> = ({ progress }) => {
           </div>
         </div>
         <div className=" w-full md:w-[calc(100%-200px)] lg:w-[calc(100%-296px)]  px-2.5 lg:px-5">
+          <div
+            className={`top-0 sticky z-10 px-6 transition-all duration-300 ${
+              isScrolled ? 'bg-[#F0F0F0] shadow-md' : 'bg-transparent'
+            }`}>
+            <AdminHeader heading="Profile" />
+          </div>
           <div className="bg-[#FFFFFF] rounded-[15px] py-[28px] px-[21px]  shadow-[0px_3.5px_5.5px_0px_#00000005]  h-fit max-h-[40%] ">
             <div className=" xl:flex justify-between">
               <div>
@@ -69,48 +88,33 @@ const Page: React.FC<PageProps> = ({ progress }) => {
               components, and ensuring seamless performance through testing and optimization
             </p>
             <div className=" pt-[24px] flex ">
-              <div className="xl:w-2/12 w-full">
+              <div className="xl:w-3/12 w-full">
                 <h2 className=" font-bold text-[12px] text-[#9A9999]"> ASSIGNED TEAM:</h2>
-
-                <div className="relative h-[40px]">
-                  {[
-                    'teams1.png',
-                    'tems2.png',
-                    'tems3.png',
-                    'tems4.png',
-                    'tmes5.png',
-                    'tems6.png',
-                    'tems7.png',
-                  ].map((img, idx) => (
-                    <Image
-                      key={idx}
-                      className="absolute rounded-full border border-white"
-                      src={`/images/png/${img}`}
-                      alt={`Assigned ${idx + 1}`}
-                      width={50}
-                      height={50}
-                      style={{ left: `${idx * 13}px`, top: '13px', zIndex: idx }}
-                    />
-                  ))}
-                </div>
+                <Image
+                  src="/images/png/helo.png" // ✅ Change to your image path
+                  alt="Profile Image"
+                  width={200}
+                  height={200}
+                />
               </div>
-              <div className="xl:w-2/12 w-full">
+              <div className="xl:w-3/12 w-full ps-5">
                 <h2 className=" font-bold text-[12px] text-[#9A9999] pb-[16px]">STATUS:</h2>
                 <h3 className=" font-semibold text-base bg-[#747EBD] text-white inline-block rounded-[8px] px-[16px] py-[5px]">
                   ACTIVE
                 </h3>
               </div>
-              <div className="xl:w-2/12 w-full">
+              <div className="xl:w-/12 w-full ">
                 <h2 className=" font-bold text-[12px] text-[#9A9999]"> PROGRESS:</h2>
                 <div className="flex flex-col w-32 pt-[16px]">
                   <span className="text-xs lg:text-sm text-gray-700">
-                    {progress ? progressWidth : 60}%
+                    {/* {progress ? progressWidth : 60}% */}
+                    60%
                   </span>
 
                   <div className="relative w-full h-[3px] bg-gray-300 rounded-lg overflow-hidden">
                     <div
                       className="absolute h-full bg-[#408C62] rounded-lg min-w-[5px] transition-all duration-500 ease-in-out"
-                      style={{ width: `${progressWidth}%` }}></div>
+                      style={{ width: `60%` }}></div>
                   </div>
                 </div>
               </div>
@@ -129,24 +133,27 @@ const Page: React.FC<PageProps> = ({ progress }) => {
                   </h3>
                 </div>
               </div>
-              <div className="flex items-center pt-[16px] xl:w-4/12">
-                <div className="flex flex-col w-32 ">
+
+              <div className="flex items-center gap-5 pt-[16px] w-fit">
+                <div className="flex flex-col  ">
                   <div>
                     <span className="text-xs lg:text-sm text-[#2C4C4B] font-bold">
-                      {progressWidth}% Complete
+                      60% Complete
                     </span>
                   </div>
 
                   <div className="relative w-full h-[3px] bg-gray-300 rounded-lg overflow-hidden mt-[5px]">
                     <div
-                      className="absolute h-full bg-[#408C62] rounded-lg min-w-[5px] transition-all duration-500 ease-in-out"
-                      style={{ width: `${progressWidth}%` }}></div>
+                      className="absolute h-full bg-[#2C4C4B] rounded-lg min-w-[5px] transition-all duration-500 ease-in-out"
+                      style={{ width: `60%` }}></div>
                   </div>
                 </div>
+
                 <div>
                   <h2 className=" text-[#CB2F00] font-bold text-sm xl:text-base">2/28/25 </h2>
                 </div>
-                <div className=" w-3/12"></div>
+
+                {/* <div className=" w-5/12"></div> */}
                 <DottedIcon />
               </div>
             </div>

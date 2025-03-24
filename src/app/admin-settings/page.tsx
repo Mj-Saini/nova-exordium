@@ -8,9 +8,7 @@ import MangaeSection from "../components/adminsetting/MangaeSection";
 import AdminForm from "../components/adminsetting/AdminForm";
 import { motion, AnimatePresence } from "framer-motion";
 
-const DashboardPage: React.FC<{
-  profileData: { fullName: string; email: string };
-}> = ({ profileData }) => {
+const DashboardPage = () => {
   const [showSideBar, setShowSideBar] = useState<boolean>(false);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
@@ -29,11 +27,11 @@ const DashboardPage: React.FC<{
       <div className="flex flex-wrap h-full">
         {/* Sidebar */}
         <div
-          className={`w-[200px] lg:w-[296px] max-md:fixed left-0 duration-300 ${
+          className={`w-[200px] lg:w-[296px] max-md:fixed left-0 top-0 duration-300 ${
             showSideBar ? "top-0" : "-top-[100vh]"
           }`}
         >
-          <div className="h-full z-10 relative pt-11 px-3 lg:px-6">
+          <div className="h-full z-10  relative pt-11 px-3 lg:px-6">
             <Sidebar setShowSideBar={setShowSideBar} />
           </div>
         </div>
@@ -66,10 +64,10 @@ const DashboardPage: React.FC<{
                     </div>
                     <div>
                       <h3 className="text-base lg:text-lg font-bold text-[#213737]">
-                        {profileData?.fullName || "Gregory Hodkiewicz"}
+                        Gregory Hodkiewicz
                       </h3>
                       <p className="text-sm font-normal text-[#9A9999]">
-                        {profileData?.email || "Gregory68@gmail.com"}
+                        Gregory68@gmail.com
                       </p>
                     </div>
                   </div>
@@ -87,6 +85,7 @@ const DashboardPage: React.FC<{
               </div>
             </div>
 
+            {/* model form  */}
             {/* ManageSection */}
             <div className="mt-[80px]">
               <MangaeSection />
