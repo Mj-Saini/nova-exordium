@@ -8,7 +8,6 @@ import MangTable from '../components/tableData/MangTable';
 import AddTask from '../components/popues/AddTask';
 import Newtaskgroup from '../components/popues/Newtaskgroup';
 import Changestatus from '../components/popues/Changestatus';
-import Workflow from '../components/popues/Workflow';
 
 interface PageProps {
   progress: number;
@@ -16,6 +15,7 @@ interface PageProps {
 
 const Page: React.FC<PageProps> = ({ progress }) => {
   const [showSideBar, setShowSideBar] = useState<boolean>(false);
+  const [openDottedMenu, setOpenDottedMenu] = useState<number | null>(null);
 
   useEffect(() => {
     if (showSideBar) {
@@ -178,8 +178,19 @@ const Page: React.FC<PageProps> = ({ progress }) => {
                       </td>
                       <td className="px-4 py-[16px] font-bold text-xs lg:text-sm">{task.due}</td>
                       <td className="px-4 py-[16px]"> {task.img}</td>
-                      <td className="px-4 py-[16px] cursor-pointer">
-                        <DottedIcon />
+                      <td className="cursor-pointer relative ">
+                        <div
+                          className=" z-50 "
+                          onClick={() =>
+                            setOpenDottedMenu(openDottedMenu === task.id ? null : task.id)
+                          }>
+                          <DottedIcon />
+                        </div>
+                        {openDottedMenu === task.id && (
+                          <div className="absolute top-full z-50 right-0 bg-white shadow-lg p-2 rounded-md">
+                            <Changestatus />
+                          </div>
+                        )}
                       </td>
                     </tr>
                   ))}
@@ -219,8 +230,6 @@ const Page: React.FC<PageProps> = ({ progress }) => {
               </div>
             </div>
           )}
-          {/* <Changestatus /> */}
-          <Workflow />
         </div>
       </div>
     </div>

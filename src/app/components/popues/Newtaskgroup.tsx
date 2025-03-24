@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { CloseIcon, CreateIcon, DeletIcon, EditIcon, PrioritiesIcon2 } from '../common/Icons';
 import Changestatus from './Changestatus';
+import Workflow from './Workflow';
+import Cancel from './Cancel';
 
 interface NewTaskGroupProps {
   closePopup: (value: boolean) => void;
@@ -18,6 +20,7 @@ interface Task {
 const Newtaskgroup: React.FC<NewTaskGroupProps> = ({ closePopup }) => {
   const [taskGroups, setTaskGroups] = useState<number[]>([1]); // Initially one form
   const [showPopup, setShowPopup] = useState<boolean>(false); // For popup visibility
+  const [showPopup2, setShowPopup2] = useState<boolean>(false); // For popup visibility
 
   const addNewTask = () => {
     setTaskGroups((prev) => [...prev, prev.length + 1]); // Add new form
@@ -25,6 +28,9 @@ const Newtaskgroup: React.FC<NewTaskGroupProps> = ({ closePopup }) => {
 
   const handleSaveClick = () => {
     setShowPopup(true); // Open the popup
+  };
+  const handleSaveClick2 = () => {
+    setShowPopup2(true); // Open the popup
   };
 
   const tasks: Task[] = [
@@ -159,7 +165,7 @@ const Newtaskgroup: React.FC<NewTaskGroupProps> = ({ closePopup }) => {
         <div className="flex justify-end pt-4">
           <button
             className="border border-[#EAEAEA] text-[#333333] rounded-[16px] py-[12px] px-6 flex items-center gap-2 cursor-pointer font-medium text-sm sm:text-base me-5"
-            onClick={() => closePopup(false)}>
+            onClick={handleSaveClick2}>
             Cancel
           </button>
           <button
@@ -170,7 +176,21 @@ const Newtaskgroup: React.FC<NewTaskGroupProps> = ({ closePopup }) => {
         </div>
 
         {/* Change Status Popup */}
-        {showPopup && <Changestatus onClose={() => setShowPopup(false)} />}
+        {showPopup && (
+          <div className="fixed top-0 left-0 w-full h-full flex justify-center items-start bg-black/50 z-50">
+            <div>
+              <Workflow onClose={() => setShowPopup(false)} />
+            </div>
+          </div>
+        )}
+
+        {showPopup2 && (
+          <div className="fixed top-0 left-0 w-full h-full flex justify-center items-start bg-black/50 z-50">
+            <div>
+              <Cancel onClose={() => setShowPopup2(false)} />
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

@@ -4,11 +4,13 @@ import { CheckIcon, CreateIcon, DottedIcon } from '../common/Icons';
 import { tasks3, tasks5 } from '../common/Helper';
 import AddTask from '../popues/AddTask';
 import Newtaskgroup from '../popues/Newtaskgroup';
+import Changestatus from '../popues/Changestatus';
 
 const MangTable = ({ progress = 50 }) => {
   const progressWidth = Math.max(5, Math.min(progress, 100));
   const [isOpen, setIsOpen] = useState(false);
   const [isOpen2, setIsOpen2] = useState(false);
+  const [openDottedMenu, setOpenDottedMenu] = useState<number | null>(null);
 
   return (
     <div>
@@ -79,8 +81,19 @@ const MangTable = ({ progress = 50 }) => {
 
                   <td className="px-4 font-bold text-xs lg:text-sm">{task.due}</td>
 
-                  <td className="px-4  cursor-pointer">
-                    <DottedIcon />
+                  <td className="cursor-pointer relative ">
+                    <div
+                      className=" z-50 "
+                      onClick={() =>
+                        setOpenDottedMenu(openDottedMenu === task.id ? null : task.id)
+                      }>
+                      <DottedIcon />
+                    </div>
+                    {openDottedMenu === task.id && (
+                      <div className="absolute top-full z-50 right-0 bg-white shadow-lg p-2 rounded-md">
+                        <Changestatus />
+                      </div>
+                    )}
                   </td>
                 </tr>
               ))}
@@ -171,8 +184,19 @@ const MangTable = ({ progress = 50 }) => {
 
                   <td className="px-4 font-bold text-xs lg:text-sm">{task.due}</td>
 
-                  <td className="px-4  cursor-pointer">
-                    <DottedIcon />
+                  <td className="cursor-pointer relative ">
+                    <div
+                      className=" z-50 "
+                      onClick={() =>
+                        setOpenDottedMenu(openDottedMenu === task.id ? null : task.id)
+                      }>
+                      <DottedIcon />
+                    </div>
+                    {openDottedMenu === task.id && (
+                      <div className="absolute top-full z-50 right-0 bg-white shadow-lg p-2 rounded-md">
+                        <Changestatus />
+                      </div>
+                    )}
                   </td>
                 </tr>
               ))}
