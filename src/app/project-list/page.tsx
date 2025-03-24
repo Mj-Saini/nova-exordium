@@ -5,6 +5,7 @@ import { CheckIcon, CreateIcon, DottedIcon, FleterIcon } from '../components/com
 import Image from 'next/image';
 import Filter from '../components/popues/Filter';
 import { tasks2 } from '../components/common/Helper';
+import AdminHeader from '../components/AdminHeader';
 
 const DashboardPage = () => {
   const [showSideBar, setShowSideBar] = useState(false);
@@ -21,6 +22,21 @@ const DashboardPage = () => {
   }, [showSideBar]);
 
   const [isOpen, setIsOpen] = useState(false);
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   return (
     <div className="h-screen relative bg-[#f0f0f0]">
@@ -33,7 +49,14 @@ const DashboardPage = () => {
             <Sidebar setShowSideBar={setShowSideBar} />
           </div>
         </div>
+
         <div className="w-full md:w-9/12 xl:w-10/12">
+          <div
+            className={`top-0 sticky z-10 px-6 transition-all duration-300 ${
+              isScrolled ? 'bg-[#F0F0F0] shadow-md' : 'bg-transparent'
+            }`}>
+            <AdminHeader heading="Profile" />
+          </div>
           <div className="shadow-[0px_3.5px_5.5px_0px_#00000005] p-[28px_23px_64px_21px] bg-white rounded-[15px]">
             <div className=" sm:flex justify-between items-center">
               <div>
@@ -98,12 +121,12 @@ const DashboardPage = () => {
                       <td className="px-4 py-[16px] font-bold text-xs lg:text-sm">{task.due}</td>
                       <td className="px-4 py-[16px]">
                         <div className="flex flex-col w-32">
-                          <span className=" text-xs lg:text-sm text-gray-700">
+                          <span className=" text-xs lg:text-sm text-[#2C4C4B]">
                             {task.progress * 10}%
                           </span>
-                          <div className="relative w-full h-2 bg-gray-300 rounded-lg">
+                          <div className="relative w-full h-1 bg-gray-300 rounded-lg">
                             <div
-                              className="absolute h-full bg-[#408C62] rounded-lg"
+                              className="absolute h-full bg-[#2C4C4B] rounded-lg"
                               style={{ width: `${task.progress * 10}%` }}></div>
                           </div>
                         </div>
