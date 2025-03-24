@@ -29,11 +29,11 @@ const DashboardPage: React.FC<{
       <div className="flex flex-wrap h-full">
         {/* Sidebar */}
         <div
-          className={`w-[200px] lg:w-[296px] max-md:fixed left-0 duration-300 ${
+          className={`w-[200px] lg:w-[296px] max-md:fixed left-0 top-0 duration-300 ${
             showSideBar ? "top-0" : "-top-[100vh]"
           }`}
         >
-          <div className="h-full z-10 relative pt-11 px-3 lg:px-6">
+          <div className="h-full z-10  relative pt-11 px-3 lg:px-6">
             <Sidebar setShowSideBar={setShowSideBar} />
           </div>
         </div>
@@ -87,6 +87,7 @@ const DashboardPage: React.FC<{
               </div>
             </div>
 
+            {/* model form  */}
             {/* ManageSection */}
             <div className="mt-[80px]">
               <MangaeSection />

@@ -461,9 +461,10 @@ export const AdminDashboardIcon = () => {
     </svg>
   );
 };
+
 export const AdminProjectIcon = () => {
   const pathname = usePathname();
-  const isActive = pathname === "/projects-list";
+  const isActive = pathname === "/project-list";
   return (
     <svg
       width="16"
