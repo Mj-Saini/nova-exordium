@@ -10,7 +10,7 @@ interface PageProps {
   progress: number;
 }
 
-const Page: React.FC<PageProps> = ({ progress }) => {
+const Page: React.FC<PageProps> = () => {
   const [showSideBar, setShowSideBar] = useState<boolean>(false);
 
   useEffect(() => {
@@ -24,9 +24,8 @@ const Page: React.FC<PageProps> = ({ progress }) => {
       document.body.style.overflow = 'auto';
     };
   }, [showSideBar]);
-  const progressWidth = Math.max(5, Math.min(progress ? progress : 50, 100));
+
   const [isOpen, setIsOpen] = useState(false);
-  const [isOpen2, setIsOpen2] = useState(false);
 
   return (
     <div className="h-screen relative bg-[#f0f0f0] ">
