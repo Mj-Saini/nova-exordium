@@ -8,9 +8,14 @@ import MangaeSection from "../components/adminsetting/MangaeSection";
 import AdminForm from "../components/adminsetting/AdminForm";
 import { motion, AnimatePresence } from "framer-motion";
 
-const DashboardPage: React.FC<{
-  profileData: { fullName: string; email: string };
-}> = ({ profileData }) => {
+interface DashboardPageProps {
+  profileData: {
+    fullName: string;
+    email: string;
+  };
+}
+
+const DashboardPage: React.FC<DashboardPageProps> = ({ profileData }) => {
   const [showSideBar, setShowSideBar] = useState<boolean>(false);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
