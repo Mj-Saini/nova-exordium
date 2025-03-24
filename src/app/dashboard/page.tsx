@@ -262,9 +262,9 @@ const DashboardPage = () => {
             </div>
             <div className="flex flex-wrap mt-6  -mx-2.5 xl:-mx-3">
               <div className="w-full xl:w-1/2 2xl:w-5/12 px-2.5 xl:px-3 xl:mt-0">
-                <div className="px-3 2xl:px-6 py-4 rounded-2xl bg-white custom_shadow  h-full">
+                <div className="px-3 2xl:px-6 py-4 rounded-2xl bg-white custom_shadow h-full">
                   <Image
-                    className="w-full  rounded-[12px]"
+                    className="w-full rounded-[12px] h-[222px]"
                     src={csatScoreImg}
                     alt="CSAT-SCORE"
                   />

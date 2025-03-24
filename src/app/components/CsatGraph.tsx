@@ -76,7 +76,7 @@ const CsatGraph = () => {
           ]}
           series={series.map((s) => ({ ...s, zeroBaseline: true }))}
           skipAnimation={skipAnimation}
-          height={500}
+          height={300}
           sx={{
             "& .MuiAreaElement-root:nth-of-type(1)": {
               fill: "url(#gradient1)",

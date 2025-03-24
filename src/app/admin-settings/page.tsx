@@ -12,6 +12,22 @@ const DashboardPage = () => {
   const [showSideBar, setShowSideBar] = useState<boolean>(false);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
+  const [isScrolled, setIsScrolled] = useState<boolean>(false);
+
+  // ✅ Track Scroll Position
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   // Prevent scrolling when sidebar or modal is open
   useEffect(() => {
     document.body.style.overflow =
@@ -39,7 +55,11 @@ const DashboardPage = () => {
         {/* Main Content */}
         <div className="w-full md:w-[calc(100%-200px)] lg:w-[calc(100%-296px)] px-2.5 lg:px-5">
           <div className="py-5">
-            <div className="top-0 sticky z-10 px-6">
+            <div
+              className={`top-0 sticky z-10 px-6 transition-all duration-300 ${
+                isScrolled ? "bg-white shadow-md py-2" : "bg-transparent"
+              }`}
+            >
               <AdminHeader heading="Profile" />
             </div>
 
