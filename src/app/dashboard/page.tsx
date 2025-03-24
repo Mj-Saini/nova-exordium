@@ -8,7 +8,8 @@ import Link from "next/link";
 import Image from "next/image";
 import csatScoreImg from "../../../public/images/png/csat-score-img.png";
 import CommonBtn from "../components/common/CommonBtn";
-import { progressData } from "../components/common/Helper";
+import { completionData, progressData } from "../components/common/Helper";
+import CsatGraph from "../components/CsatGraph";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -152,8 +153,8 @@ const DashboardPage = () => {
             </div>
           </div>
           <div className="flex flex-wrap mt-6 -mx-2.5 xl:-mx-3">
-            <div className="w-full sm:w-1/2 lg:w-4/12 px-2.5 xl:px-3">
-              <div className="px-3 2xl:px-6 py-4 rounded-2xl bg-white custom_shadow">
+            <div className="w-full lg:w-1/2 2xl:w-4/12 px-2.5 xl:px-3">
+              <div className="px-3 2xl:px-6 py-4 rounded-2xl bg-white custom_shadow h-full">
                 <h3 className="font-bold ff_helvetica text-base md:text-lg text-[#213737] leading-[140%]">
                   Onboarding Completion Rate
                 </h3>
@@ -185,40 +186,43 @@ const DashboardPage = () => {
                 </div>
               </div>
             </div>
-            <div className="w-full sm:w-1/2 lg:w-4/12 px-2.5 xl:px-3">
-              <div className="px-3 2xl:px-6 py-4 rounded-2xl bg-white custom_shadow">
+            <div className="w-full lg:w-1/2 2xl:w-4/12 px-2.5 xl:px-3 mt-6 lg:mt-0">
+              <div className="px-3 2xl:px-6 py-4 rounded-2xl bg-white custom_shadow h-full">
                 <h3 className="font-bold ff_helvetica text-base md:text-lg text-[#213737] leading-[140%]">
-                  Onboarding Completion Rate
+                  Time to Completion
                 </h3>
                 <p className="font-bold text-sm text-[#9A9999] leading-[140%] ff_helvetica mt-1.5">
-                  <span className="text-[#213737] font-normal">180 </span>{" "}
-                  Completed tasks
+                  <span className="text-[#213737] font-normal">250 </span>
+                  Total hours
                 </p>
-                <p className="font-normal text-sm text-[#333] py-6 text-center">
-                  Percent complete
-                </p>
-                <div className="flex flex-col gap-[58px] mb-6">
-                  {progressData.map((item, index) => (
-                    <div key={index} className="flex items-center gap-4">
-                      <p className="text-gray-700 text-sm font-medium w-24">
+
+                <div className="flex mb-6 h-[calc(100%-70px)]">
+                  {completionData.map((item, index) => (
+                    <div
+                      key={index}
+                      className="flex flex-col justify-end items-center h-full"
+                    >
+                      {/* Percentage */}
+                      <p className="text-[#333333] font-bold mb-1">
+                        {item.value}%
+                      </p>
+
+                      {/* Bar */}
+                      <div
+                        className="w-8 bg-[#477D7C] rounded-full flex items-center justify-center h-full"
+                        style={{ height: `${item.value * 3}%` }} // Dynamic height
+                      ></div>
+
+                      {/* Label */}
+                      <p className="text-gray-600 text-xs text-center mt-1 w-20 2xl:w-24 whitespace-nowrap">
                         {item.label}
                       </p>
-                      <div className="relative  rounded-full h-8 w-full max-w-xs]">
-                        <div
-                          className="absolute top-0 left-0 h-full bg-[#477D7C] rounded-full flex items-center justify-center"
-                          style={{ width: `${item.value}%` }}
-                        >
-                          <span className="text-white text-sm font-bold">
-                            {item.value}%
-                          </span>
-                        </div>
-                      </div>
                     </div>
                   ))}
                 </div>
               </div>
             </div>
-            <div className="w-full sm:w-1/2 lg:w-4/12 px-2.5 xl:px-3">
+            <div className="w-full  2xl:w-4/12 px-2.5 xl:px-3 mt-6 2xl:mt-0">
               <div className="px-3 2xl:px-6 py-4 rounded-2xl bg-white custom_shadow h-full">
                 <h3 className="font-bold ff_helvetica text-base md:text-lg text-[#213737] leading-[140%]">
                   Notifications
@@ -251,6 +255,57 @@ const DashboardPage = () => {
                       </div>
                     </div>
                   ))}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="flex flex-wrap mt-6  -mx-2.5 xl:-mx-3">
+            <div className="w-full xl:w-1/2 2xl:w-5/12 px-2.5 xl:px-3 xl:mt-0">
+              <div className="px-3 2xl:px-6 py-4 rounded-2xl bg-white custom_shadow  h-full">
+                <Image
+                  className="w-full  rounded-[12px]"
+                  src={csatScoreImg}
+                  alt="CSAT-SCORE"
+                />
+
+                <div className="mt-6">
+                  <h2 className="ff_helvetica font-bold text-base lg:text-lg text-[#213737] leading-[140%]">
+                    User Engagement
+                  </h2>
+                  <p className="text-sm font-bold leading-[140%] text-[#9A9999] mt-1.5">
+                    <span className="text-[#477D7C]">(+453) </span> This week
+                  </p>
+                  <div className="flex flex-wrap gap-3 justify-between mt-2.5 lg:mt-9">
+                    {[0, 0, 0, 0].map((_, index) => (
+                      <div key={index}>
+                        <p className="text-xs text-[#9A9999]  flex gap-1 items-center">
+                          {" "}
+                          <span className="block w-3 h-3 rounded-full bg-[#477D7C]"></span>{" "}
+                          Task #1
+                        </p>
+                        <h3 className="font-semibold text-xl md:text-2xl text-[#213737] mt-3">
+                          100%
+                        </h3>
+                        <input
+                          type="range"
+                          className="w-full max-w-20 h-1 bg-[#477D7C] appearance-none rounded-full outline-none [&::-webkit-slider-thumb]:hidden [&::-moz-range-thumb]:hidden"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="w-full xl:w-1/2 2xl:w-7/12 px-2.5 xl:px-3 mt-6 xl:mt-0">
+              <div className="px-3 2xl:px-6 py-4 rounded-2xl bg-white custom_shadow h-full">
+                <h2 className="ff_helvetica font-bold text-base lg:text-lg text-[#213737] leading-[140%]">
+                  User Engagement
+                </h2>
+                <p className="text-sm font-bold leading-[140%] text-[#9A9999] mt-1.5">
+                  <span className="text-[#477D7C]">(+5) more </span> in 2025
+                </p>
+                <div>
+                  <CsatGraph />
                 </div>
               </div>
             </div>

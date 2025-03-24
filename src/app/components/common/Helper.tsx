@@ -48,6 +48,8 @@ export const headerData = [
   },
 ];
 
+
+
 export const featuredCardList = [
   { title: 'Dashboard', icon: <DashboardIcon /> },
   { title: 'Projects', icon: <ProjectIcon /> },
@@ -366,6 +368,13 @@ export const progressData = [
   { label: 'Completed', value: 50 },
   { label: 'In Progress', value: 30 },
   { label: 'Not started', value: 20 },
+];
+
+export const completionData = [
+  { label: "One day or less", value: 25 },
+  { label: "One week", value: 26 },
+  { label: "One month", value: 21 },
+  { label: "Several months", value: 11 },
 ];
 
 export const options = [
