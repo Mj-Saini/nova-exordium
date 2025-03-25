@@ -49,7 +49,6 @@ html {
   scrollbar-width: none;
 }
 
-
 body {
   background: #f0f0f0;
 }
@@ -93,4 +92,12 @@ input[type="checkbox"]:checked::after {
 
 .custom_shadow {
   box-shadow: 0px 7px 23px 0px #0000000d;
+}
+
+.serve th {
+  @apply text-[#9A9999] text-xs leading-[133%] font-bold uppercase;
+}
+
+td {
+  @apply text-sm text-[#213737] leading-[140%] font-bold;
 }

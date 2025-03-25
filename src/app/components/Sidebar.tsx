@@ -30,7 +30,7 @@ const Sidebar: React.FC<SidebarProps> = () => {
   const pathname = usePathname();
 
   return (
-    <div id="sidebar" className="top-2 sticky">
+    <div id="sidebar" className="top-2 h-screen  ">
       <div className="cursor-pointer inline-flex items-end">
         <span
           className={`${inter.className} text-lg sm:text-xl md:text-2xl lg:text-[28px] text-[#2C4C4B] font-black leading-[100%] uppercase`}
@@ -43,7 +43,7 @@ const Sidebar: React.FC<SidebarProps> = () => {
           EXORDIUM
         </span>
       </div>
-      <div className="flex flex-col gap-2 h-full mt-6 lg:mt-[50px]">
+      <div className="flex flex-col h-[calc(100%-400px)] hide-scrollbar overflow-auto gap-2  mt-6 lg:mt-[50px]">
         {sideBarData?.slice(0, 4)?.map((item: SidebarItem, index: number) => (
           <div key={index}>
             <Link
