@@ -5,7 +5,7 @@ import Table from "../components/serve/Table";
 const page = () => {
   return (
     <>
-      <Layout heading="Profile">
+      <Layout heading="Survey" sub_heading="Survey">
         <Table />
       </Layout>
     </>
