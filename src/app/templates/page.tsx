@@ -13,8 +13,10 @@ import {
 import { templates } from '../components/common/Helper';
 import AdminHeader from '../components/AdminHeader';
 import Filtertemplates from '../components/popues/Filtertemplates';
+import { useRouter } from 'next/navigation';
 
 import Template from '../components/popues/Template';
+import Features from '../components/tamplateLib/Features';
 
 const Page: React.FC<PageProps> = () => {
   const [showSideBar, setShowSideBar] = useState<boolean>(false);
@@ -47,6 +49,10 @@ const Page: React.FC<PageProps> = () => {
   }, []);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen2, setIsOpen2] = useState(false);
+  const [isOpentemplate, setIsOpentemplate] = useState(false);
+
+  const router = useRouter();
+
   return (
     <div className="h-screen relative bg-[#f0f0f0] ">
       <div className="flex flex-wrap h-full">
@@ -80,12 +86,15 @@ const Page: React.FC<PageProps> = () => {
                   onClick={() => setIsOpen2(!isOpen2)}>
                   <FleterIcon />
                 </div>
-                <button className=" bg-[#2C4C4B]  text-white rounded-[16px] py-[12px] px-5  flex items-center gap-2 cursor-pointer font-bold text-xs sm:text-sm">
+                <button
+                  className=" bg-[#2C4C4B]  text-white rounded-[16px] py-[12px] px-5  flex items-center gap-2 cursor-pointer font-bold text-xs sm:text-sm"
+                  onClick={() => setIsOpentemplate(!isOpentemplate)}>
                   <CreateIcon />
                   Create New Project
                 </button>
               </div>
             </div>
+
             <div className="overflow-x-auto md:max-w-full overflow-visible">
               <table className="w-full mt-7 border-collapse">
                 <thead>
@@ -99,13 +108,16 @@ const Page: React.FC<PageProps> = () => {
                     )}
                   </tr>
                 </thead>
+
                 <tbody className="whitespace-nowrap">
                   {templates.map((task) => (
                     <tr key={task.id} className="border-b border-gray-200">
                       <td className="px-4 py-[16px] font-bold text-xs lg:text-sm text-[#213737]">
                         {task.id}
                       </td>
-                      <td className="px-4 py-[16px] font-bold text-xs lg:text-sm text-[#213737]">
+                      <td
+                        className="px-4 py-[16px] font-bold text-xs lg:text-sm text-[#213737]"
+                        onClick={() => router.push('/featureData')}>
                         {task.name}
                       </td>
                       <td className="px-4 py-[16px] font-bold text-xs lg:text-sm text-[#213737]">
@@ -180,9 +192,11 @@ const Page: React.FC<PageProps> = () => {
               </div>
             )}
           </div>
-          <div className="fixed inset-0 flex items-center justify-center bg-[#0000005a] bg-opacity-50 z-50">
-            <Template closePopup={() => setIsOpen2(false)} />
-          </div>
+          {isOpentemplate && (
+            <div className="fixed inset-0 flex items-center justify-center bg-[#0000005a] bg-opacity-50 z-50">
+              <Template closePopup={() => setIsOpentemplate(false)} />
+            </div>
+          )}
         </div>
       </div>
     </div>
