@@ -12,6 +12,7 @@ const DashboardPage = () => {
   const [showSideBar, setShowSideBar] = useState<boolean>(false);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
+
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
 
   // ✅ Track Scroll Position
@@ -38,6 +39,22 @@ const DashboardPage = () => {
     };
   }, [isModalOpen, showSideBar]);
 
+
+    useEffect(() => {
+      const handleScroll = () => {
+        if (window.scrollY > 0) {
+          setIsScrolled(true);
+        } else {
+          setIsScrolled(false);
+        }
+      };
+
+      window.addEventListener("scroll", handleScroll);
+      return () => {
+        window.removeEventListener("scroll", handleScroll);
+      };
+    }, []);
+
   return (
     <div className="h-screen">
       <div className="flex flex-wrap h-full">
@@ -57,7 +74,7 @@ const DashboardPage = () => {
           <div className="py-5">
             <div
               className={`top-0 sticky z-10 px-6 transition-all duration-300 ${
-                isScrolled ? "bg-white shadow-md py-2" : "bg-transparent"
+                isScrolled ? "bg-[#F0F0F0] shadow-md" : "bg-transparent"
               }`}
             >
               <AdminHeader heading="Profile" />
