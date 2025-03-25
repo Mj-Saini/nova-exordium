@@ -78,10 +78,10 @@ const AddTask: React.FC<AddTaskProps> = ({ closePopup }) => {
           ))}
         </div>
 
-        <div className="flex flex-col gap-2 pt-3 lg:pt-[24px] ">
+        <div className="flex flex-col gap-2 pt-3">
           <h2 className="font-medium text-sm lg:text-base">Task Instructions</h2>
           <textarea
-            className="w-full h-25 outline-0 py-3 px-4 text-sm border border-solid border-[#D6D6D6] hover:bg-[#F4ECF7] hover:border-[#2C4C4B] rounded-[16px] text-[#333333] align-text-top"
+            className="w-full h-[100px] resize-none  outline-0 py-3 px-4 text-sm border border-solid border-[#D6D6D6] hover:bg-[#F4ECF7] hover:border-[#2C4C4B] rounded-[16px] text-[#333333]"
             placeholder="Type here..."></textarea>
         </div>
 

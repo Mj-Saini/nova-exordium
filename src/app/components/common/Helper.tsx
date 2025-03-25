@@ -141,8 +141,11 @@ export const tasks = [
     status: 'IN PROGRESS',
     color: '#747EBD',
     due: 'Today',
-
     img: <PrioritiesIcon />,
+    subTasks: [
+      { name: 'Design UI', color: '#EBA055', status: 'TO DO' },
+      { name: 'Develop Backend', color: '#EBA055', status: 'TO DO' },
+    ],
   },
   {
     id: 2,
@@ -152,6 +155,10 @@ export const tasks = [
     due: 'Today',
     progress: '3',
     img: <PrioritiesIcon2 />,
+    subTasks: [
+      { name: 'Track Errors', color: '#EBA055', status: 'TO DO' },
+      { name: 'Analyze Feedback', color: '#EBA055', status: 'TO DO' },
+    ],
   },
   {
     id: 3,
@@ -159,8 +166,11 @@ export const tasks = [
     status: 'COMPLETED',
     color: '#408C62',
     due: '2/3/2025',
-
     img: <PrioritiesIcon />,
+    subTasks: [
+      { name: 'Encrypt Data', color: '#EBA055', status: 'TO DO' },
+      { name: 'Secure APIs', color: '#EBA055', status: 'TO DO' },
+    ],
   },
   {
     id: 4,
@@ -170,6 +180,10 @@ export const tasks = [
     due: '2/3/2025',
     progress: '10',
     img: <PrioritiesIcon2 />,
+    subTasks: [
+      { name: 'Prepare Release Notes', color: '#EBA055', status: 'TO DO' },
+      { name: 'Launch Marketing Campaign', color: '#EBA055', status: 'TO DO' },
+    ],
   },
 ];
 
@@ -256,6 +270,34 @@ export const tasks2 = [
   },
 ];
 export const tasks3 = [
+  {
+    id: 1,
+    name: "Develop the app's core features",
+    status: 'IN PROGRESS',
+    color: '#747EBD',
+    due: '2/3/2025',
+    progress: 5,
+    img: <PrioritiesIcon />,
+    subTasks: [
+      { name: 'Prepare Release Notes', color: '#EBA055', status: 'TO DO' },
+      { name: 'Launch Marketing Campaign', color: '#EBA055', status: 'TO DO' },
+    ],
+  },
+  {
+    id: 2,
+    name: 'Develop interactive prototypes to test',
+    status: 'COMPLETED',
+    color: '#408C62',
+    due: 'Tomorrow',
+    progress: 3,
+    img: <PrioritiesIcon2 />,
+    subTasks: [
+      { name: 'Prepare Release Notes', color: '#EBA055', status: 'TO DO' },
+      { name: 'Launch Marketing Campaign', color: '#EBA055', status: 'TO DO' },
+    ],
+  },
+];
+export const tempatesData = [
   {
     id: 1,
     name: "Develop the app's core features",
