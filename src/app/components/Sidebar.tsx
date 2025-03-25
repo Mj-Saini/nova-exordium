@@ -1,16 +1,16 @@
-"use client";
+'use client';
 
-import React from "react";
-import Link from "next/link";
-import { sideBarData } from "./common/Helper";
-import { Inter } from "next/font/google";
-import { usePathname } from "next/navigation";
-import { QuestionIcon } from "./common/Icons";
-import CommonBtn from "./common/CommonBtn";
+import React from 'react';
+import Link from 'next/link';
+import { sideBarData } from './common/Helper';
+import { Inter } from 'next/font/google';
+import { usePathname } from 'next/navigation';
+import { QuestionIcon } from './common/Icons';
+import CommonBtn from './common/CommonBtn';
 
 const inter = Inter({
-  subsets: ["latin"],
-  weight: ["300", "400", "600", "700", "900"],
+  subsets: ['latin'],
+  weight: ['300', '400', '600', '700', '900'],
 });
 // Define types for Sidebar Item
 interface SidebarItem {
@@ -33,13 +33,11 @@ const Sidebar: React.FC<SidebarProps> = () => {
     <div id="sidebar" className="top-2 sticky">
       <div className="cursor-pointer inline-flex items-end">
         <span
-          className={`${inter.className} text-lg sm:text-xl md:text-2xl lg:text-[28px] text-[#2C4C4B] font-black leading-[100%] uppercase`}
-        >
+          className={`${inter.className} text-lg sm:text-xl md:text-2xl lg:text-[28px] text-[#2C4C4B] font-black leading-[100%] uppercase`}>
           NOVA
-        </span>{" "}
+        </span>{' '}
         <span
-          className={`${inter.className} text-sm text-[#477D7C] font-bold uppercase leading-[100%]`}
-        >
+          className={`${inter.className} text-sm text-[#477D7C] font-bold uppercase leading-[100%]`}>
           EXORDIUM
         </span>
       </div>
@@ -49,28 +47,16 @@ const Sidebar: React.FC<SidebarProps> = () => {
             <Link
               href={`${item.path}`}
               className={`flex items-center justify-between px-2.5 lg:px-5 py-3 gap-2.5 hover:bg-[#fff] rounded-2xl hover:custom_shadow w-full duration-300 icon cursor-pointer group 
-             ${
-               pathname === item.path
-                 ? "bg-[#fff] custom_shadow"
-                 : "bg-transparent"
-             }
-            `}
-            >
+             ${pathname === item.path ? 'bg-[#fff] custom_shadow' : 'bg-transparent'}
+            `}>
               <div className="flex items-center gap-2.5 ">
                 <span
                   className={`flex h-[30px] w-[30px] justify-center items-center rounded-[12px]  group-hover:bg-[#2C4C4B] duration-300
-                               ${
-                                 pathname === item.path
-                                   ? "bg-[#2C4C4B]"
-                                   : "bg-[#fff]"
-                               }
-                  `}
-                >
+                               ${pathname === item.path ? 'bg-[#2C4C4B]' : 'bg-[#fff]'}
+                  `}>
                   {item.icon}
                 </span>
-                <h2
-                  className={`${inter.className} font-bold text-xs text-[#9A9999]`}
-                >
+                <h2 className={`${inter.className} font-bold text-xs text-[#9A9999]`}>
                   {item.tabs}
                 </h2>
               </div>
@@ -78,9 +64,7 @@ const Sidebar: React.FC<SidebarProps> = () => {
           </div>
         ))}
         <div className="my-6 px-2.5 lg:px-5">
-          <h3
-            className={`text-[#213737] text-xs font-bold uppercase ${inter.className}`}
-          >
+          <h3 className={`text-[#213737] text-xs font-bold uppercase ${inter.className}`}>
             ACCOUNT PAGES
           </h3>
         </div>
@@ -91,28 +75,16 @@ const Sidebar: React.FC<SidebarProps> = () => {
             <Link
               href={`${item.path}`}
               className={`flex items-center justify-between px-2.5 lg:px-5 py-3 gap-2.5 hover:bg-[#fff] rounded-2xl hover:custom_shadow w-full duration-300 icon cursor-pointer group 
-            ${
-              pathname === item.path
-                ? "bg-[#fff] custom_shadow"
-                : "bg-transparent"
-            }
-            `}
-            >
+            ${pathname === item.path ? 'bg-[#fff] custom_shadow' : 'bg-transparent'}
+            `}>
               <div className="flex items-center gap-2.5 ">
                 <span
                   className={`flex h-[30px] w-[30px] justify-center items-center rounded-[12px]  group-hover:bg-[#2C4C4B] duration-300
-                               ${
-                                 pathname === item.path
-                                   ? "bg-[#2C4C4B]"
-                                   : "bg-[#fff]"
-                               }
-                  `}
-                >
+                               ${pathname === item.path ? 'bg-[#2C4C4B]' : 'bg-[#fff]'}
+                  `}>
                   {item.icon}
                 </span>
-                <h2
-                  className={`${inter.className} font-bold text-xs text-[#9A9999]`}
-                >
+                <h2 className={`${inter.className} font-bold text-xs text-[#9A9999]`}>
                   {item.tabs}
                 </h2>
               </div>
@@ -124,13 +96,10 @@ const Sidebar: React.FC<SidebarProps> = () => {
       <div className="p-4 !rounded-[12px]  mt-16 login_bgimg bg-cover bg-top bg-no-repeat hidden md:block">
         <QuestionIcon />
         <h3
-          className={` ${inter.className} font-bold text-sm text-white leading-[140%] mt-2.5 md:mt-5`}
-        >
+          className={` ${inter.className} font-bold text-sm text-white leading-[140%] mt-2.5 md:mt-5`}>
           Need help?
         </h3>
-        <p className="text-xs font-normal text-white pb-2">
-          Please check our docs
-        </p>
+        <p className="text-xs font-normal text-white pb-2">Please check our docs</p>
         <div>
           <CommonBtn
             btnName="DOCUMENTATION"

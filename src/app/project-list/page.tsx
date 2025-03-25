@@ -9,6 +9,9 @@ import AdminHeader from '../components/AdminHeader';
 
 const DashboardPage = () => {
   const [showSideBar, setShowSideBar] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
   useEffect(() => {
     if (showSideBar) {
       document.body.style.overflow = 'hidden';
@@ -21,14 +24,9 @@ const DashboardPage = () => {
     };
   }, [showSideBar]);
 
-  const [isOpen, setIsOpen] = useState(false);
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 0) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+      setIsScrolled(window.scrollY > 0);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -36,13 +34,13 @@ const DashboardPage = () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
-  const [isScrolled, setIsScrolled] = useState(false);
 
   return (
-    <div className="h-screen relative bg-[#f0f0f0]">
-      <div className="flex flex-wrap h-full">
+    <div className="h-screen relative bg-[#f0f0f0] overflow-hidden">
+      <div className="flex h-full">
+        {/* Sidebar */}
         <div
-          className={` w-full md:w-3/12 xl:w-2/12 max-md:fixed left-0 duration-300 ${
+          className={` w-[200px] lg:w-[296px] max-md:fixed left-0 duration-300${
             showSideBar ? 'top-0' : '-top-full'
           }`}>
           <div className="h-full z-10 relative pt-11 px-6">
@@ -50,38 +48,46 @@ const DashboardPage = () => {
           </div>
         </div>
 
-        <div className="w-full md:w-9/12 xl:w-10/12">
+        {/* Main Content */}
+        <div className=" w-full md:w-[calc(100%-200px)] lg:w-[calc(100%-296px)]  px-2.5 lg:px-5">
+          {/* Sticky Header */}
           <div
             className={`top-0 sticky z-10 px-6 transition-all duration-300 ${
               isScrolled ? 'bg-[#F0F0F0] shadow-md' : 'bg-transparent'
             }`}>
             <AdminHeader heading="Profile" />
           </div>
-          <div className="shadow-[0px_3.5px_5.5px_0px_#00000005] p-[28px_23px_64px_21px] bg-white rounded-[15px]">
-            <div className=" sm:flex justify-between items-center">
+
+          {/* Content Wrapper */}
+          <div className="shadow-md p-6 bg-white rounded-[15px] flex flex-col h-full">
+            {/* Header Section */}
+            <div className="sm:flex justify-between items-center">
               <div>
-                <h2 className=" font-bold text-lg">Projects</h2>
-                <div className=" flex pt-[6px] items-center">
+                <h2 className="font-bold text-lg">Projects</h2>
+                <div className="flex pt-1 items-center">
                   <CheckIcon />
-                  <h3 className=" font-bold text-sm text-[#9A9999] ps-[5px]">30 done this month</h3>
+                  <h3 className="font-bold text-sm text-[#9A9999] ps-1">30 done this month</h3>
                 </div>
               </div>
-              <div className=" flex items-center mt-4 lg:mt-0">
+              <div className="flex items-center mt-4 lg:mt-0">
                 <div
-                  className="border border-[var(--Color-2,#EAEAEA)] w-[45px] h-[36px] rounded-[16px] p-[12px] gap-[6px] flex items-center justify-center bg-white cursor-pointer me-[16px]"
+                  className="border border-gray-300 w-11 h-9 rounded-[16px] flex items-center justify-center bg-white cursor-pointer me-4"
                   onClick={() => setIsOpen(!isOpen)}>
                   <FleterIcon />
                 </div>
-                <button className=" bg-[#2C4C4B]  text-white rounded-[16px] py-[12px] px-5  flex items-center gap-2 cursor-pointer font-bold text-xs sm:text-sm">
+                <button className="bg-[#2C4C4B] text-white rounded-[16px] py-3 px-5 flex items-center gap-2 font-bold text-xs sm:text-sm">
                   <CreateIcon />
                   Create New Project
                 </button>
               </div>
             </div>
-            <div className="overflow-x-auto md:max-w-full overflow-visible">
-              <table className="w-full mt-7 border-collapse">
-                <thead>
-                  <tr className="border-b border-gray-300 text-left font-bold text-xs lg:text-sm whitespace-nowrap">
+
+            {/* Scrollable Table Container */}
+
+            <div className="flex-grow overflow-y-auto mt-6 rounded-[15px] pb-[10%]">
+              <table className="w-full border-collapse whitespace-nowrap">
+                <thead className="sticky top-0 bg-white shadow z-50">
+                  <tr className="border-b border-gray-300 text-left font-bold text-xs lg:text-sm">
                     {['#', 'Project Name', 'Assigned To', 'Status', 'Due Date', 'Progress', ''].map(
                       (head, index) => (
                         <th key={index} className="px-4 py-3 text-[#9A9999]">
@@ -91,17 +97,17 @@ const DashboardPage = () => {
                     )}
                   </tr>
                 </thead>
-                <tbody className="whitespace-nowrap">
+                <tbody>
                   {tasks2.map((task) => (
                     <tr key={task.id} className="border-b border-gray-200">
-                      <td className="px-4 py-[16px] font-bold text-xs lg:text-sm">{task.id}</td>
-                      <td className="px-4 py-[16px] font-bold text-xs lg:text-sm">{task.name}</td>
-                      <td className="px-4 py-[16px] relative">
+                      <td className="px-4 py-4 font-bold text-xs lg:text-sm">{task.id}</td>
+                      <td className="px-4 py-4 font-bold text-xs lg:text-sm">{task.name}</td>
+                      <td className="px-4 py-4 relative">
                         {['girlimg.png', 'assigned2.png', 'assigned3.png', 'asseigned4.png'].map(
                           (img, idx) => (
                             <Image
                               key={idx}
-                              className="absolute rounded-full border border-white"
+                              className="absolute rounded-full z-50 border border-white"
                               src={`/images/png/${img}`}
                               alt="Assigned"
                               width={22}
@@ -111,17 +117,17 @@ const DashboardPage = () => {
                           )
                         )}
                       </td>
-                      <td className="px-4 py-[16px]">
+                      <td className="px-4 py-4">
                         <span
                           className="text-white font-bold text-xs py-1 px-4 rounded-lg"
                           style={{ backgroundColor: task.color }}>
                           {task.status}
                         </span>
                       </td>
-                      <td className="px-4 py-[16px] font-bold text-xs lg:text-sm">{task.due}</td>
-                      <td className="px-4 py-[16px]">
+                      <td className="px-4 py-4 font-bold text-xs lg:text-sm">{task.due}</td>
+                      <td className="px-4 py-4">
                         <div className="flex flex-col w-32">
-                          <span className=" text-xs lg:text-sm text-[#2C4C4B]">
+                          <span className="text-xs lg:text-sm text-[#2C4C4B]">
                             {task.progress * 10}%
                           </span>
                           <div className="relative w-full h-1 bg-gray-300 rounded-lg">
@@ -131,7 +137,7 @@ const DashboardPage = () => {
                           </div>
                         </div>
                       </td>
-                      <td className="px-4 py-2 cursor-pointer">
+                      <td className="px-4 py-4 cursor-pointer">
                         <DottedIcon />
                       </td>
                     </tr>
@@ -139,14 +145,16 @@ const DashboardPage = () => {
                 </tbody>
               </table>
             </div>
-            {isOpen && (
-              <div className="fixed inset-0 z-10 flex items-center justify-center bg-black/50">
-                <div className="relative bg-white p-4 rounded-lg shadow-lg">
-                  <Filter closePopup={setIsOpen} />
-                </div>
-              </div>
-            )}
           </div>
+
+          {/* Filter Popup */}
+          {isOpen && (
+            <div className="fixed inset-0 z-10 flex items-center justify-center bg-black/50">
+              <div className="relative bg-white p-4 rounded-lg shadow-lg">
+                <Filter closePopup={setIsOpen} />
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>
