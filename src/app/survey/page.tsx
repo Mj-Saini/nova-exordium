@@ -1,4 +1,3 @@
-import React from "react";
 import Layout from "../components/common/Layout";
 import Table from "../components/serve/Table";
 
