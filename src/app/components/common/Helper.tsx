@@ -8,12 +8,16 @@ import {
   DashboardIcon,
   DeletIcon,
   EditIcon,
+  InProgressIcon,
   NotificationsIcon,
   PrioritiesIcon,
   PrioritiesIcon2,
+  Profile_icon,
   ProjectIcon,
+  Schedule_icon_with_bg,
   SurveyIcon,
   TempleteIcon,
+  Tickmark_box_icon_with_bg,
   UserIcon,
 } from './Icons';
 
@@ -93,6 +97,93 @@ export const testimonials = [
       'Lorem ipsum dolor sit amet consectetur. Dignissim velit egestas ac risus maecenas magna risus tellus adipiscing. Magna nunc accumsan praesent dolor.',
   },
 ];
+export const Totalwork_data_dashboard = [
+  {
+    progress: "In progress",
+    totalwork: "54",
+    taskname: "Tasks in progress",
+    icons: <InProgressIcon />
+  },
+  {
+    progress: "Completed",
+    totalwork: "180",
+    taskname: "Completed tasks",
+    icons: <Tickmark_box_icon_with_bg />
+  },
+  {
+    progress: "Total time",
+    totalwork: "250",
+    taskname: "Hours",
+    icons: <Schedule_icon_with_bg />
+  },
+  {
+    progress: "User engagement",
+    totalwork: "98%",
+    taskname: "User engagement",
+    icons: <Profile_icon />
+  }
+]
+
+export const CSAT_Score_data = [
+  {
+    month: "Jan",
+    progress: 10,
+  },
+  {
+    month: "Feb",
+    progress: 5,
+  },
+  {
+    month: "Mar",
+    progress: 8.5,
+  },
+  {
+    month: "Apr",
+    progress: 2.5,
+  },
+]
+
+export const dashboard_notifications = [
+  {
+    order_no: "New order #4219423",
+    date: "21 DEC 11:21 PM",
+  },
+  {
+    order_no: "Server Payments for April",
+    date: "21 DEC 9:28 PM",
+  },
+  {
+    order_no: "New card added for order #3210145",
+    date: "20 DEC 3:52 PM",
+  },
+  {
+    order_no: "Unlock packages for Development",
+    date: "19 DEC 11:35 PM",
+  },
+  {
+    order_no: "New order #9851258",
+    date: "18 DEC 4:41 PM",
+  },
+]
+
+export const dashboard_User_Engagement_data = [
+  {
+    id: 1,
+    progress: 10,
+  },
+  {
+    id: 2,
+    progress: 5,
+  },
+  {
+    id: 3,
+    progress: 8.5,
+  },
+  {
+    id: 4,
+    progress: 2.5,
+  },
+]
 
 export const sideBarData = [
   {
@@ -442,6 +533,8 @@ export const options = [
     category: 'application',
   },
 ];
+
+
 
 export const converstationData = [
   {
