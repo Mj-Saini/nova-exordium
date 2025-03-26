@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { CloseIcon, DropdownIcon } from '../common/Icons';
 
-const Filter = ({ closePopup }: { closePopup: (value: boolean) => void }) => {
+const Filtertemplates = ({ closePopup }: { closePopup: (value: boolean) => void }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [selectedOption, setSelectedOption] = useState<string>('');
   const options: string[] = ['Option 1', 'Option 2', 'Option 3'];
@@ -20,24 +20,12 @@ const Filter = ({ closePopup }: { closePopup: (value: boolean) => void }) => {
             <CloseIcon />
           </div>
         </div>
-        <h2 className=" font-semibold text-base pb-2 lg:pb-[10px] pt-2 lg:pt-[10px]">Status</h2>
-        <div className=" ">
-          <div className="grid lg:grid-cols-3 xl:grid-cols-3 grid-cols-2 gap-2">
-            <button className="border border-solid w-full  border-[#9A9999] hover:border-[#2C4C4B] rounded-[16px] py-[13px] px-[19px] flex items-center hover:bg-[#F4ECF7] gap-4 justify-center cursor-pointer">
-              Active
-            </button>
-            <button className="border border-solid w-full  border-[#9A9999] hover:border-[#2C4C4B] rounded-[16px] py-[13px] px-[19px] flex items-center hover:bg-[#F4ECF7] gap-4 justify-center cursor-pointer">
-              Completed
-            </button>
-            <button className="border border-solid w-full  border-[#9A9999] hover:border-[#2C4C4B] rounded-[16px] py-[13px] px-[19px] flex items-center hover:bg-[#F4ECF7] gap-4 justify-center cursor-pointer">
-              Archived
-            </button>
-          </div>
 
-          <h2 className=" font-semibold text-base pt-3 lg:pt-[24px] pb-[10px]">Assigned to</h2>
+        <div className=" ">
+          <h2 className=" font-semibold text-base pt-3 lg:pt-[24px] pb-[10px]">Category</h2>
           <div className="flex justify-end w-full relative">
             <div
-              className="w-full pt-3 lg:pt-[10px] border border-solid border-[#9A9999] hover:bg-[#F4ECF7] hover:border-[#2C4C4B] rounded-[16px] py-[13px] px-[20px] flex justify-between items-center  cursor-pointer"
+              className="w-full pt-3 lg:pt-[10px] border border-solid border-[#D6D6D6] hover:bg-[#F4ECF7] hover:border-[#2C4C4B] rounded-[8px] py-[13px] px-[20px] flex justify-between items-center  cursor-pointer"
               onClick={() => setIsOpen(!isOpen)}>
               <input
                 className="outline-0 w-full cursor-pointer placeholder:text-sm   placeholder:font-bold placeholder:text-[#2C4C4B]"
@@ -71,7 +59,7 @@ const Filter = ({ closePopup }: { closePopup: (value: boolean) => void }) => {
             {['From', 'To'].map((label, index) => (
               <div
                 key={index}
-                className="border border-solid border-[#9A9999] hover:border-[#2C4C4B] rounded-[16px] py-[13px] px-[20px] flex items-center hover:bg-[#F4ECF7] justify-between  w-[250px]">
+                className="border border-solid border-[#D6D6D6] hover:border-[#2C4C4B] rounded-[8px] py-[13px] px-[20px] flex items-center hover:bg-[#F4ECF7] justify-between  w-[250px]">
                 <input
                   className="outline-0 w-full bg-transparent placeholder:text-sm font-bold text-[#2C4C4B] cursor-pointer"
                   placeholder={label}
@@ -94,4 +82,4 @@ const Filter = ({ closePopup }: { closePopup: (value: boolean) => void }) => {
   );
 };
 
-export default Filter;
+export default Filtertemplates;

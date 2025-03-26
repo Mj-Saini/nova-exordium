@@ -1,5 +1,5 @@
 "use client";
-import React, { useState,  } from "react";
+import React, { useState } from "react";
 import { GreenEditIcons, WhiteEditIcons } from "../components/common/Icons";
 import Image from "next/image";
 import MangaeSection from "../components/adminsetting/MangaeSection";
@@ -7,17 +7,22 @@ import AdminForm from "../components/adminsetting/AdminForm";
 import { motion, AnimatePresence } from "framer-motion";
 import Layout from "../components/common/Layout";
 
-const DashboardPage: React.FC<{
-  profileData: { fullName: string; email: string };
-}> = ({ profileData }) => {
+interface ProfileData {
+  fullName: string;
+  email: string;
+}
+
+interface DashboardPageProps {
+  profileData: ProfileData;
+}
+
+const DashboardPage: React.FC<DashboardPageProps> = ({ profileData }) => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
-
-
   return (
-    <Layout heading="Profile">
-      <div className="relative -mt-[120px]">
-        <div className="bg-[url('/images/png/adminsetting_bg_img.png')] bg-no-repeat bg-cover bg-center px-6 mt-6 rounded-2xl h-[300px]"></div>
+    <Layout heading="Profile" sub_heading="Profile">
+      <div className="relative !-mt-[120px] pt-4">
+        <div className="bg-[url('/images/png/adminsetting_bg_img.png')] bg-no-repeat bg-cover bg-center px-6 mt-6 rounded-2xl h-[300px] "></div>
 
         {/* Profile Section */}
         <div className="w-full flex justify-center">
@@ -58,12 +63,12 @@ const DashboardPage: React.FC<{
         </div>
       </div>
 
-      {/* model form  */}
-      {/* ManageSection */}
+      {/* Manage Section */}
       <div className="mt-[80px]">
         <MangaeSection />
       </div>
 
+      {/* Modal Form */}
       <AnimatePresence>
         {isModalOpen && (
           <div className="fixed inset-0 flex items-center justify-center bg-black/20 z-20">

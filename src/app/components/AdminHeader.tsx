@@ -17,9 +17,10 @@ const inter = Inter({
 
 interface AdminHeaderProps {
   heading: string;
+  sub_heading: string;
 }
 
-const AdminHeader: React.FC<AdminHeaderProps> = ({ heading }) => {
+const AdminHeader: React.FC<AdminHeaderProps> = ({ heading, sub_heading }) => {
   return (
     <div className="py-[22px] top-0 sticky flex items-center justify-between">
       <div>
@@ -29,7 +30,7 @@ const AdminHeader: React.FC<AdminHeaderProps> = ({ heading }) => {
         <h2
           className={`font-bold text-sm  leading-[140%] text-[#213737] capitalize ${inter.className}`}
         >
-          {heading}
+          {sub_heading}
         </h2>
       </div>
       <div className="flex gap-3 lg:gap-6  items-center">

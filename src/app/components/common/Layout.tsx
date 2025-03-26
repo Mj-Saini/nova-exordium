@@ -6,11 +6,12 @@ import AdminHeader from "../AdminHeader";
 interface Survey {
   children: React.ReactNode;
   heading: string;
+  sub_heading: string;
 }
 
-const Layout: React.FC<Survey> = ({ children, heading }) => {
+const Layout: React.FC<Survey> = ({ children, heading, sub_heading }) => {
   const [showSideBar, setShowSideBar] = useState<boolean>(false);
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [isScrolled, setIsScrolled] = useState<boolean>(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,11 +20,10 @@ const Layout: React.FC<Survey> = ({ children, heading }) => {
 
     window.addEventListener("scroll", handleScroll);
 
-    // Cleanup event listener on unmount
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []); 
+  }, []);
 
   return (
     <div className="h-screen overflow-hidden">
@@ -41,19 +41,17 @@ const Layout: React.FC<Survey> = ({ children, heading }) => {
 
         {/* Main Content */}
         <div className="w-full md:w-[calc(100%-200px)] h-[calc(100vh-20px)] overflow-auto lg:w-[calc(100%-296px)] px-2.5 lg:px-5">
-          <div className="py-5 h-full">
+          <div className="pb-5 h-full">
             <div
               className={`sticky top-0 z-10 px-6 transition-all duration-300 ease-in-out ${
                 isScrolled ? "bg-gray-500" : "bg-transparent"
               }`}
             >
-              <AdminHeader heading={heading} />
+              <AdminHeader heading={heading} sub_heading={sub_heading} />
             </div>
-
             <div>{children}</div>
           </div>
         </div>
-        
       </div>
     </div>
   );
