@@ -51,6 +51,8 @@ export const headerData = [
   },
 ];
 
+
+
 export const featuredCardList = [
   { title: 'Dashboard', icon: <DashboardIcon /> },
   { title: 'Projects', icon: <ProjectIcon /> },
@@ -356,45 +358,45 @@ export const tasks5 = [
 
 export const notification_urgent_task = [
   {
-    name: 'Quick Insights Survey',
-    due: 'Today',
-    color: '#CB2F00',
+    name: "Quick Insights Survey",
+    due: "Today",
+    color: "#CB2F00",
     progress: 1,
   },
   {
-    name: 'Help Us Improve',
-    due: 'Today',
-    color: '#CB2F00',
+    name: "Help Us Improve",
+    due: "Today",
+    color: "#CB2F00",
     progress: 10,
   },
   {
-    name: 'App-solutely Honest Feedback',
-    due: 'Tomorrow',
-    color: '#CB2F00',
+    name: "App-solutely Honest Feedback",
+    due: "Tomorrow",
+    color: "#CB2F00",
     progress: 10,
   },
   {
-    name: 'Our Next Update',
-    due: '2/3/2025',
-    color: '#333333',
+    name: "Our Next Update",
+    due: "2/3/2025",
+    color: "#333333",
     progress: 2.5,
   },
   {
-    name: 'Next Level App Experience',
-    due: '2/3/2025',
-    color: '#333333',
+    name: "Next Level App Experience",
+    due: "2/3/2025",
+    color: "#333333",
     progress: 4,
   },
   {
     name: "Develop the app's core features",
-    due: 'Today',
-    color: '#CB2F00',
+    due: "Today",
+    color: "#CB2F00",
     progress: 1,
   },
   {
-    name: 'Next Level App Experience',
-    due: 'Today',
-    color: '#CB2F00',
+    name: "Next Level App Experience",
+    due: "Today",
+    color: "#CB2F00",
     progress: 10,
   },
 ];
@@ -411,6 +413,13 @@ export const progressData = [
   { label: 'Completed', value: 50 },
   { label: 'In Progress', value: 30 },
   { label: 'Not started', value: 20 },
+];
+
+export const completionData = [
+  { label: "One day or less", value: 25 },
+  { label: "One week", value: 26 },
+  { label: "One month", value: 21 },
+  { label: "Several months", value: 11 },
 ];
 
 export const options = [
@@ -592,5 +601,61 @@ export const templates = [
     Action: <EditIcon />,
     delet: <DeletIcon />,
     Clone: <CloneIcons />,
+    img: "/images/png/project_card_img.png",
+    number: "  Project #1",
+    heading: "   Lorem ipsum dolor",
+    decs: "As Uber works through a huge amount of internal management turmoil.",
+    forthh: "hidden",
+  },
+];
+
+export const surveyTableData = [
+  {
+    id: 1,
+    name: "Quick Insights Survey",
+    averageScore: 98,
+    assignedTo: 5,
+    progress: 10,
+    dueDate: "Today",
+  },
+  {
+    id: 2,
+    name: "Help Us Improve",
+    averageScore: 45,
+    assignedTo: 2,
+    progress: 100,
+    dueDate: "Today",
+  },
+  {
+    id: 3,
+    name: "App-solutely Honest Feedback",
+    averageScore: 76,
+    assignedTo: 4,
+    progress: 100,
+    dueDate: "3/9/2025",
+  },
+  {
+    id: 4,
+    name: "Our Next Update",
+    averageScore: 76,
+    assignedTo: 5,
+    progress: 20,
+    dueDate: "2/8/2025",
+  },
+  {
+    id: 5,
+    name: "Next Level App Experience",
+    averageScore: 15,
+    assignedTo: 4,
+    progress: 40,
+    dueDate: "2/15/2025",
+  },
+  {
+    id: 6,
+    name: "App Feedback Hub",
+    averageScore: 93,
+    assignedTo: 4,
+    progress: 100,
+    dueDate: "Tomorrow",
   },
 ];

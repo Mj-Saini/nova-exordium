@@ -18,11 +18,13 @@ import { tasks } from '../common/Helper';
 import Changestatus from '../popues/Changestatus';
 import MangTable from '../tableData/MangTable';
 import AddTask from '../popues/AddTask';
-import Newtaskgroup from '../popues/Newtaskgroup';
+
+import Template from '../popues/Template';
 
 const Features = () => {
   const [showSideBar, setShowSideBar] = useState<boolean>(false);
   const [openDottedMenu, setOpenDottedMenu] = useState<number | null>(null);
+  const [isOpen2, setIsOpen2] = useState(false);
 
   useEffect(() => {
     if (showSideBar) {
@@ -35,9 +37,15 @@ const Features = () => {
       document.body.style.overflow = 'auto';
     };
   }, [showSideBar]);
-  // const progressWidth = Math.max(5, Math.min(  : 50, 100));
   const [isOpen, setIsOpen] = useState(false);
-  const [isOpen2, setIsOpen2] = useState(false);
+  useEffect(() => {
+    if (isOpen || isOpen2) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+  }, [isOpen, isOpen2]);
+
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 0) {
@@ -133,11 +141,10 @@ const Features = () => {
                   <h2 className=" text-[#CB2F00] font-bold text-sm xl:text-base">2/28/25 </h2>
                 </div>
 
-                {/* <div className=" w-5/12"></div> */}
                 <DottedIcon />
               </div>
             </div>
-            <div className="overflow-x-auto md:max-w-full overflow-visible">
+            <div className="overflow-x-auto md:max-w-full overflow-visible   pt-3">
               <table className="w-full mt-7 border-collapse">
                 <thead>
                   <tr className="border-b border-gray-300 text-left font-bold text-xs lg:text-sm whitespace-nowrap">
@@ -213,7 +220,7 @@ const Features = () => {
           {isOpen2 && (
             <div className="fixed inset-0 flex items-center justify-center bg-[#0000005a] bg-opacity-50 z-50">
               <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-[600px] mx-4">
-                <Newtaskgroup closePopup={() => setIsOpen2(false)} />
+                <Template closePopup={() => setIsOpen2(false)} />
               </div>
             </div>
           )}

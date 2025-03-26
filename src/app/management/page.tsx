@@ -1,7 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 'use client';
 import React, { useEffect, useState } from 'react';
-import Sidebar from '../components/Sidebar';
 import Image from 'next/image';
 import { CheckIcon, CreateIcon, DottedIcon } from '../components/common/Icons';
 import { tasks } from '../components/common/Helper';
@@ -10,6 +9,8 @@ import AddTask from '../components/popues/AddTask';
 import Newtaskgroup from '../components/popues/Newtaskgroup';
 import Changestatus from '../components/popues/Changestatus';
 import AdminHeader from '../components/AdminHeader';
+import Layout from '../components/common/Layout';
+import Sidebar from '../components/Sidebar';
 
 const Page = () => {
   const [showSideBar, setShowSideBar] = useState<boolean>(false);
@@ -26,7 +27,7 @@ const Page = () => {
       document.body.style.overflow = 'auto';
     };
   }, [showSideBar]);
-  // const progressWidth = Math.max(5, Math.min(  : 50, 100));
+
   const [isOpen, setIsOpen] = useState(false);
   const [isOpen2, setIsOpen2] = useState(false);
   useEffect(() => {
@@ -43,6 +44,13 @@ const Page = () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+  useEffect(() => {
+    if (isOpen || isOpen2) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+  }, [isOpen, isOpen2]);
   const [isScrolled, setIsScrolled] = useState(false);
 
   return (
@@ -63,7 +71,7 @@ const Page = () => {
             }`}>
             <AdminHeader heading="Profile" />
           </div>
-          <div className="bg-[#FFFFFF] rounded-[15px] py-[28px] px-[21px]  shadow-[0px_3.5px_5.5px_0px_#00000005]  h-fit max-h-[40%] ">
+          <div className="bg-[#FFFFFF] rounded-[15px] py-[28px] px-[21px]  shadow-[0px_3.5px_5.5px_0px_#00000005]   ">
             <div className=" xl:flex justify-between">
               <div>
                 <h2 className=" font-semibold sm:text-lg md:text-xl lg:text-[28px] text-[#213737]">
@@ -111,7 +119,7 @@ const Page = () => {
                     60%
                   </span>
 
-                  <div className="relative w-full h-[3px] bg-gray-300 rounded-lg overflow-hidden">
+                  <div className="relative w-full h-[3px] bg-gray-300 rounded-lg ">
                     <div
                       className="absolute h-full bg-[#408C62] rounded-lg min-w-[5px] transition-all duration-500 ease-in-out"
                       style={{ width: `60%` }}></div>
@@ -120,6 +128,7 @@ const Page = () => {
               </div>
             </div>
           </div>
+
           <div className="bg-[#FFFFFF] w-full rounded-[15px] h-fit max-h-[60%] py-[28px] px-[21px] mt-[2%] shadow-[0px_3.5px_5.5px_0px_#00000005]">
             <div className=" flex justify-between">
               <div className=" xl:w-2/12">
@@ -161,7 +170,7 @@ const Page = () => {
               <table className="w-full mt-7 border-collapse">
                 <thead>
                   <tr className="border-b border-gray-300 text-left font-bold text-xs lg:text-sm whitespace-nowrap">
-                    {['#', 'TASK NAME', 'STATUS', ' DUE DATE', 'PRIORITIES', ''].map(
+                    {['#', 'TASK NAME', 'STATUS', 'DUE DATE', 'PRIORITIES', ''].map(
                       (head, index) => (
                         <th key={index} className="px-4 py-3 text-[#9A9999]">
                           {head}
@@ -176,7 +185,7 @@ const Page = () => {
                       <td className="px-4 py-[16px] font-bold text-xs lg:text-sm">{task.id}</td>
                       <td className="px-4 py-[16px] font-bold text-xs lg:text-sm">{task.name}</td>
 
-                      <td className="px-4 py-[16px]">
+                      <td className="px-4 ">
                         <span
                           className="text-white font-bold text-xs py-1 px-4 rounded-lg"
                           style={{ backgroundColor: task.color }}>
@@ -220,9 +229,7 @@ const Page = () => {
               </button>
             </div>
           </div>
-
           <MangTable />
-
           {isOpen && (
             <div className="fixed inset-0 flex items-center justify-center bg-[#0000005a] bg-opacity-50 z-50">
               <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-[600px] mx-4">

@@ -1,4 +1,3 @@
-
 "use client";
 import React, { useState } from "react";
 import SignUp from "../components/SignUp";
@@ -19,41 +18,62 @@ const Page = () => {
   };
 
   return (
-    <div className={`min-h-screen flex flex-col justify-between  bg-white ${isLogin ? "px-0":"px-5"}`}>
+    <div
+      className={`min-h-screen flex flex-col justify-between  bg-white ${
+        isLogin ? "px-0" : "px-5"
+      }`}
+    >
       <div>
         {isLogin !== false && (
           <div className="relative z-20">
-            <Header btnStyling="static xl:pe-5" headerStyling="!bg-white" btnName="Don’t have account?" toggleForm={toggleForm} />
+            <Header
+              btnStyling="static xl:pe-5"
+              headerStyling="!bg-white"
+              btnName="Don’t have account?"
+              toggleForm={toggleForm}
+            />
           </div>
         )}
         {isLogin === false && (
-          <div className="bg-no-repeat bg-cover bg-top h-[50vh] start_journey_bgimg rounded-2xl mt-6">
-            <div  className="relative z-30">
-               <Header btnStyling="2xl:absolute right-[84px] " buttonClr="!text-white" btnName="Already have an account?"  toggleForm={toggleForm}/>
-          </div>
-           <div className="relative flex justify-center h-full text-white text-center py-[60px] px-5">
-             <div className="relative z-10 max-w-[450px]">
-               <h1
-                className={`${inter.className} font-bold text-2xl sm:text-3xl md:text-4xl lg:text-[40px]`}
-              >
-                Welcome!
-              </h1>
-              <p className="font-bold text-base text-[#fff] pt-2">
-
-                  Use these awesome forms to login or create new account in your project for free.
-              </p>
+          <div className="bg-no-repeat bg-cover bg-top h-[70vh] 2xl:h-[60vh] start_journey_bgimg rounded-2xl mt-6">
+            <div className="relative z-30">
+              <Header
+                btnStyling="2xl:absolute right-[84px] "
+                buttonClr="!text-white"
+                btnName="Already have an account?"
+                toggleForm={toggleForm}
+              />
+            </div>
+            <div className="relative flex justify-center h-full text-white text-center py-[60px] px-5">
+              <div className="relative z-10 max-w-[450px] h-auto">
+                <h1
+                  className={`${inter.className} font-bold text-2xl sm:text-3xl md:text-4xl lg:text-[40px]`}
+                >
+                  Welcome!
+                </h1>
+                <p className="font-bold text-base text-[#fff] pt-2">
+                  Use these awesome forms to login or create new account in your
+                  project for free.
+                </p>
+              </div>
             </div>
           </div>
-        </div>
         )}
         <div className="flex items-center justify-center py-[60px]">
-          {isLogin ? <Login toggleForm={toggleForm}/> : <SignUp toggleForm={toggleForm}/>}
+          {isLogin ? (
+            <Login toggleForm={toggleForm} />
+          ) : (
+            <SignUp toggleForm={toggleForm} />
+          )}
         </div>
-        
       </div>
 
       {/* Footer */}
-      <p className={`font-normal text-xsm text-[#9A9999] text-center pb-6 lg:pb-[52px] pt-6 ${isLogin ? "":"-translate-y-[20%]"}`}>
+      <p
+        className={`font-normal text-xsm text-[#9A9999] text-center pb-6 lg:pb-[52px] pt-6 ${
+          isLogin ? "" : "-translate-y-[20%]"
+        }`}
+      >
         This site is protected by reCAPTCHA and the Google Privacy Policy and
         Terms of Service apply.
       </p>

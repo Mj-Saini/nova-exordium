@@ -1,13 +1,12 @@
-'use client';
-import React, { useState } from 'react';
-import { CheckIcon, CreateIcon, DottedIcon } from '../common/Icons';
-import { tasks3, tasks5 } from '../common/Helper';
-import AddTask from '../popues/AddTask';
-import Newtaskgroup from '../popues/Newtaskgroup';
-import Changestatus from '../popues/Changestatus';
+"use client";
+import React, { useState } from "react";
+import { CheckIcon, CreateIcon, DottedIcon } from "../common/Icons";
+import { tasks3, tasks5 } from "../common/Helper";
+import AddTask from "../popues/AddTask";
+import Newtaskgroup from "../popues/Newtaskgroup";
+import Changestatus from "../popues/Changestatus";
 
-const MangTable = ({ progress = 50 }) => {
-  const progressWidth = Math.max(5, Math.min(progress, 100));
+const MangTable = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isOpen2, setIsOpen2] = useState(false);
   const [openDottedMenu, setOpenDottedMenu] = useState<number | null>(null);
@@ -33,18 +32,23 @@ const MangTable = ({ progress = 50 }) => {
           <div className="flex items-center gap-5 pt-[16px] w-fit">
             <div className="flex flex-col  ">
               <div>
-                <span className="text-xs lg:text-sm text-[#2C4C4B] font-bold">60% Complete</span>
+                <span className="text-xs lg:text-sm text-[#2C4C4B] font-bold">
+                  60% Complete
+                </span>
               </div>
 
               <div className="relative w-full h-[3px] bg-gray-300 rounded-lg overflow-hidden mt-[5px]">
                 <div
                   className="absolute h-full bg-[#2C4C4B] rounded-lg min-w-[5px] transition-all duration-500 ease-in-out"
-                  style={{ width: `60%` }}></div>
+                  style={{ width: `60%` }}
+                ></div>
               </div>
             </div>
 
             <div>
-              <h2 className=" text-[#CB2F00] font-bold text-sm xl:text-base">2/28/25 </h2>
+              <h2 className=" text-[#CB2F00] font-bold text-sm xl:text-base">
+                2/28/25{" "}
+              </h2>
             </div>
 
             {/* <div className=" w-5/12"></div> */}
@@ -57,36 +61,48 @@ const MangTable = ({ progress = 50 }) => {
           <table className="w-full mt-7 border-collapse">
             <thead>
               <tr className="border-b border-gray-300 text-left font-bold text-xs lg:text-sm whitespace-nowrap">
-                {['#', 'TASK NAME', 'STATUS', 'PRIORITIES', 'DUE DATE', ''].map((head, index) => (
-                  <th key={index} className="px-4 py-3 text-[#9A9999]">
-                    {head}
-                  </th>
-                ))}
+                {["#", "TASK NAME", "STATUS", "PRIORITIES", "DUE DATE", ""].map(
+                  (head, index) => (
+                    <th key={index} className="px-4 py-3 text-[#9A9999]">
+                      {head}
+                    </th>
+                  )
+                )}
               </tr>
             </thead>
             <tbody className="whitespace-nowrap">
               {tasks3.map((task) => (
                 <tr key={task.id} className="border-b border-gray-200">
-                  <td className="px-4  font-bold text-xs lg:text-sm">{task.id}</td>
-                  <td className="px-4  py-[16px] font-bold text-xs lg:text-sm">{task.name}</td>
+                  <td className="px-4  font-bold text-xs lg:text-sm">
+                    {task.id}
+                  </td>
+                  <td className="px-4  py-[16px] font-bold text-xs lg:text-sm">
+                    {task.name}
+                  </td>
                   <td className="px-4 ">
                     <span
                       className="text-white font-bold text-xs py-1 px-4 rounded-lg"
-                      style={{ backgroundColor: task.color }}>
+                      style={{ backgroundColor: task.color }}
+                    >
                       {task.status}
                     </span>
                   </td>
 
                   <td className="px-4 "> {task.img}</td>
 
-                  <td className="px-4 font-bold text-xs lg:text-sm">{task.due}</td>
+                  <td className="px-4 font-bold text-xs lg:text-sm">
+                    {task.due}
+                  </td>
 
                   <td className="cursor-pointer relative ">
                     <div
                       className=" z-50 "
                       onClick={() =>
-                        setOpenDottedMenu(openDottedMenu === task.id ? null : task.id)
-                      }>
+                        setOpenDottedMenu(
+                          openDottedMenu === task.id ? null : task.id
+                        )
+                      }
+                    >
                       <DottedIcon />
                     </div>
                     {openDottedMenu === task.id && (
@@ -105,13 +121,15 @@ const MangTable = ({ progress = 50 }) => {
         <div className="flex justify-end gap-3 pt-[16px]">
           <button
             className="bg-[#2C4C4B] text-white rounded-[16px] py-[8.5px] px-5 flex items-center gap-2 cursor-pointer font-normal text-xs sm:text-sm"
-            onClick={() => setIsOpen(true)}>
+            onClick={() => setIsOpen(true)}
+          >
             <CreateIcon />
             Add Task
           </button>
           <button
             className=" bg-[#2C4C4B]  text-white rounded-[16px] lg:py-[12px] px-5  flex items-center gap-2 cursor-pointer font-bold text-xs sm:text-sm"
-            onClick={() => setIsOpen2(true)}>
+            onClick={() => setIsOpen2(true)}
+          >
             <CreateIcon />
             New Task Group
           </button>
@@ -136,18 +154,23 @@ const MangTable = ({ progress = 50 }) => {
           <div className="flex items-center gap-5 pt-[16px] w-fit">
             <div className="flex flex-col  ">
               <div>
-                <span className="text-xs lg:text-sm text-[#2C4C4B] font-bold">60% Complete</span>
+                <span className="text-xs lg:text-sm text-[#2C4C4B] font-bold">
+                  60% Complete
+                </span>
               </div>
 
               <div className="relative w-full h-[3px] bg-gray-300 rounded-lg overflow-hidden mt-[5px]">
                 <div
                   className="absolute h-full bg-[#2C4C4B] rounded-lg min-w-[5px] transition-all duration-500 ease-in-out"
-                  style={{ width: `60%` }}></div>
+                  style={{ width: `60%` }}
+                ></div>
               </div>
             </div>
 
             <div>
-              <h2 className=" text-[#CB2F00] font-bold text-sm xl:text-base">2/28/25 </h2>
+              <h2 className=" text-[#CB2F00] font-bold text-sm xl:text-base">
+                2/28/25{" "}
+              </h2>
             </div>
 
             {/* <div className=" w-5/12"></div> */}
@@ -160,36 +183,48 @@ const MangTable = ({ progress = 50 }) => {
           <table className="w-full mt-7 border-collapse">
             <thead>
               <tr className="border-b border-gray-300 text-left font-bold text-xs lg:text-sm whitespace-nowrap">
-                {['#', 'TASK NAME', 'STATUS', 'PRIORITIES', 'DUE DATE', ''].map((head, index) => (
-                  <th key={index} className="px-4 py-3 text-[#9A9999]">
-                    {head}
-                  </th>
-                ))}
+                {["#", "TASK NAME", "STATUS", "PRIORITIES", "DUE DATE", ""].map(
+                  (head, index) => (
+                    <th key={index} className="px-4 py-3 text-[#9A9999]">
+                      {head}
+                    </th>
+                  )
+                )}
               </tr>
             </thead>
             <tbody className="whitespace-nowrap">
               {tasks5.map((task) => (
                 <tr key={task.id} className="border-b border-gray-200">
-                  <td className="px-4  font-bold text-xs lg:text-sm">{task.id}</td>
-                  <td className="px-4  py-[16px] font-bold text-xs lg:text-sm">{task.name}</td>
+                  <td className="px-4  font-bold text-xs lg:text-sm">
+                    {task.id}
+                  </td>
+                  <td className="px-4  py-[16px] font-bold text-xs lg:text-sm">
+                    {task.name}
+                  </td>
                   <td className="px-4 ">
                     <span
                       className="text-white font-bold text-xs py-1 px-4 rounded-lg"
-                      style={{ backgroundColor: task.color }}>
+                      style={{ backgroundColor: task.color }}
+                    >
                       {task.status}
                     </span>
                   </td>
 
                   <td className="px-4 "> {task.img}</td>
 
-                  <td className="px-4 font-bold text-xs lg:text-sm">{task.due}</td>
+                  <td className="px-4 font-bold text-xs lg:text-sm">
+                    {task.due}
+                  </td>
 
                   <td className="cursor-pointer relative ">
                     <div
                       className=" z-50 "
                       onClick={() =>
-                        setOpenDottedMenu(openDottedMenu === task.id ? null : task.id)
-                      }>
+                        setOpenDottedMenu(
+                          openDottedMenu === task.id ? null : task.id
+                        )
+                      }
+                    >
                       <DottedIcon />
                     </div>
                     {openDottedMenu === task.id && (
@@ -208,13 +243,15 @@ const MangTable = ({ progress = 50 }) => {
         <div className="flex justify-end gap-3 pt-[16px]">
           <button
             className="bg-[#2C4C4B] text-white rounded-[16px] py-[8.5px] px-5 flex items-center gap-2 cursor-pointer font-normal text-xs sm:text-sm"
-            onClick={() => setIsOpen(true)}>
+            onClick={() => setIsOpen(true)}
+          >
             <CreateIcon />
             Add Task
           </button>
           <button
             className=" bg-[#2C4C4B]  text-white rounded-[16px] lg:py-[12px] px-5  flex items-center gap-2 cursor-pointer font-bold text-xs sm:text-sm"
-            onClick={() => setIsOpen2(true)}>
+            onClick={() => setIsOpen2(true)}
+          >
             <CreateIcon />
             New Task Group
           </button>
