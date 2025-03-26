@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Sidebar from "../Sidebar";
 import AdminHeader from "../AdminHeader";
 
@@ -10,15 +10,29 @@ interface Survey {
 
 const Layout: React.FC<Survey> = ({ children, heading }) => {
   const [showSideBar, setShowSideBar] = useState<boolean>(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 0);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    // Cleanup event listener on unmount
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []); 
 
   return (
     <div className="h-screen overflow-hidden">
       <div className="flex flex-wrap h-full">
         {/* Sidebar */}
         <div
-          className={`w-[200px] h-screen  lg:w-[296px] max-md:fixed  top-0 duration-300 ${
-            showSideBar ? "left-0" : "-left-[-150%]"
-          }`}
+          className={`w-[200px] h-screen lg:w-[296px] fixed top-0 duration-300 ease-in-out ${
+            showSideBar ? "left-0" : "-left-[150%]"
+          } lg:static`}
         >
           <div className="h-full z-10 relative pt-11 px-3 lg:px-6">
             <Sidebar setShowSideBar={setShowSideBar} />
@@ -26,10 +40,11 @@ const Layout: React.FC<Survey> = ({ children, heading }) => {
         </div>
 
         {/* Main Content */}
-        <div className="w-full md:w-[calc(100%-200px)]  h-[calc(100vh-20px)] overflow-auto  lg:w-[calc(100%-296px)] px-2.5 lg:px-5">
+        <div className="w-full md:w-[calc(100%-200px)] h-[calc(100vh-20px)] overflow-auto lg:w-[calc(100%-296px)] px-2.5 lg:px-5">
           <div className="py-5 h-full">
             <div
-              className={`top-0 sticky z-10 px-6 transition-all duration-300 bg-[#F0F0F0] 
+              className={`sticky top-0 z-10 px-6 transition-all duration-300 ease-in-out ${
+                isScrolled ? "bg-gray-500" : "bg-transparent"
               }`}
             >
               <AdminHeader heading={heading} />
@@ -38,6 +53,7 @@ const Layout: React.FC<Survey> = ({ children, heading }) => {
             <div>{children}</div>
           </div>
         </div>
+        
       </div>
     </div>
   );

@@ -1,11 +1,11 @@
 import React from "react";
 import Layout from "../components/common/Layout";
-import Table from "../components/serve/Table";
+import Table from "../components/serveyFolder/Table";
 
 const page = () => {
   return (
     <>
-      <Layout heading="Profile">
+      <Layout heading="Survey">
         <Table />
       </Layout>
     </>
