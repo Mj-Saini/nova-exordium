@@ -9,6 +9,7 @@ import {
 } from "./common/Icons";
 import Image from "next/image";
 import userProfile from "../../../public/images/png/user.png";
+import Link from "next/link";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -45,12 +46,15 @@ const AdminHeader: React.FC<AdminHeaderProps> = ({ heading, sub_heading }) => {
           />
         </div>
         <div className="flex gap-3 lg:gap-6 items-center">
-          <Image width={40} height={40} src={userProfile} alt="profile-img" />
+          <Link href={""}><Image width={40} height={40} src={userProfile} alt="profile-img" /></Link>
 
-          <EmailIcon />
-          <AdminHeaderNotificationIcon />
-          <SettingsIcon />
-          <LogOutIcon />
+          <Link href={""}><EmailIcon /></Link>
+          <Link href={""}> <AdminHeaderNotificationIcon /></Link>
+          <Link href={""}> <SettingsIcon /></Link>
+          <Link href={""}><LogOutIcon /></Link>
+
+
+
         </div>
       </div>
     </div>
