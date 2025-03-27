@@ -152,7 +152,7 @@ const Features = () => {
             <DottedIcon />
           </div>
         </div>
-        <div className="overflow-x-auto md:max-w-full overflow-visible   pt-3">
+        <div className="overflow-x-auto md:max-w-full overflow-visible   pt-3 pb-5">
           <table className="w-full mt-7 border-collapse">
             <thead>
               <tr className="border-b border-gray-300 text-left font-bold text-xs lg:text-sm whitespace-nowrap">
