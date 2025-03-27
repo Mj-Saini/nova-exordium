@@ -3,11 +3,10 @@ import React, { useEffect, useState } from "react";
 import Sidebar from "../components/Sidebar";
 
 import {
-  ArowPreviousIcons,
+  GoNextIcon,
   CheckIcon,
   CreateIcon,
   FleterIcon,
-  NextwhiteIcons,
 } from "../components/common/Icons";
 
 import { templates } from '../components/common/Helper';
@@ -149,7 +148,7 @@ const Page = () => {
         </div>
         <div className=" flex items-center justify-between pt-5">
           <div className=" flex items-center">
-            <ArowPreviousIcons />
+            <span className="-scale-100"><GoNextIcon iconStyling="fill-[#333]" /></span>
             <h2 className=" font-bold text-sm text-[#333333] ps-[16px]  ">
               Previous
             </h2>
@@ -180,7 +179,7 @@ const Page = () => {
           </div>
           <div>
             <button className=" flex gap-4 px-[20px] rounded-full py-[10px] items-center font-bold text-sm text-white bg-[#2C4C4B] cursor-pointer">
-              Next <NextwhiteIcons />
+              Next <GoNextIcon iconStyling="fill-white" />
             </button>
           </div>
         </div>
