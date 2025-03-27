@@ -1302,7 +1302,36 @@ export const ShortAnsIcons = () => {
   );
 };
 
-export const ParagraphIcons = () => {
+
+export const Tickmark_box_icon_with_bg = () => {
+  return (
+    <svg width="57" height="57" viewBox="0 0 57 57" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g filter="url(#filter0_d_2015_10271)">
+        <rect x="6" y="2.5" width="45" height="45" rx="12" fill="#2C4C4B" />
+      </g>
+      <g clip-path="url(#clip0_2015_10271)">
+        <path d="M28.25 36.5C31.2337 36.5 34.0952 35.3147 36.205 33.205C38.3147 31.0952 39.5 28.2337 39.5 25.25C39.5 22.2663 38.3147 19.4048 36.205 17.295C34.0952 15.1853 31.2337 14 28.25 14C25.2663 14 22.4048 15.1853 20.295 17.295C18.1853 19.4048 17 22.2663 17 25.25C17 28.2337 18.1853 31.0952 20.295 33.205C22.4048 35.3147 25.2663 36.5 28.25 36.5ZM33.2158 23.1846L27.5908 28.8096C27.1777 29.2227 26.5098 29.2227 26.1011 28.8096L23.2886 25.9971C22.8755 25.584 22.8755 24.916 23.2886 24.5073C23.7017 24.0986 24.3696 24.0942 24.7783 24.5073L26.8438 26.5728L31.7217 21.6904C32.1348 21.2773 32.8027 21.2773 33.2114 21.6904C33.6201 22.1035 33.6245 22.7715 33.2114 23.1802L33.2158 23.1846Z" fill="white" />
+      </g>
+      <defs>
+        <filter id="filter0_d_2015_10271" x="0.5" y="0.5" width="56" height="56" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+          <feOffset dy="3.5" />
+          <feGaussianBlur stdDeviation="2.75" />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.02 0" />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_2015_10271" />
+          <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_2015_10271" result="shape" />
+        </filter>
+        <clipPath id="clip0_2015_10271">
+          <rect width="22.5" height="22.5" fill="white" transform="translate(17 14)" />
+        </clipPath>
+      </defs>
+    </svg>
+
+
+  )
+}
+export const Schedule_icon = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -1331,7 +1360,37 @@ export const ParagraphIcons = () => {
   );
 };
 
-export const RatingIcons = () => {
+
+
+export const Schedule_icon_with_bg = () => {
+  return (
+    <svg width="57" height="57" viewBox="0 0 57 57" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g filter="url(#filter0_d_2015_3811)">
+        <rect x="6" y="2.5" width="45" height="45" rx="12" fill="#2C4C4B" />
+      </g>
+      <g clip-path="url(#clip0_2015_3811)">
+        <path d="M28.25 14C31.2337 14 34.0952 15.1853 36.205 17.295C38.3147 19.4048 39.5 22.2663 39.5 25.25C39.5 28.2337 38.3147 31.0952 36.205 33.205C34.0952 35.3147 31.2337 36.5 28.25 36.5C25.2663 36.5 22.4048 35.3147 20.295 33.205C18.1853 31.0952 17 28.2337 17 25.25C17 22.2663 18.1853 19.4048 20.295 17.295C22.4048 15.1853 25.2663 14 28.25 14ZM27.1953 19.2734V25.25C27.1953 25.6016 27.3711 25.9312 27.6655 26.1289L31.8843 28.9414C32.3677 29.2666 33.0225 29.1348 33.3477 28.647C33.6729 28.1592 33.541 27.5088 33.0532 27.1836L29.3047 24.6875V19.2734C29.3047 18.689 28.8345 18.2188 28.25 18.2188C27.6655 18.2188 27.1953 18.689 27.1953 19.2734Z" fill="white" />
+      </g>
+      <defs>
+        <filter id="filter0_d_2015_3811" x="0.5" y="0.5" width="56" height="56" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+          <feOffset dy="3.5" />
+          <feGaussianBlur stdDeviation="2.75" />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.02 0" />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_2015_3811" />
+          <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_2015_3811" result="shape" />
+        </filter>
+        <clipPath id="clip0_2015_3811">
+          <rect width="22.5" height="22.5" fill="white" transform="translate(17 14)" />
+        </clipPath>
+      </defs>
+    </svg>
+
+
+  )
+}
+export const Newresponse_icon = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -1449,4 +1508,33 @@ export const UploadimageIcons = () => {
       </g>
     </svg>
   );
+};
+  
+
+export const Profile_icon=()=>{
+  return(
+    <svg width="57" height="57" viewBox="0 0 57 57" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g filter="url(#filter0_d_2015_17075)">
+        <rect x="6" y="2.5" width="45" height="45" rx="12" fill="#2C4C4B" />
+      </g>
+      <g clip-path="url(#clip0_2015_17075)">
+        <path d="M34.5342 30.8838C33.563 29.1963 31.7393 28.0625 29.6562 28.0625H26.8438C24.7607 28.0625 22.937 29.1963 21.9658 30.8838C23.5127 32.6064 25.7539 33.6875 28.25 33.6875C30.7461 33.6875 32.9873 32.6021 34.5342 30.8838ZM17 25.25C17 22.2663 18.1853 19.4048 20.295 17.295C22.4048 15.1853 25.2663 14 28.25 14C31.2337 14 34.0952 15.1853 36.205 17.295C38.3147 19.4048 39.5 22.2663 39.5 25.25C39.5 28.2337 38.3147 31.0952 36.205 33.205C34.0952 35.3147 31.2337 36.5 28.25 36.5C25.2663 36.5 22.4048 35.3147 20.295 33.205C18.1853 31.0952 17 28.2337 17 25.25ZM28.25 25.9531C29.0892 25.9531 29.894 25.6198 30.4873 25.0264C31.0807 24.433 31.4141 23.6282 31.4141 22.7891C31.4141 21.9499 31.0807 21.1451 30.4873 20.5517C29.894 19.9584 29.0892 19.625 28.25 19.625C27.4108 19.625 26.606 19.9584 26.0127 20.5517C25.4193 21.1451 25.0859 21.9499 25.0859 22.7891C25.0859 23.6282 25.4193 24.433 26.0127 25.0264C26.606 25.6198 27.4108 25.9531 28.25 25.9531Z" fill="white" />
+      </g>
+      <defs>
+        <filter id="filter0_d_2015_17075" x="0.5" y="0.5" width="56" height="56" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+          <feOffset dy="3.5" />
+          <feGaussianBlur stdDeviation="2.75" />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.02 0" />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_2015_17075" />
+          <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_2015_17075" result="shape" />
+        </filter>
+        <clipPath id="clip0_2015_17075">
+          <rect width="22.5" height="22.5" fill="white" transform="translate(17 14)" />
+        </clipPath>
+      </defs>
+    </svg>
+
+  )
 };
