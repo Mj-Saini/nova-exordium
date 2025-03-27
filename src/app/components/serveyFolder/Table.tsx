@@ -4,13 +4,16 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Inter } from "next/font/google";
-import { CheckIcon, FleterIcon } from "../common/Icons";
+import { CheckIcon, FleterIcon, PulsIcons } from "../common/Icons";
 import { surveyTableData } from "../common/Helper";
+import CreateSurvey from "./CreateSurvey";
+import SurveyData from "./SurveyData";
 
 const inter = Inter({
   subsets: ["latin"],
   weight: ["300", "400", "600", "700", "900"],
 });
+
 interface Survey {
   id: number;
   name: string;
@@ -18,7 +21,9 @@ interface Survey {
   assignedTo: number;
   progress: number;
   dueDate: string;
+  endDate: string;
 }
+
 const Table: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isViewModalOpen, setIsViewModalOpen] = useState(false);
@@ -32,7 +37,9 @@ const Table: React.FC = () => {
     name: "",
     assignedTo: "",
     dueDate: "",
+
   });
+
   // Toggle modal functions
   const toggleModal = () => setIsModalOpen(!isModalOpen);
   const toggleViewModal = () => setIsViewModalOpen(!isViewModalOpen);
@@ -61,10 +68,10 @@ const Table: React.FC = () => {
   };
 
   // Handle View button click
-  const handleViewClick = (survey: Survey) => {
-    setSelectedSurvey(survey);
-    setIsViewModalOpen(true);
-  };
+  // const handleViewClick = (survey: Survey) => {
+  //   setSelectedSurvey(survey);
+  //   setIsViewModalOpen(true);
+  // };
 
   // Handle Remove button click
   const handleRemoveClick = (id: number) => {
@@ -74,29 +81,6 @@ const Table: React.FC = () => {
   };
 
   // Handle form submission for new survey
-  const handleCreateSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-
-    const assignedCount = parseInt(newSurvey.assignedTo) || 3;
-
-    const newSurveyObj: Survey = {
-      id: Math.floor(Math.random() * 1000),
-      name: newSurvey.name,
-      averageScore: 0,
-      assignedTo: assignedCount,
-      progress: 0,
-      dueDate: newSurvey.dueDate,
-    };
-
-    alert(`New survey "${newSurveyObj.name}" would be created`);
-
-    setNewSurvey({
-      name: "",
-      assignedTo: "",
-      dueDate: "",
-    });
-    setIsModalOpen(false);
-  };
 
   // Handle form submission for editing survey
   const handleEditSubmit = (e: React.FormEvent) => {
@@ -116,40 +100,16 @@ const Table: React.FC = () => {
     setIsEditModalOpen(false);
   };
 
-  // Generate avatar stack
-  const renderAvatars = (count: number) => {
-    const colors = [
-      "bg-purple-500",
-      "bg-pink-500",
-      "bg-blue-500",
-      "bg-green-500",
-      "bg-yellow-500",
-    ];
-    return (
-      <div className="flex -space-x-2">
-        {Array.from({ length: count }).map((_, index) => (
-          <div
-            key={index}
-            className={`w-6 h-6 rounded-full ${
-              colors[index % colors.length]
-            } border-2 border-white flex items-center justify-center text-xs text-white`}
-          >
-            {String.fromCharCode(65 + index)}
-          </div>
-        ))}
-      </div>
-    );
-  };
-
   // Generate progress bar
   const renderProgressBar = (progress: number) => (
-    <div className="w-full bg-gray-200 rounded-full h-2.5">
+    <div className="w-full bg-gray-200 rounded-full h-[2px]">
       <div
-        className="bg-blue-600 h-2.5 rounded-full"
+        className="bg-[#2C4C4B] h-[2px] rounded-full"
         style={{ width: `${progress}%` }}
       ></div>
     </div>
   );
+
   return (
     <>
       {/* table section  */}
@@ -170,17 +130,16 @@ const Table: React.FC = () => {
           </div>
 
           <div className="flex items-center gap-4">
-            <button
-              onClick={toggleModal}
-              className=" border border-[#EAEAEA] cursor-pointer hover:bg-gray-300 p-3 rounded-2xl"
-            >
+            <button className=" border border-[#EAEAEA] cursor-pointer hover:bg-gray-300 p-3 rounded-2xl">
               <FleterIcon />
             </button>
             <button
               onClick={toggleModal}
-              className="bg-[#2C4C4B] cursor-pointer hover:bg-green-800 text-white p-[12px_20px] rounded-full flex items-center"
+              className="bg-[#2C4C4B] cursor-pointer hover:bg-green-800 text-white p-[12px_20px] rounded-full inline-flex gap-[6px] items-center"
             >
-              <span className="mr-2">+</span>
+              <span>
+                <PulsIcons />
+              </span>
               Create New Survey
             </button>
           </div>
@@ -205,67 +164,76 @@ const Table: React.FC = () => {
             </thead>
 
             {/* table itmes  */}
-            <tbody className="">
+            <tbody>
               {surveyTableData.map((survey: any) => (
                 <tr
                   key={survey.id}
-                  className="hover:bg-gray-50 border-b border-b-[#EAEBEB]"
+                  className="hover:bg-gray-50 border-b border-b-[#EAEBEB] cursor-pointer"
                 >
-                  <td className="py-3 px-5">
+                  <td
+                    onClick={() => (window.location.href = "/individual")} // Navigate on row click
+                    className="py-3 px-5"
+                  >
                     <span>{survey.name}</span>
                   </td>
                   <td className="py-3 px-5">
-                    <span className=" !text-[#213737]">
+                    <span className="!text-[#213737]">
                       {survey.averageScore}%
                     </span>
                   </td>
-
                   <td className="py-3 px-5 flex gap-1">
-                    {Array(survey.averageScore < 50 ? 4 : 1) // 4 images if score < 50, else 1 image
+                    {Array(survey.averageScore < 50 ? 1 : 1) // 4 images if score < 50, else 1 image
                       .fill(null)
                       .map((_, index) => (
                         <Image
                           key={index}
-                          src={
-                            survey.averageScore < 50
-                              ? "/images/red-icon.png"
-                              : "/images/green-icon.png"
-                          }
+                          src="/images/png/assigned_avatr_img.png"
                           alt="Score Indicator"
-                          width={24}
-                          height={24}
+                          width={74}
+                          height={20}
                         />
                       ))}
                   </td>
-
                   <td className="py-3 px-5">
-                    <div className=" pb-2">
-                      <span className=" w-10 h-2">{survey.progress}%</span>
+                    <div className="pb-2">
+                      <span className="w-10 h-1">{survey.progress}%</span>
                       {renderProgressBar(survey.progress)}
                     </div>
                   </td>
-                  <td className="py-3 px-5 ">
+                  <td className="py-3 px-5">
                     <span className="text-sm font-normal leading-[142%]">
                       {survey.dueDate}
                     </span>
                   </td>
-                  <td className="py-3 px-5 ">
-                    <div className="flex space-x-6  w-fit">
+                  <td className="py-3 px-5">
+                    <div className="flex space-x-6 w-fit">
                       <button
-                        onClick={() => handleViewClick(survey)}
-                        className="text-[#9A9999] hover:text-blue-500 cursor-pointer"
+                        // onClick={(e) => {
+                        //   e.stopPropagation();
+                        //   handleViewClick(survey);
+                        // }}
+                        onClick={() =>
+                          (window.location.href = "/survey/individualView")
+                        }
+                        className="text-[#9A9999] hover:text-blue-500 cursor-pointer text-sm font-bold leading-[140%]"
                       >
                         View
                       </button>
                       <button
-                        onClick={() => handleEditClick(survey)}
-                        className="text-[#9A9999] hover:text-blue-500 cursor-pointer"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleEditClick(survey);
+                        }}
+                        className="text-[#9A9999] hover:text-blue-500 cursor-pointer text-sm font-bold leading-[140%]"
                       >
                         Edit
                       </button>
                       <button
-                        onClick={() => handleRemoveClick(survey.id)}
-                        className=" hover:text-red-500 cursor-pointer text-[#9A9999]"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleRemoveClick(survey.id);
+                        }}
+                        className="hover:text-red-500 cursor-pointer text-sm font-bold leading-[140%] text-[#9A9999]"
                       >
                         Remove
                       </button>
@@ -286,7 +254,7 @@ const Table: React.FC = () => {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 onClick={toggleModal}
-                className="absolute inset-0 bg-black bg-opacity-50"
+                className="absolute inset-0 bg-black/20"
               />
               <motion.div
                 initial={{ scale: 0.9, opacity: 0 }}
@@ -297,78 +265,43 @@ const Table: React.FC = () => {
                   damping: 20,
                   stiffness: 300,
                 }}
-                className="bg-white rounded-lg p-6 w-full max-w-md z-10"
+                className="bg-white rounded-lg p-6  w-full max-w-[955px] z-10"
               >
-                <div className="flex justify-between items-center mb-4">
-                  <h2 className="text-xl font-bold">Create New Survey</h2>
-                  <button
-                    onClick={toggleModal}
-                    className="text-gray-500 hover:text-gray-700"
-                  >
-                    ✕
-                  </button>
-                </div>
-                <form onSubmit={handleCreateSubmit}>
-                  <div className="mb-4">
-                    <label className="block text-gray-700 mb-2">
-                      Survey Name
-                    </label>
-                    <input
-                      type="text"
-                      name="name"
-                      value={newSurvey.name}
-                      onChange={handleInputChange}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                      placeholder="Enter survey name"
-                      required
-                    />
-                  </div>
-                  <div className="mb-4">
-                    <label className="block text-gray-700 mb-2">
-                      Assign To
-                    </label>
-                    <select
-                      name="assignedTo"
-                      value={newSurvey.assignedTo}
-                      onChange={handleInputChange}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                      required
-                    >
-                      <option value="">Select team members</option>
-                      <option value="1">Team A (1)</option>
-                      <option value="2">Team B (2)</option>
-                      <option value="3">Team C (3)</option>
-                      <option value="4">Team D (4)</option>
-                      <option value="5">Team E (5)</option>
-                    </select>
-                  </div>
-                  <div className="mb-4">
-                    <label className="block text-gray-700 mb-2">Due Date</label>
-                    <input
-                      type="date"
-                      name="dueDate"
-                      value={newSurvey.dueDate}
-                      onChange={handleInputChange}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                      required
-                    />
-                  </div>
-                  <div className="flex justify-end space-x-2">
-                    <button
-                      type="button"
-                      onClick={toggleModal}
-                      className="px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50"
-                    >
-                      Cancel
-                    </button>
-                    <button
-                      type="submit"
-                      className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
-                    >
-                      Create Survey
-                    </button>
-                  </div>
-                </form>
+                <CreateSurvey
+                  isModalOpen={isModalOpen}
+                  setIsModalOpen={setIsModalOpen}
+                />
+              </motion.div>
+            </div>
+          )}
+        </AnimatePresence>
+
+        {/* survey model section  */}
+        <AnimatePresence>
+          {isModalOpen && (
+            <div className="fixed inset-0  flex items-center justify-center z-50 px-4">
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                onClick={toggleModal}
+                className="absolute inset-0 bg-black/20"
+              />
+              <motion.div
+                initial={{ scale: 0.9, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.9, opacity: 0 }}
+                transition={{
+                  type: "spring",
+                  damping: 20,
+                  stiffness: 300,
+                }}
+                className="bg-white rounded-lg p-6 pe-1 w-full max-w-[955px] z-10"
+              >
+                <SurveyData
+                  isModalOpen={isModalOpen}
+                  setIsModalOpen={setIsModalOpen}
+                />
               </motion.div>
             </div>
           )}
@@ -413,21 +346,15 @@ const Table: React.FC = () => {
                   <div>
                     <p className="text-sm text-gray-500">Average CSAT Score</p>
                     <p
-                      className={`font-medium ${
-                        selectedSurvey.averageScore < 50
+                      className={`font-medium ${selectedSurvey.averageScore < 50
                           ? "text-red-500"
                           : "text-green-500"
-                      }`}
+                        }`}
                     >
                       {selectedSurvey.averageScore}%
                     </p>
                   </div>
-                  <div>
-                    <p className="text-sm text-gray-500">Assigned To</p>
-                    <div className="mt-1">
-                      {renderAvatars(selectedSurvey.assignedTo)}
-                    </div>
-                  </div>
+
                   <div>
                     <p className="text-sm text-gray-500">Progress</p>
                     <div className="flex items-center mt-1">

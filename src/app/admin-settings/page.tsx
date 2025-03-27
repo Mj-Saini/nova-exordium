@@ -1,7 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
-import Sidebar from "../components/Sidebar";
-import AdminHeader from "../components/AdminHeader";
+import React, { useState } from "react";
 import { GreenEditIcons, WhiteEditIcons } from "../components/common/Icons";
 import Image from "next/image";
 import MangaeSection from "../components/adminsetting/MangaeSection";
@@ -9,57 +7,22 @@ import AdminForm from "../components/adminsetting/AdminForm";
 import { motion, AnimatePresence } from "framer-motion";
 import Layout from "../components/common/Layout";
 
-const DashboardPage = () => {
-  const [showSideBar, setShowSideBar] = useState<boolean>(false);
+interface ProfileData {
+  fullName: string;
+  email: string;
+}
+
+interface DashboardPageProps {
+  profileData: ProfileData;
+}
+
+const DashboardPage: React.FC<DashboardPageProps> = ({ profileData }) => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
-
-
-  const [isScrolled, setIsScrolled] = useState<boolean>(false);
-
-  // ✅ Track Scroll Position
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  // Prevent scrolling when sidebar or modal is open
-  useEffect(() => {
-    document.body.style.overflow =
-      isModalOpen || showSideBar ? "hidden" : "auto";
-
-    return () => {
-      document.body.style.overflow = "auto";
-    };
-  }, [isModalOpen, showSideBar]);
-
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 0) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
 
   return (
     <Layout heading="Profile" sub_heading="Profile">
-      <div className="relative -mt-[120px]">
-        <div className="bg-[url('/images/png/adminsetting_bg_img.png')] bg-no-repeat bg-cover bg-center px-6 mt-6 rounded-2xl h-[300px]"></div>
+      <div className="relative !-mt-[120px] pt-4">
+        <div className="bg-[url('/images/png/adminsetting_bg_img.png')] bg-no-repeat bg-cover bg-center px-6 mt-6 rounded-2xl h-[300px] "></div>
 
         {/* Profile Section */}
         <div className="w-full flex justify-center">
@@ -79,10 +42,10 @@ const DashboardPage = () => {
               </div>
               <div>
                 <h3 className="text-base lg:text-lg font-bold text-[#213737]">
-                  Gregory Hodkiewicz
+                  {profileData?.fullName || "Gregory Hodkiewicz"}
                 </h3>
                 <p className="text-sm font-normal text-[#9A9999]">
-                  Gregory68@gmail.com
+                  {profileData?.email || "Gregory68@gmail.com"}
                 </p>
               </div>
             </div>
@@ -100,12 +63,12 @@ const DashboardPage = () => {
         </div>
       </div>
 
-      {/* model form  */}
-      {/* ManageSection */}
+      {/* Manage Section */}
       <div className="mt-[80px]">
         <MangaeSection />
       </div>
 
+      {/* Modal Form */}
       <AnimatePresence>
         {isModalOpen && (
           <div className="fixed inset-0 flex items-center justify-center bg-black/20 z-20">
@@ -123,7 +86,6 @@ const DashboardPage = () => {
           </div>
         )}
       </AnimatePresence>
-
     </Layout>
   );
 };

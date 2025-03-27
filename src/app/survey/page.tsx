@@ -1,5 +1,5 @@
 import Layout from "../components/common/Layout";
-import Table from "../components/serve/Table";
+import Table from "../components/serveyFolder/Table";
 
 const page = () => {
   return (

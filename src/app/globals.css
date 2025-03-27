@@ -94,7 +94,7 @@ input[type="checkbox"]:checked::after {
   box-shadow: 0px 7px 23px 0px #0000000d;
 }
 
-.serve th {
+th .serve {
   @apply text-[#9A9999] text-xs leading-[133%] font-bold uppercase;
 }
 
@@ -147,3 +147,7 @@ td {
 }
 
 /* barchart css ends here  */
+label .servy_label {
+  @apply text-base text-[#213737] font-medium !leading-[140%] pb-1;
+}
+
