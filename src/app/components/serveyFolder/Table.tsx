@@ -37,6 +37,7 @@ const Table: React.FC = () => {
     name: "",
     assignedTo: "",
     dueDate: "",
+   
   });
 
   // Toggle modal functions
@@ -67,10 +68,10 @@ const Table: React.FC = () => {
   };
 
   // Handle View button click
-  const handleViewClick = (survey: Survey) => {
-    setSelectedSurvey(survey);
-    setIsViewModalOpen(true);
-  };
+  // const handleViewClick = (survey: Survey) => {
+  //   setSelectedSurvey(survey);
+  //   setIsViewModalOpen(true);
+  // };
 
   // Handle Remove button click
   const handleRemoveClick = (id: number) => {
@@ -163,69 +164,76 @@ const Table: React.FC = () => {
             </thead>
 
             {/* table itmes  */}
-            <tbody className="">
+            <tbody>
               {surveyTableData.map((survey: any) => (
                 <tr
                   key={survey.id}
-                  className="hover:bg-gray-50 border-b border-b-[#EAEBEB]"
+                  className="hover:bg-gray-50 border-b border-b-[#EAEBEB] cursor-pointer"
                 >
-                  <td className="py-3 px-5">
+                  <td
+                    onClick={() => (window.location.href = "/individual")} // Navigate on row click
+                    className="py-3 px-5"
+                  >
                     <span>{survey.name}</span>
                   </td>
                   <td className="py-3 px-5">
-                    <span className=" !text-[#213737]">
+                    <span className="!text-[#213737]">
                       {survey.averageScore}%
                     </span>
                   </td>
-
                   <td className="py-3 px-5 flex gap-1">
                     {Array(survey.averageScore < 50 ? 1 : 1) // 4 images if score < 50, else 1 image
                       .fill(null)
                       .map((_, index) => (
                         <Image
                           key={index}
-                          src={
-                            survey.averageScore < 50
-                              ? "/images/png/assigned_avatr_img.png"
-                              : "/images/png/assigned_avatr_img.png"
-                          }
+                          src="/images/png/assigned_avatr_img.png"
                           alt="Score Indicator"
                           width={74}
                           height={20}
                         />
                       ))}
                   </td>
-
                   <td className="py-3 px-5">
-                    <div className=" pb-2">
-                      <span className=" w-10 h-1">{survey.progress}%</span>
+                    <div className="pb-2">
+                      <span className="w-10 h-1">{survey.progress}%</span>
                       {renderProgressBar(survey.progress)}
                     </div>
                   </td>
-
-                  <td className="py-3 px-5 ">
+                  <td className="py-3 px-5">
                     <span className="text-sm font-normal leading-[142%]">
                       {survey.dueDate}
                     </span>
                   </td>
-
-                  <td className="py-3 px-5 ">
-                    <div className="flex space-x-6  w-fit">
+                  <td className="py-3 px-5">
+                    <div className="flex space-x-6 w-fit">
                       <button
-                        onClick={() => handleViewClick(survey)}
-                        className="text-[#9A9999] hover:text-blue-500 cursor-pointer"
+                        // onClick={(e) => {
+                        //   e.stopPropagation();
+                        //   handleViewClick(survey);
+                        // }}
+                        onClick={() =>
+                          (window.location.href = "/survey/individualView")
+                        }
+                        className="text-[#9A9999] hover:text-blue-500 cursor-pointer text-sm font-bold leading-[140%]"
                       >
                         View
                       </button>
                       <button
-                        onClick={() => handleEditClick(survey)}
-                        className="text-[#9A9999] hover:text-blue-500 cursor-pointer"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleEditClick(survey);
+                        }}
+                        className="text-[#9A9999] hover:text-blue-500 cursor-pointer text-sm font-bold leading-[140%]"
                       >
                         Edit
                       </button>
                       <button
-                        onClick={() => handleRemoveClick(survey.id)}
-                        className=" hover:text-red-500 cursor-pointer text-[#9A9999]"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleRemoveClick(survey.id);
+                        }}
+                        className="hover:text-red-500 cursor-pointer text-sm font-bold leading-[140%] text-[#9A9999]"
                       >
                         Remove
                       </button>
@@ -271,7 +279,7 @@ const Table: React.FC = () => {
         {/* survey model section  */}
         <AnimatePresence>
           {isModalOpen && (
-            <div className="fixed inset-0  flex items-center justify-center z-50 h-full overflow-y-scroll">
+            <div className="fixed inset-0  flex items-center justify-center z-50 px-4">
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}

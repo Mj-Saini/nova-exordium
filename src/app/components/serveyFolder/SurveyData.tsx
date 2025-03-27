@@ -3,11 +3,16 @@
 import React, { useState } from "react";
 import {
   AdminCloseIcons,
+  CheckboxIcons,
   CopyIcons,
   DeletIcon,
   DropdownIcon,
   EditIcon,
+  ParagraphIcons,
   PulsIcons,
+  RatingIcons,
+  ShortAnsIcons,
+  UploadfileIcons,
 } from "../common/Icons";
 import { Inter } from "next/font/google";
 import { motion } from "framer-motion";
@@ -40,16 +45,37 @@ const SurveyData: React.FC<SurveyDataProps> = ({ setIsModalOpen }) => {
     setQuestions((prevQuestions) => [...prevQuestions, defaultQuestion]);
   };
 
-  const [isOpen, setIsOpen] = useState(false);
-  const [selected, setSelected] = useState("Select question type");
+  // dropdown part
+  const [openDropdownIndex, setOpenDropdownIndex] = useState<number | null>(
+    null
+  );
+  const [selectedOptions, setSelectedOptions] = useState<string[]>(
+    new Array(questions.length).fill("Select question type")
+  );
+
   const options = [
-    { id: 1, label: "Multiple Choice" },
-    { id: 2, label: "Short Answer" },
-    { id: 3, label: "Paragraph" },
+    { id: 1, label: "Short answer", icon: <ShortAnsIcons /> },
+    { id: 2, label: "Paragraph", icon: <ParagraphIcons /> },
+    { id: 3, label: "Rating", icon: <RatingIcons /> },
+    { id: 4, label: "Checkboxes", icon: <CheckboxIcons /> },
+    { id: 5, label: "File upload", icon: <UploadfileIcons /> },
   ];
 
+  const toggleDropdown = (index: number) => {
+    setOpenDropdownIndex(openDropdownIndex === index ? null : index);
+  };
+
+  const handleOptionSelect = (index: number, label: string) => {
+    const newSelectedOptions = [...selectedOptions];
+    newSelectedOptions[index] = label;
+    setSelectedOptions(newSelectedOptions);
+    setOpenDropdownIndex(null);
+  };
+
   return (
-    <section className={inter.className}>
+    <section
+      className={`${inter.className} overflow-y-scroll h-[74vh] hide-scrollbar`}
+    >
       <div className="flex justify-between items-center mb-4 pb-4 border-b border-b-[#9A9999]">
         <h2 className="text-[#333] text-xl tracking-[0.4px] font-semibold leading-[90%]">
           Create New Survey
@@ -108,14 +134,20 @@ const SurveyData: React.FC<SurveyDataProps> = ({ setIsModalOpen }) => {
                   </label>
                   <div
                     className="w-full p-3 lg:px-5 py-2 lg:py-[15px] border border-[#D6D6D6] rounded-2xl focus:outline-none cursor-pointer flex items-center justify-between bg-white"
-                    onClick={() => setIsOpen(!isOpen)}
+                    onClick={() => toggleDropdown(index)}
                   >
-                    <span className="text-[#9A9999] text-sm">{selected}</span>
-                    <motion.div animate={{ rotate: isOpen ? 180 : 0 }}>
+                    <span className="text-[#9A9999] text-sm">
+                      {selectedOptions[index]}
+                    </span>
+                    <motion.div
+                      animate={{
+                        rotate: openDropdownIndex === index ? 180 : 0,
+                      }}
+                    >
                       <DropdownIcon />
                     </motion.div>
                   </div>
-                  {isOpen && (
+                  {openDropdownIndex === index && (
                     <motion.ul
                       initial={{ opacity: 0, y: -10 }}
                       animate={{ opacity: 1, y: 0 }}
@@ -125,13 +157,13 @@ const SurveyData: React.FC<SurveyDataProps> = ({ setIsModalOpen }) => {
                       {options.map((option) => (
                         <li
                           key={option.id}
-                          className="p-3 hover:bg-[#2C4C4B] flex items-center gap-2 cursor-pointer text-[#333] text-sm font-normal leading-[140%] hover:text-white"
-                          onClick={() => {
-                            setSelected(option.label);
-                            setIsOpen(false);
-                          }}
+                          className="p-3 hover:bg-[#2C4C4B] group flex items-center gap-2 cursor-pointer  text-sm font-normal leading-[140%] "
+                          onClick={() =>
+                            handleOptionSelect(index, option.label)
+                          }
                         >
-                          <span className="text-[#213737] text-sm">
+                          <span>{option.icon}</span>
+                          <span className="text-[#333] group-hover:text-white text-sm">
                             {option.label}
                           </span>
                         </li>

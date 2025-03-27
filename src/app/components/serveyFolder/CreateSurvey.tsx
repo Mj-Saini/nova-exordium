@@ -125,8 +125,6 @@ const CreateSurvey: React.FC<CreateSurveyProps> = ({ setIsModalOpen }) => {
               <input
                 type="date"
                 name="dueDate"
-                value={newSurvey.dueDate}
-                onChange={handleInputChange}
                 className="w-full p-3 lg:px-5 py-2 lg:py-[15px] border border-[#D6D6D6] rounded-2xl focus:outline-none placeholder:text-[#9A9999] placeholder:text-sm"
                 required
               />
@@ -152,7 +150,6 @@ const CreateSurvey: React.FC<CreateSurveyProps> = ({ setIsModalOpen }) => {
       </div>
 
       {/* survey model section  */}
-  
     </>
   );
 };
