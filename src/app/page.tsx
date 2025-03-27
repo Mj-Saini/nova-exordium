@@ -18,7 +18,7 @@ import notifications_img from "../../public/images/png/notification_img.png";
 
 export default function Home() {
   return (
-    <div>
+    <div className="body">
       <main>
         <div className="hero_bgimg bg-cover md:min-h-screen bg-top">
           <div className="relative z-50">

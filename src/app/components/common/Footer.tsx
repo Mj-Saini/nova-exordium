@@ -43,7 +43,7 @@ const Footer: React.FC = () => {
             <p className="font-normal text-[16px] text-[#F9F9F9] pb-4 lg:pb-6">contact@example.com</p>
             <p className="font-normal text-[16px] text-[#F9F9F9]">+1 (555) 123-4567</p>
           </div>
-          <div className="w-full md:w-1/2 lg:px-3 mt-4  lg:mt-6 lg:mt-0">
+          <div className="w-full md:w-1/2 lg:px-3 mt-4  lg:mt-0">
             {/* Center - Navigation Links */}
             <div className="flex flex-wrap justify-end gap-6">
               <Link href="#" className="font-medium text-base text-white">

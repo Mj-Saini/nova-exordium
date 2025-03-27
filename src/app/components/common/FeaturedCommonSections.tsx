@@ -1,7 +1,3 @@
-
-
-
-
 "use client";
 import React, { useState } from "react";
 import CommonBtn from "./CommonBtn";
@@ -43,7 +39,7 @@ const FeaturedCommonSections: React.FC<FeaturedCommonSectionsProps> = ({
   };
 
   return (
-    <div className="lg:pt-16 lg:pt-24 lg:pb-[60px]">
+    <div className=" lg:pt-24 lg:pb-[60px]">
       <div className="custom_container h-[calc(100%-106.2px)]">
         <div className="flex flex-wrap justify-center items-center">
           {/* ✅ If `flexStyling` exists, reverse order */}
