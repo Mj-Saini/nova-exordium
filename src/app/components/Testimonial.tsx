@@ -13,29 +13,33 @@ const inter = Inter({
 });
 
 const Testimonial: React.FC = () => {
-  const mySlider=useRef<Slider | null>(null);
+  const mySlider = useRef<Slider | null>(null);
   var settings = {
     dots: false,
     arrows: false,
     infinite: true,
     speed: 500,
     slidesToShow: 3,
-      slidesToScroll: 1,
+    slidesToScroll: 1,
     responsive: [
-      
+
       {
         breakpoint: 768,
         settings: {
+          dots: true,
           slidesToShow: 2,
           slidesToScroll: 2,
-          initialSlide: 2
+          initialSlide: 2,
+
         }
       },
       {
         breakpoint: 480,
         settings: {
+          dots: true,
           slidesToShow: 1,
-          slidesToScroll: 1
+          slidesToScroll: 1,
+
         }
       }
     ]
@@ -56,17 +60,17 @@ const Testimonial: React.FC = () => {
 
         <div className="relative mt-8 lg:mt-[60px]">
           <div className="xl:block hidden">
-            <span onClick={()=>mySlider.current?.slickPrev()} className="absolute cursor-pointer -left-10 top-1/2 -translate-y-1/2">
+            <span onClick={() => mySlider.current?.slickPrev()} className="absolute cursor-pointer -left-10 top-1/2 -translate-y-1/2">
               <SliderArrowsIcon />
             </span>
-            <span onClick={()=>mySlider.current?.slickNext()} className="absolute cursor-pointer -right-10 top-1/2 -translate-y-1/2 -scale-105">
+            <span onClick={() => mySlider.current?.slickNext()} className="absolute cursor-pointer -right-10 top-1/2 -translate-y-1/2 -scale-105">
               <SliderArrowsIcon />
             </span>
           </div>
           <Slider ref={mySlider} {...settings}>
             {testimonials.map((testimonial) => (
               <div key={testimonial.id} className="px-3">
-                <div className="bg-white shadow-lg rounded-2xl p-6 text-center">
+                <div className="bg-white shadow-[0px_0px_14px_0px_#6F3FA642] rounded-2xl p-6 text-center">
                   {/* Stars */}
                   <div className="flex justify-center mb-6 text-yellow-500">
                     <span>

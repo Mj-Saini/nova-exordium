@@ -33,11 +33,11 @@ const Header: React.FC<HeaderProps> = ({btnStyling,headerStyling,btnName,toggleF
 
   return (
     <>
-      <div className={`custom_container mx-auto !pt-6`}>
+      <div className={`custom_container mx-auto !pt-6 max-lg:!pb-6`}>
         <div
-          className={` flex items-center gap-6 justify-between bg-white border-white border rounded-3xl xl:bg-transparent xl:border-transparent  px-6 py-4 xl:p-0 ${headerStyling} custom_shadow`}
+          className={` flex items-center gap-6 justify-between !bg-white border-white border rounded-3xl xl:bg-transparent xl:border-transparent  px-6 py-4 xl:p-0 !pe-6 ${headerStyling} w-full lg:max-w-[1080px] 2xl:w-[1080px] custom_shadow`}
         >
-          <div className="flex gap-10 items-center bg-white border-white border rounded-3xl xl:px-6 xl:py-4 w-full lg:max-w-[1080px] 2xl:w-[1080px]">
+          <div className="flex gap-10 items-center bg-white border-white border rounded-3xl xl:px-6 xl:py-4 ">
             <Link href="/">
               <Image
                 width={86}
@@ -101,19 +101,19 @@ const Header: React.FC<HeaderProps> = ({btnStyling,headerStyling,btnName,toggleF
             className="flex flex-col justify-between h-5 w-8 lg:hidden z-[100] relative cursor-pointer duration-300"
           >
             <span
-              className={` border-[3px] w-full rounded-sm duration-300 ${
+              className={` border-[2px] w-full rounded-sm duration-300 ${
                 toggleNav
                   ? "translate-y-[7px] -rotate-45 border-[#2C4C4B]"
                   : "border-[#2C4C4B]"
               }`}
             ></span>
             <span
-              className={` border-[3px] w-full rounded-sm duration-300 ${
+              className={` border-[2px] w-full rounded-sm duration-300 ${
                 toggleNav ? "rotate-45 border-[#2C4C4B]" : "border-[#2C4C4B]"
               }`}
             ></span>
             <span
-              className={` border-[3px] w-full rounded-sm duration-300 ${
+              className={` border-[2px] w-full rounded-sm duration-300 ${
                 toggleNav ? "opacity-0 border-[#2C4C4B]" : "border-[#2C4C4B]"
               }`}
             ></span>

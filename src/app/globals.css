@@ -50,7 +50,7 @@ html {
 }
 
 body {
-  background: #f0f0f0;
+  background: white;
 }
 
 /* EDIT SCROLLBAR */
@@ -115,6 +115,7 @@ td {
   height: 250px !important;
 
 }
+
 .CSAT_Score .css-172kpif-MuiResponsiveChart-container {
   width: 100%;
   height: 350px !important;
@@ -151,3 +152,9 @@ label .servy_label {
   @apply text-base text-[#213737] font-medium !leading-[140%] pb-1;
 }
 
+
+/* web_homepage css  */
+
+.slick-slider .slick-track {
+  padding-block: 20px;
+}

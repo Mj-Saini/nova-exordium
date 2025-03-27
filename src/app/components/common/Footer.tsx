@@ -2,15 +2,14 @@ import React from "react";
 import Link from "next/link";
 import { Inter } from "next/font/google";
 import {
+  Appstore_icon,
   FbIcon,
   InstaIcon,
   LinkedInIcon,
+  Playstore_icon,
   TwiterIcon,
   YouTubeIcon,
 } from "./Icons";
-import appStoreImg from "../../../../public/images/png/app-store.png";
-import googleStoreImg from "../../../../public/images/png/google-play-store.png";
-import Image from "next/image";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -18,14 +17,14 @@ const inter = Inter({
 });
 
 const Footer: React.FC = () => {
-const currentYear=new Date().getFullYear()
+  const currentYear = new Date().getFullYear()
 
   return (
     <footer className="bg-[#213737] pt-12">
       <div className="custom_container">
         <div className="flex flex-wrap lg:justify-between lg:items-center">
           {/* Left Side - Company Info */}
-          <div className="w-full lg:w-1/2 lg:px-3 lg:-mx-3">
+          <div className="w-full md:w-1/2 lg:px-3 ">
             <div className="cursor-pointer inline-flex items-end">
               <span
                 className={`${inter.className} text-3xl sm:text-4xl md:text-5xl lg:text-[52px] text-white font-black uppercase`}
@@ -38,13 +37,13 @@ const currentYear=new Date().getFullYear()
                 EXORDIUM
               </span>
             </div>
-            <p className="font-normal text-lg lg:text-xl text-[#F9F9F9] py-6">
+            <p className="font-normal text-[16px] text-[#F9F9F9] py-4 lg:py-6">
               1234 Elm Street, Springfield, NY 10001, USA
             </p>
-            <p className="font-normal text-lg lg:text-xl text-[#F9F9F9] pb-6">contact@example.com</p>
-            <p className="font-normal text-lg lg:text-xl text-[#F9F9F9]">+1 (555) 123-4567</p>
+            <p className="font-normal text-[16px] text-[#F9F9F9] pb-4 lg:pb-6">contact@example.com</p>
+            <p className="font-normal text-[16px] text-[#F9F9F9]">+1 (555) 123-4567</p>
           </div>
-          <div className="w-full lg:w-1/2 lg:px-3 mt-6 lg:mt-0">
+          <div className="w-full md:w-1/2 lg:px-3 mt-4  lg:mt-6 lg:mt-0">
             {/* Center - Navigation Links */}
             <div className="flex flex-wrap justify-end gap-6">
               <Link href="#" className="font-medium text-base text-white">
@@ -77,26 +76,19 @@ const currentYear=new Date().getFullYear()
 
               {/* App Store & Google Play */}
               <div className="flex justify-end space-x-3">
-                <Image
-                  src={appStoreImg}
-                  alt="App Store"
-                  className="cursor-pointer"
-                />
-                <Image
-                  src={googleStoreImg}
-                  alt="Google Play"
-                  className="cursor-pointer"
-                />
+                <span className="cursor-pointer"><Appstore_icon /></span>
+                <span className="cursor-pointer"><Playstore_icon /></span>
+
               </div>
             </div>
           </div>
         </div>
 
       </div>
-        {/* Copyright Section */}
-        <div className="mt-10 border-t-[0.5px] border-[#F9F9F9] font-normal text-base text-[#F9F9F9] text-center py-6 lg:py-[60px]">
-          © {currentYear} NovaExordium. All rights reserved.
-        </div>
+      {/* Copyright Section */}
+      <div className="mt-10 border-t-[0.5px] border-[#F9F9F9] font-normal text-base text-[#F9F9F9] text-center py-6 lg:py-[60px]">
+        © {currentYear} NovaExordium. All rights reserved.
+      </div>
     </footer>
   );
 };

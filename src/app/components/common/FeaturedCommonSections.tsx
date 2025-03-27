@@ -5,7 +5,7 @@
 "use client";
 import React, { useState } from "react";
 import CommonBtn from "./CommonBtn";
-import heroImg from "../../../../public/images/png/hero-right-img.png";
+
 import { Inter } from "next/font/google";
 import Image from "next/image";
 
@@ -17,6 +17,7 @@ const inter = Inter({
 // ✅ Define Props Interface
 interface FeaturedCommonSectionsProps {
   heading: string;
+  img: any;
   label: string;
   descriptions: string;
   listStyling?: string;
@@ -25,6 +26,7 @@ interface FeaturedCommonSectionsProps {
 }
 
 const FeaturedCommonSections: React.FC<FeaturedCommonSectionsProps> = ({
+  img,
   heading,
   label,
   descriptions,
@@ -41,7 +43,7 @@ const FeaturedCommonSections: React.FC<FeaturedCommonSectionsProps> = ({
   };
 
   return (
-    <div className="pt-16 lg:pt-24 pb-12 md:pb-[60px]">
+    <div className="lg:pt-16 lg:pt-24 lg:pb-[60px]">
       <div className="custom_container h-[calc(100%-106.2px)]">
         <div className="flex flex-wrap justify-center items-center">
           {/* ✅ If `flexStyling` exists, reverse order */}
@@ -51,10 +53,10 @@ const FeaturedCommonSections: React.FC<FeaturedCommonSectionsProps> = ({
             {flexStyling ? (
               <>
                 {/* Image First */}
-                <div className="w-full lg:w-1/2 mt-6 lg:mt-0">
+                <div className="w-full lg:w-1/2 mt-6 lg:mt-0 max-lg:flex justify-center">
                   <Image
-                    className="xl:absolute left-0 2xl:-left-28 top-0 w-full xl:w-1/2 2xl:w-[60%]"
-                    src={heroImg}
+                    className="xl:absolute left-0 2xl:-left-28 top-1/2 xl:-translate-y-1/2 w-3/4 xl:w-1/2 2xl:w-[60%]"
+                    src={img}
                     alt="hero-img"
                   />
                 </div>
@@ -120,7 +122,8 @@ const FeaturedCommonSections: React.FC<FeaturedCommonSectionsProps> = ({
                   <div className="mt-6">
                     <CommonBtn
                       btnName="Learn more"
-                      btnStyling="text-[#fff] bg-[#2C4C4B] uppercase"
+                      btnStyling="text-[#fff] fill-white  bg-[#2C4C4B] uppercase"
+
                     />
                   </div>
                 </div>
@@ -188,16 +191,17 @@ const FeaturedCommonSections: React.FC<FeaturedCommonSectionsProps> = ({
                   <div className="mt-6">
                     <CommonBtn
                       btnName="Learn more"
-                      btnStyling="text-[#fff] bg-[#2C4C4B] uppercase"
+                      btnStyling="text-[#fff] fill-white bg-[#2C4C4B] uppercase"
+
                     />
                   </div>
                 </div>
 
                 {/* Image Second */}
-                <div className="w-full lg:w-1/2 mt-6 lg:mt-0">
+                <div className="w-full lg:w-1/2 mt-6 max-lg:flex justify-center lg:mt-0">
                   <Image
-                    className="xl:absolute right-0 2xl:-right-28 top-0 w-full xl:w-[60%]"
-                    src={heroImg}
+                    className="xl:absolute right-0 2xl:-right-28 top-1/2 xl:-translate-y-1/2 w-3/4 xl:w-[60%]"
+                    src={img}
                     alt="hero-img"
                   />
                 </div>

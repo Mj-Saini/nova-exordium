@@ -34,7 +34,7 @@ const StartJourney: React.FC = () => {
         {/* CTA Button */}
         <CommonBtn
           btnName="get started"
-          btnStyling="text-[#213737] bg-[#fff] fill-[#213737] uppercase relative z-10"
+          btnStyling="text-[#213737] bg-[#fff] text-[14px] fill-[#213737] uppercase relative z-10"
           arrowIcon="hidden"
         />
       </div>
