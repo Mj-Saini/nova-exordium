@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 'use client';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 
 import Image from 'next/image';
 import Sidebar from '../Sidebar';
@@ -22,11 +22,11 @@ import AddTask from '../popues/AddTask';
 import Template from '../popues/Template';
 import Layout from '../common/Layout';
 
-
 const Features = () => {
   const [showSideBar, setShowSideBar] = useState<boolean>(false);
   const [openDottedMenu, setOpenDottedMenu] = useState<number | null>(null);
   const [isOpen2, setIsOpen2] = useState(false);
+  const dottedMenuRefs = useRef<{ [key: number]: HTMLDivElement | null }>({});
 
   useEffect(() => {
     if (showSideBar) {
@@ -39,6 +39,7 @@ const Features = () => {
       document.body.style.overflow = 'auto';
     };
   }, [showSideBar]);
+
   const [isOpen, setIsOpen] = useState(false);
   useEffect(() => {
     if (isOpen || isOpen2) {
@@ -63,6 +64,29 @@ const Features = () => {
     };
   }, []);
   const [isScrolled, setIsScrolled] = useState(false);
+
+  // Handle clicks outside the dotted menu
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const clickedOutside = Object.values(dottedMenuRefs.current).every(
+        (ref) => ref && !ref.contains(event.target as Node)
+      );
+
+      if (clickedOutside) {
+        setOpenDottedMenu(null);
+      }
+    };
+
+    // Add event listener when a menu is open
+    if (openDottedMenu !== null) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    // Cleanup
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [openDottedMenu]);
 
   return (
     <Layout heading="Template Library" sub_heading="Templates">
@@ -89,9 +113,9 @@ const Features = () => {
           </div>
         </div>
         <p className=" font-normal text-sm lg:text-base text-[#333333] pt-[24px]">
-          This project focuses on developing the app's core features to enhance functionality
-          and user experience. Key tasks include designing the UI, integrating essential
-          components, and ensuring seamless performance through testing and optimization
+          This project focuses on developing the app's core features to enhance functionality and
+          user experience. Key tasks include designing the UI, integrating essential components, and
+          ensuring seamless performance through testing and optimization
         </p>
       </div>
       <div className="bg-[#FFFFFF] w-full rounded-[15px] h-fit max-h-[60%] py-[28px] px-[21px] mt-[2%] shadow-[0px_3.5px_5.5px_0px_#00000005]">
@@ -111,9 +135,7 @@ const Features = () => {
           <div className="flex items-center gap-5 pt-[16px] w-fit">
             <div className="flex flex-col  ">
               <div>
-                <span className="text-xs lg:text-sm text-[#2C4C4B] font-bold">
-                  60% Complete
-                </span>
+                <span className="text-xs lg:text-sm text-[#2C4C4B] font-bold">60% Complete</span>
               </div>
 
               <div className="relative w-full h-[3px] bg-gray-300 rounded-lg overflow-hidden mt-[5px]">
@@ -134,13 +156,11 @@ const Features = () => {
           <table className="w-full mt-7 border-collapse">
             <thead>
               <tr className="border-b border-gray-300 text-left font-bold text-xs lg:text-sm whitespace-nowrap">
-                {['#', 'TASK NAME', 'STATUS', ' DUE DATE', 'PRIORITIES', ''].map(
-                  (head, index) => (
-                    <th key={index} className="px-4 py-3 text-[#9A9999]">
-                      {head}
-                    </th>
-                  )
-                )}
+                {['#', 'TASK NAME', 'STATUS', ' DUE DATE', 'PRIORITIES', ''].map((head, index) => (
+                  <th key={index} className="px-4 py-3 text-[#9A9999]">
+                    {head}
+                  </th>
+                ))}
               </tr>
             </thead>
             <tbody className="whitespace-nowrap">
@@ -158,16 +178,21 @@ const Features = () => {
                   </td>
                   <td className="px-4 py-[16px] font-bold text-xs lg:text-sm">{task.due}</td>
                   <td className="px-4 py-[16px]"> {task.img}</td>
-                  <td className="cursor-pointer relative ">
+                  <td
+                    className="cursor-pointer relative"
+                    ref={(el) => {
+                      dottedMenuRefs.current[task.id] = el;
+                    }}>
                     <div
-                      className=" z-50 "
+                      className="flex items-center justify-center"
                       onClick={() =>
                         setOpenDottedMenu(openDottedMenu === task.id ? null : task.id)
                       }>
                       <DottedIcon />
                     </div>
+
                     {openDottedMenu === task.id && (
-                      <div className="absolute top-full z-50 right-0 bg-white shadow-lg p-2 rounded-md">
+                      <div className="absolute top-1/2 left-1/3 transform -translate-x-11/12 -translate-y-1/2  p-2 rounded-md">
                         <Changestatus />
                       </div>
                     )}
