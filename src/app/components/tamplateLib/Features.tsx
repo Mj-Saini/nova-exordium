@@ -2,18 +2,7 @@
 'use client';
 import React, { useEffect, useState, useRef } from 'react';
 
-import Image from 'next/image';
-import Sidebar from '../Sidebar';
-import AdminHeader from '../AdminHeader';
-import {
-  CheckIcon,
-  CopyIcons,
-  CloseIcon,
-  CreateIcon,
-  DeletIcon,
-  DottedIcon,
-  EditIcon,
-} from '../common/Icons';
+import { CheckIcon, CopyIcons, CreateIcon, DeletIcon, DottedIcon, EditIcon } from '../common/Icons';
 import { tasks } from '../common/Helper';
 import Changestatus from '../popues/Changestatus';
 import MangTable from '../tableData/MangTable';
@@ -23,22 +12,9 @@ import Template from '../popues/Template';
 import Layout from '../common/Layout';
 
 const Features = () => {
-  const [showSideBar, setShowSideBar] = useState<boolean>(false);
   const [openDottedMenu, setOpenDottedMenu] = useState<number | null>(null);
   const [isOpen2, setIsOpen2] = useState(false);
   const dottedMenuRefs = useRef<{ [key: number]: HTMLDivElement | null }>({});
-
-  useEffect(() => {
-    if (showSideBar) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'auto';
-    }
-
-    return () => {
-      document.body.style.overflow = 'auto';
-    };
-  }, [showSideBar]);
 
   const [isOpen, setIsOpen] = useState(false);
   useEffect(() => {
@@ -48,22 +24,6 @@ const Features = () => {
       document.body.style.overflow = 'auto';
     }
   }, [isOpen, isOpen2]);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 0) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-  const [isScrolled, setIsScrolled] = useState(false);
 
   // Handle clicks outside the dotted menu
   useEffect(() => {

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { ReactNode, useState } from 'react';
 import {
   CloseIcon,
   CreateIcon,
@@ -20,7 +20,7 @@ interface Task {
   status: string;
   color: string;
   due: string;
-  img: any;
+  img: ReactNode;
 }
 
 const Template: React.FC<NewTaskGroupProps> = ({ closePopup }) => {
