@@ -9,7 +9,6 @@ import {
 } from '../common/Icons';
 import Workflow from './Workflow';
 import Cancel from './Cancel';
-import { div, h2 } from 'framer-motion/client';
 
 interface NewTaskGroupProps {
   closePopup: (value: boolean) => void;
@@ -64,9 +63,9 @@ const Template: React.FC<NewTaskGroupProps> = ({ closePopup }) => {
 
   return (
     <div className="flex justify-center items-center fixed inset-0 bg-[#0000005b] bg-opacity-30 px-4 lg:px-0 overflow-y-auto">
-      <div className="w-full max-w-2xl shadow-custom bg-white rounded-lg overflow-y-auto max-h-[100vh] p-4">
+      <div className="w-full max-w-2xl shadow-custom px-4 bg-white rounded-lg overflow-y-auto max-h-[100vh]">
         {/* Header */}
-        <div className="flex justify-between items-center border-b border-solid border-[#EAEBEB] pb-4">
+        <div className="flex  sticky top-0 bg-white z-50  justify-between items-center border-b border-solid border-[#EAEBEB] pb-4 pt-4">
           <h3 className="font-semibold text-xl">Create New Template</h3>
           <div className="cursor-pointer" onClick={() => closePopup(false)}>
             <CloseIcon />
@@ -76,7 +75,9 @@ const Template: React.FC<NewTaskGroupProps> = ({ closePopup }) => {
         {/* Task Groups Form */}
         <div>
           {taskGroups.map((_, index) => (
-            <div key={index} className="mt-6 pb-4">
+            <div
+              key={index}
+              className="mt-6 pb-4 border-[1px] border-dashed border-[#477D7C] rounded-[16px] px-[26px] py-[26px">
               <h2 className="font-bold text-lg text-[#213737] pt-3">New task group {index + 1}</h2>
 
               <div className="flex flex-col gap-2 pt-3">
@@ -88,9 +89,8 @@ const Template: React.FC<NewTaskGroupProps> = ({ closePopup }) => {
                 />
               </div>
 
-              {/* Date Fields - Show only in first map iteration */}
               {index === 0 && (
-                <div className="flex flex-col md:flex-row justify-between pt-4 gap-3">
+                <div className="flex flex-col md:flex-row justify-between pt-4 gap-3 ">
                   <div className="relative w-full">
                     <h2 className="font-medium text-base pb-2">Select Category</h2>
                     <div
@@ -134,18 +134,19 @@ const Template: React.FC<NewTaskGroupProps> = ({ closePopup }) => {
                   ))}
                 </div>
               )}
+              <div className="flex flex-col gap-2 pt-3">
+                <h2 className="font-medium text-sm lg:text-base">Task Instructions</h2>
+                <textarea
+                  className="w-full h-[100px] resize-none  outline-0 py-3 px-4 text-sm border border-solid border-[#D6D6D6] hover:bg-[#F4ECF7] hover:border-[#2C4C4B] rounded-[16px] text-[#333333]"
+                  placeholder="Type here..."></textarea>
+              </div>
             </div>
           ))}
         </div>
-        <div className="flex flex-col gap-2 pt-3">
-          <h2 className="font-medium text-sm lg:text-base">Task Instructions</h2>
-          <textarea
-            className="w-full h-[100px] resize-none  outline-0 py-3 px-4 text-sm border border-solid border-[#D6D6D6] hover:bg-[#F4ECF7] hover:border-[#2C4C4B] rounded-[16px] text-[#333333]"
-            placeholder="Type here..."></textarea>
-        </div>
+
         {/* Task Table */}
         {taskGroups.length === 4 && (
-          <div className="overflow-x-auto md:max-w-full overflow-visible">
+          <div className="overflow-x-auto md:max-w-full overflow-visible border-[1px] border-dashed mt-5 border-[#477D7C] rounded-[16px] px-[26px] py-[26px">
             <div className=" flex justify-between pt-[24px]">
               <h2 className=" font-bold text-lg text-[#213737]">Phase 1 - Develop App</h2>
               <div className=" flex items-center">

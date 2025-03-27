@@ -106,7 +106,7 @@ const Page = () => {
                     {task.id}
                   </td>
                   <td
-                    className="px-4 py-[16px] font-bold text-xs lg:text-sm text-[#213737]"
+                    className="px-4 cursor-pointer py-[16px] font-bold text-xs lg:text-sm !text-[#5f68dd]"
                     onClick={() => router.push('/featureData')}>
                     {task.name}
                   </td>

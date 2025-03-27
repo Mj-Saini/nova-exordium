@@ -54,9 +54,9 @@ const Newtaskgroup: React.FC<NewTaskGroupProps> = ({ closePopup }) => {
 
   return (
     <div className="flex justify-center items-center fixed inset-0 bg-[#0000005b] bg-opacity-30 px-4 lg:px-0 overflow-y-auto">
-      <div className="w-full max-w-2xl shadow-custom bg-white rounded-lg overflow-y-auto max-h-[100vh] p-4">
+      <div className="w-full max-w-2xl shadow-custom bg-white rounded-lg overflow-y-auto max-h-[100vh] px-4">
         {/* Header */}
-        <div className="flex justify-between items-center border-b border-solid border-[#EAEBEB] pb-4">
+        <div className="flex sticky top-0 bg-white z-50  justify-between items-center border-b border-solid border-[#EAEBEB] pb-4 pt-4">
           <h3 className="font-semibold text-xl">New task group</h3>
           <div className="cursor-pointer" onClick={() => closePopup(false)}>
             <CloseIcon />
@@ -65,7 +65,7 @@ const Newtaskgroup: React.FC<NewTaskGroupProps> = ({ closePopup }) => {
 
         {/* Task Groups Form */}
         {taskGroups.map((_, index) => (
-          <div key={index} className="mt-6 pb-4">
+          <div key={index} className="mt-6 pb-4  ]">
             <h2 className="font-bold text-lg text-[#213737] pt-3">New task group {index + 1}</h2>
 
             <div className="flex flex-col gap-2 pt-3">
