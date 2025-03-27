@@ -7,7 +7,6 @@ import { Inter } from "next/font/google";
 import { CheckIcon, FleterIcon, PulsIcons } from "../common/Icons";
 import { surveyTableData } from "../common/Helper";
 import CreateSurvey from "./CreateSurvey";
-import SurveyData from "./SurveyData";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -37,7 +36,6 @@ const Table: React.FC = () => {
     name: "",
     assignedTo: "",
     dueDate: "",
-
   });
 
   // Toggle modal functions
@@ -66,12 +64,6 @@ const Table: React.FC = () => {
     });
     setIsEditModalOpen(true);
   };
-
-  // Handle View button click
-  // const handleViewClick = (survey: Survey) => {
-  //   setSelectedSurvey(survey);
-  //   setIsViewModalOpen(true);
-  // };
 
   // Handle Remove button click
   const handleRemoveClick = (id: number) => {
@@ -254,7 +246,7 @@ const Table: React.FC = () => {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 onClick={toggleModal}
-                className="absolute inset-0 bg-black/20"
+                className="absolute inset-0 bg-black/10"
               />
               <motion.div
                 initial={{ scale: 0.9, opacity: 0 }}
@@ -265,40 +257,9 @@ const Table: React.FC = () => {
                   damping: 20,
                   stiffness: 300,
                 }}
-                className="bg-white rounded-lg p-6  w-full max-w-[955px] z-10"
+                className="w-full max-w-[955px] "
               >
                 <CreateSurvey
-                  isModalOpen={isModalOpen}
-                  setIsModalOpen={setIsModalOpen}
-                />
-              </motion.div>
-            </div>
-          )}
-        </AnimatePresence>
-
-        {/* survey model section  */}
-        <AnimatePresence>
-          {isModalOpen && (
-            <div className="fixed inset-0  flex items-center justify-center z-50 px-4">
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                onClick={toggleModal}
-                className="absolute inset-0 bg-black/20"
-              />
-              <motion.div
-                initial={{ scale: 0.9, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                exit={{ scale: 0.9, opacity: 0 }}
-                transition={{
-                  type: "spring",
-                  damping: 20,
-                  stiffness: 300,
-                }}
-                className="bg-white rounded-lg p-6 pe-1 w-full max-w-[955px] z-10"
-              >
-                <SurveyData
                   isModalOpen={isModalOpen}
                   setIsModalOpen={setIsModalOpen}
                 />

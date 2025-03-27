@@ -894,33 +894,7 @@ export const PrioritiesIcon2 = () => {
   );
 };
 
-export const ParagraphIcons = () => {
-  return (
-    <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <mask id="mask0_365_6814" maskUnits="userSpaceOnUse" x="0" y="0" width="19" height="19">
-        <rect y="0.0195312" width="18.4615" height="18.4615" fill="#D9D9D9" />
-      </mask>
-      <g mask="url(#mask0_365_6814)">
-        <path className="group-hover:fill-white" d="M3.26953 11.3216V10.1678H15.1926V11.3216H3.26953ZM3.26953 14.3099V13.156H15.1926V14.3099H3.26953ZM3.26953 8.33352V7.17968H15.1926V8.33352H3.26953ZM3.26953 5.34525V4.19141H15.1926V5.34525H3.26953Z" fill="#333333" />
-      </g>
-    </svg>
 
-  )
-}
-export const RatingIcons = () => {
-  return (
-    <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <mask id="mask0_365_6819" maskUnits="userSpaceOnUse" x="0" y="0" width="19" height="19">
-        <rect y="0.519531" width="18.4615" height="18.4615" fill="#D9D9D9" />
-      </mask>
-      <g mask="url(#mask0_365_6819)">
-        <path className="group-hover:fill-white" d="M6.80735 13.463L9.23042 12.0014L11.6535 13.4822L11.0189 10.713L13.1535 8.86682L10.3458 8.61682L9.23042 6.00143L8.11504 8.59758L5.30735 8.84758L7.44196 10.713L6.80735 13.463ZM5.05735 15.8757L6.15946 11.1301L2.47754 7.93932L7.33542 7.51778L9.23042 3.04297L11.1254 7.51778L15.9833 7.93932L12.3014 11.1301L13.4035 15.8757L9.23042 13.358L5.05735 15.8757Z" fill="#333333" />
-      </g>
-    </svg>
-
-
-  )
-}
 export const EditIcon = () => {
   return (
     <svg
@@ -1321,7 +1295,8 @@ export const ShortAnsIcons = () => {
         <rect y="0.519226" width="18.4615" height="18.4615" fill="#D9D9D9" />
       </mask>
       <g mask="url(#mask0_38_2035)">
-        <path className="group-hover:fill-white"
+        <path
+          className="group-hover:fill-white"
           d="M1.53857 18.981V16.6733H16.9232V18.981H1.53857ZM4.6155 13.1452H5.56665L11.9513 6.77234L11.4676 6.28137L10.9884 5.80945L4.6155 12.1941V13.1452ZM3.46165 14.2991V11.7029L12.0845 3.09195C12.1959 2.98054 12.3224 2.89625 12.464 2.83907C12.6054 2.78189 12.7525 2.7533 12.9055 2.7533C13.0586 2.7533 13.2068 2.78189 13.3501 2.83907C13.4934 2.89625 13.6248 2.98451 13.7442 3.10387L14.6688 4.04022C14.7881 4.15163 14.8744 4.27926 14.9276 4.4231C14.9808 4.56682 15.0074 4.71541 15.0074 4.86887C15.0074 5.01272 14.9804 5.15573 14.9265 5.29791C14.8725 5.44022 14.7866 5.57028 14.6688 5.6881L6.0578 14.2991H3.46165ZM11.9513 6.77234L11.4676 6.28137L10.9884 5.80945L11.9513 6.77234Z"
           fill="#333333"
         />
@@ -1346,7 +1321,13 @@ export const Tickmark_box_icon = () => {
 
 export const Tickmark_box_icon_with_bg = () => {
   return (
-    <svg width="57" height="57" viewBox="0 0 57 57" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg
+      width="57"
+      height="57"
+      viewBox="0 0 57 57"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
       <g filter="url(#filter0_d_2015_10271)">
         <rect x="6" y="2.5" width="45" height="45" rx="12" fill="#2C4C4B" />
       </g>
@@ -1359,19 +1340,34 @@ export const Tickmark_box_icon_with_bg = () => {
           <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
           <feOffset dy="3.5" />
           <feGaussianBlur stdDeviation="2.75" />
-          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.02 0" />
-          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_2015_10271" />
-          <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_2015_10271" result="shape" />
+          <feColorMatrix
+            type="matrix"
+            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.02 0"
+          />
+          <feBlend
+            mode="normal"
+            in2="BackgroundImageFix"
+            result="effect1_dropShadow_2015_10271"
+          />
+          <feBlend
+            mode="normal"
+            in="SourceGraphic"
+            in2="effect1_dropShadow_2015_10271"
+            result="shape"
+          />
         </filter>
         <clipPath id="clip0_2015_10271">
-          <rect width="22.5" height="22.5" fill="white" transform="translate(17 14)" />
+          <rect
+            width="22.5"
+            height="22.5"
+            fill="white"
+            transform="translate(17 14)"
+          />
         </clipPath>
       </defs>
     </svg>
-
-
-  )
-}
+  );
+};
 export const Schedule_icon = () => {
   return (
     <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1386,11 +1382,15 @@ export const Schedule_icon = () => {
   );
 };
 
-
-
 export const Schedule_icon_with_bg = () => {
   return (
-    <svg width="57" height="57" viewBox="0 0 57 57" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg
+      width="57"
+      height="57"
+      viewBox="0 0 57 57"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
       <g filter="url(#filter0_d_2015_3811)">
         <rect x="6" y="2.5" width="45" height="45" rx="12" fill="#2C4C4B" />
       </g>
@@ -1403,19 +1403,34 @@ export const Schedule_icon_with_bg = () => {
           <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
           <feOffset dy="3.5" />
           <feGaussianBlur stdDeviation="2.75" />
-          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.02 0" />
-          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_2015_3811" />
-          <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_2015_3811" result="shape" />
+          <feColorMatrix
+            type="matrix"
+            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.02 0"
+          />
+          <feBlend
+            mode="normal"
+            in2="BackgroundImageFix"
+            result="effect1_dropShadow_2015_3811"
+          />
+          <feBlend
+            mode="normal"
+            in="SourceGraphic"
+            in2="effect1_dropShadow_2015_3811"
+            result="shape"
+          />
         </filter>
         <clipPath id="clip0_2015_3811">
-          <rect width="22.5" height="22.5" fill="white" transform="translate(17 14)" />
+          <rect
+            width="22.5"
+            height="22.5"
+            fill="white"
+            transform="translate(17 14)"
+          />
         </clipPath>
       </defs>
     </svg>
-
-
-  )
-}
+  );
+};
 export const Newresponse_icon = () => {
   return (
     <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1490,6 +1505,65 @@ export const UploadfileIcons = () => {
   );
 };
 
+export const ParagraphIcons = () => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="19"
+      height="19"
+      viewBox="0 0 19 19"
+      fill="none"
+    >
+      <mask
+        id="mask0_65_2035"
+        maskUnits="userSpaceOnUse"
+        x="0"
+        y="0"
+        width="19"
+        height="19"
+      >
+        <rect y="0.0192261" width="18.4615" height="18.4615" fill="#D9D9D9" />
+      </mask>
+      <g mask="url(#mask0_65_2035)">
+        <path
+          className="group-hover:fill-white"
+          d="M3.26923 11.3216V10.1678H15.1923V11.3216H3.26923ZM3.26923 14.3099V13.156H15.1923V14.3099H3.26923ZM3.26923 8.33352V7.17968H15.1923V8.33352H3.26923ZM3.26923 5.34525V4.19141H15.1923V5.34525H3.26923Z"
+          fill="#333333"
+        />
+      </g>
+    </svg>
+  );
+};
+
+export const RatingIcons = () => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="19"
+      height="19"
+      viewBox="0 0 19 19"
+      fill="none"
+    >
+      <mask
+        id="mask0_65_2040"
+        maskUnits="userSpaceOnUse"
+        x="0"
+        y="0"
+        width="19"
+        height="19"
+      >
+        <rect y="0.519226" width="18.4615" height="18.4615" fill="#D9D9D9" />
+      </mask>
+      <g mask="url(#mask0_65_2040)">
+        <path
+          className="group-hover:fill-white"
+          d="M6.80729 13.4618L9.23036 12.0002L11.6534 13.481L11.0188 10.7118L13.1534 8.86561L10.3457 8.61561L9.23036 6.00023L8.11498 8.59638L5.30729 8.84638L7.4419 10.7118L6.80729 13.4618ZM5.05729 15.8745L6.1594 11.1289L2.47748 7.93811L7.33536 7.51657L9.23036 3.04176L11.1254 7.51657L15.9832 7.93811L12.3013 11.1289L13.4034 15.8745L9.23036 13.3568L5.05729 15.8745Z"
+          fill="#333333"
+        />
+      </g>
+    </svg>
+  );
+};
 
 export const UploadimageIcons = () => {
   return (
@@ -1536,15 +1610,31 @@ export const Profile_icon = () => {
           <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
           <feOffset dy="3.5" />
           <feGaussianBlur stdDeviation="2.75" />
-          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.02 0" />
-          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_2015_17075" />
-          <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_2015_17075" result="shape" />
+          <feColorMatrix
+            type="matrix"
+            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.02 0"
+          />
+          <feBlend
+            mode="normal"
+            in2="BackgroundImageFix"
+            result="effect1_dropShadow_2015_17075"
+          />
+          <feBlend
+            mode="normal"
+            in="SourceGraphic"
+            in2="effect1_dropShadow_2015_17075"
+            result="shape"
+          />
         </filter>
         <clipPath id="clip0_2015_17075">
-          <rect width="22.5" height="22.5" fill="white" transform="translate(17 14)" />
+          <rect
+            width="22.5"
+            height="22.5"
+            fill="white"
+            transform="translate(17 14)"
+          />
         </clipPath>
       </defs>
     </svg>
-
-  )
+  );
 };

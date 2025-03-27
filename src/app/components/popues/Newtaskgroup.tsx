@@ -162,7 +162,7 @@ const Newtaskgroup: React.FC<NewTaskGroupProps> = ({ closePopup }) => {
         </div>
 
         {/* Final Buttons */}
-        <div className="flex justify-end pt-4">
+        <div className="flex justify-end pt-4 pb-5">
           <button
             className="border border-[#EAEAEA] text-[#333333] rounded-[16px] py-[12px] px-6 flex items-center gap-2 cursor-pointer font-medium text-sm sm:text-base me-5"
             onClick={handleSaveClick2}>

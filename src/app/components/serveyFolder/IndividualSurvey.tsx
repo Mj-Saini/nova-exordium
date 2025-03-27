@@ -3,8 +3,8 @@
 import { Star } from "lucide-react";
 import { Inter } from "next/font/google";
 import Image from "next/image";
-import React, { useState } from "react";
-import { DottedIcon, UploadimageIcons } from "../common/Icons";
+import React, { useState, useEffect } from "react";
+import { DottedIcon } from "../common/Icons";
 import { useRouter } from "next/navigation";
 
 const inter = Inter({
@@ -15,8 +15,17 @@ const inter = Inter({
 const IndividualSurvey = () => {
   const [rating, setRating] = useState(0);
   const [selectedFeatures, setSelectedFeatures] = useState<string[]>([]);
-  const [imagePreview, setImagePreview] = useState<string | null>(null);
   const router = useRouter();
+
+  // Add useEffect for pre-filling
+  useEffect(() => {
+    // Example pre-filled values
+    const preFilledRating = 4; // Pre-fill with 4 stars
+    const preFilledFeatures = ["Navigation/Menu", "Search Functionality"]; // Pre-selected features
+
+    setRating(preFilledRating);
+    setSelectedFeatures(preFilledFeatures);
+  }, []); // Empty dependency array means this runs once on component mount
 
   const handleStarClick = (starCount: number) => {
     setRating(starCount);
@@ -28,17 +37,6 @@ const IndividualSurvey = () => {
         ? prev.filter((f) => f !== feature)
         : [...prev, feature]
     );
-  };
-
-  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setImagePreview(reader.result as string);
-      };
-      reader.readAsDataURL(file);
-    }
   };
 
   const featuresList = [
@@ -78,29 +76,50 @@ const IndividualSurvey = () => {
         </div>
       </div>
 
-      <div className=" p-[28px_16px] lg:p-[60px] bg-white rounded-2xl shadow-md">
-        <form>
+      <div
+        className={`p-[28px_16px] lg:p-[60px] bg-white rounded-2xl shadow-md ${inter.className}`}
+      >
+        <div>
+          {/* Quick Insights Survey */}
           <div className="mb-8">
-            <label className="block text-base text-[#213737] font-medium pb-4">
+            <h2 className="block text-2xl text-[#213737] font-semibold pb-4 leading-[108%] tracking-[0.48px] ">
+              Quick Insights Survey
+            </h2>
+
+            <p className="block text-base text-[#333] font-normal leading-[125%] pb-5 border-b border-b-[#F0F0F0]">
+              Quick Insights Survey is about gathering brief and valuable
+              feedback from users. The goal is to understand their experiences,
+              preferences, and suggestions to improve the apps design, features,
+              and overall performance. Its designed to be fast and easy,
+              respecting the users time while still collecting meaningful
+              insights.
+            </p>
+          </div>
+          {/* questions  */}
+          <div className="mb-8">
+            <h4 className="block text-base text-[#213737] font-medium pb-4 leading-[140%]">
               How often do you use this app?
-            </label>
-            <input
-              type="text"
-              className="w-full p-3 border border-[#D6D6D6] rounded-2xl focus:outline-none placeholder:text-[#9A9999]"
-              placeholder="Write your answer"
-            />
+            </h4>
+
+            <p className="block text-base text-[#333] font-normal leading-[125%]">
+              I love the smooth animations and easy navigation.{" "}
+            </p>
           </div>
 
           <div className="mb-8">
-            <label className="block text-base text-[#213737] font-medium pb-4">
-              What improvements or new features would you suggest for the app?
-            </label>
-            <textarea
-              className="w-full p-3 border border-[#D6D6D6] rounded-2xl focus:outline-none resize-none text-sm h-[70px]"
-              placeholder="Write your answer"
-            />
+            <h4 className="block text-base text-[#213737] font-medium pb-4 leading-[140%]">
+              How often do you use this app?What improvements or new features
+              would you suggest for the app?
+            </h4>
+
+            <p className="block text-base text-[#333] font-normal leading-[125%]">
+              The app is very intuitive, but I think the loading time for some
+              sections could be improved. Also, adding a dark mode would enhance
+              the user experience, especially for nighttime use.
+            </p>
           </div>
 
+          {/* star section  */}
           <div className="mb-8">
             <label className="block text-base text-[#213737] font-medium pb-4">
               How would you rate the overall experience of using this app?
@@ -122,6 +141,7 @@ const IndividualSurvey = () => {
             </div>
           </div>
 
+          {/* checkbox */}
           <div className="mb-8">
             <label className="block text-base text-[#213737] font-medium pb-4">
               Which features do you use most often?
@@ -161,34 +181,16 @@ const IndividualSurvey = () => {
             </div>
           </div>
 
+          {/* images  */}
           <div className="mb-8">
-            <label className="block text-base text-[#213737] font-medium pb-4">
-              Upload a screenshot or file related to your experience
-            </label>
-            <label
-              htmlFor="upload-image"
-              className="p-3 border rounded-2xl bg-[#F9F9F9] cursor-pointer flex items-center gap-4 w-fit"
-            >
-              <UploadimageIcons />
-              <p className="text-sm text-[#333] font-bold">Upload image</p>
-              <input
-                type="file"
-                id="upload-image"
-                className="hidden"
-                onChange={handleFileChange}
-              />
-            </label>
-            {imagePreview && (
-              <Image
-                src={imagePreview}
-                alt="Uploaded preview"
-                className="mt-4 rounded-lg"
-                width={279}
-                height={186}
-              />
-            )}
+            <Image
+              src="/images/png/upload_img.png"
+              alt="upload_img"
+              width={279}
+              height={186}
+            />
           </div>
-
+          {/* buttons section */}
           <div className="flex justify-end space-x-2">
             <button
               type="button"
@@ -204,7 +206,7 @@ const IndividualSurvey = () => {
               Back
             </button>
           </div>
-        </form>
+        </div>
       </div>
     </section>
   );
