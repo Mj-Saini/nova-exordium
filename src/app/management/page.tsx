@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 'use client';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import { CheckIcon, CreateIcon, DottedIcon } from '../components/common/Icons';
 import { tasks } from '../components/common/Helper';
@@ -11,41 +11,14 @@ import Changestatus from '../components/popues/Changestatus';
 import Layout from '../components/common/Layout';
 
 const Page = () => {
-  const [showSideBar, setShowSideBar] = useState<boolean>(false);
   const [openDottedMenu, setOpenDottedMenu] = useState<number | null>(null);
 
-  useEffect(() => {
-    if (showSideBar) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'auto';
-    }
-
-    return () => {
-      document.body.style.overflow = 'auto';
-    };
-  }, [showSideBar]);
   // const progressWidth = Math.max(5, Math.min(  : 50, 100));
   const [isOpen, setIsOpen] = useState(false);
   const [isOpen2, setIsOpen2] = useState(false);
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 0) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-  const [isScrolled, setIsScrolled] = useState(false);
 
   return (
-    <Layout heading='Projects list' sub_heading='Management' >
+    <Layout heading="Projects list" sub_heading="Management">
       <div className="bg-[#FFFFFF] rounded-[15px] py-[28px] px-[21px]  shadow-[0px_3.5px_5.5px_0px_#00000005]  h-fit max-h-[40%] ">
         <div className=" xl:flex justify-between">
           <div>
@@ -66,9 +39,9 @@ const Page = () => {
           </div>
         </div>
         <p className=" font-normal text-sm lg:text-base text-[#333333] pt-[24px]">
-          This project focuses on developing the app's core features to enhance functionality
-          and user experience. Key tasks include designing the UI, integrating essential
-          components, and ensuring seamless performance through testing and optimization
+          This project focuses on developing the app's core features to enhance functionality and
+          user experience. Key tasks include designing the UI, integrating essential components, and
+          ensuring seamless performance through testing and optimization
         </p>
         <div className=" pt-[24px] flex ">
           <div className="xl:w-3/12 w-full">
@@ -120,9 +93,7 @@ const Page = () => {
           <div className="flex items-center gap-5 pt-[16px] w-fit">
             <div className="flex flex-col  ">
               <div>
-                <span className="text-xs lg:text-sm text-[#2C4C4B] font-bold">
-                  60% Complete
-                </span>
+                <span className="text-xs lg:text-sm text-[#2C4C4B] font-bold">60% Complete</span>
               </div>
 
               <div className="relative w-full h-[3px] bg-gray-300 rounded-lg overflow-hidden mt-[5px]">
@@ -144,13 +115,11 @@ const Page = () => {
           <table className="w-full mt-7 border-collapse">
             <thead>
               <tr className="border-b border-gray-300 text-left font-bold text-xs lg:text-sm whitespace-nowrap">
-                {['#', 'TASK NAME', 'STATUS', ' DUE DATE', 'PRIORITIES', ''].map(
-                  (head, index) => (
-                    <th key={index} className="px-4 py-3 text-[#9A9999]">
-                      {head}
-                    </th>
-                  )
-                )}
+                {['#', 'TASK NAME', 'STATUS', ' DUE DATE', 'PRIORITIES', ''].map((head, index) => (
+                  <th key={index} className="px-4 py-3 text-[#9A9999]">
+                    {head}
+                  </th>
+                ))}
               </tr>
             </thead>
             <tbody className="whitespace-nowrap">
@@ -220,8 +189,6 @@ const Page = () => {
           </div>
         </div>
       )}
-
-
     </Layout>
   );
 };

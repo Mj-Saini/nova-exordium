@@ -1,11 +1,9 @@
 'use client';
-import React, { useEffect, useState } from 'react';
-import Sidebar from '../components/Sidebar';
+import React, { useState } from 'react';
 
 import { GoNextIcon, CheckIcon, CreateIcon, FleterIcon } from '../components/common/Icons';
 
 import { templates } from '../components/common/Helper';
-import AdminHeader from '../components/AdminHeader';
 import Filtertemplates from '../components/popues/Filtertemplates';
 import { useRouter } from 'next/navigation';
 
@@ -13,35 +11,6 @@ import Template from '../components/popues/Template';
 import Layout from '../components/common/Layout';
 
 const Page = () => {
-  const [showSideBar, setShowSideBar] = useState<boolean>(false);
-
-  useEffect(() => {
-    if (showSideBar) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'auto';
-    }
-
-    return () => {
-      document.body.style.overflow = 'auto';
-    };
-  }, [showSideBar]);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 0) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen2, setIsOpen2] = useState(false);
   const [isOpentemplate, setIsOpentemplate] = useState(false);
 

@@ -1,40 +1,13 @@
 'use client';
-import React, { useEffect, useState } from 'react';
-import Sidebar from '../components/Sidebar';
+import React, { useState } from 'react';
 import { CheckIcon, CreateIcon, DottedIcon, FleterIcon } from '../components/common/Icons';
 import Image from 'next/image';
 import Filter from '../components/popues/Filter';
 import { tasks2 } from '../components/common/Helper';
-import AdminHeader from '../components/AdminHeader';
 import Layout from '../components/common/Layout';
 
 const DashboardPage = () => {
-  const [showSideBar, setShowSideBar] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  useEffect(() => {
-    if (showSideBar) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'auto';
-    }
-
-    return () => {
-      document.body.style.overflow = 'auto';
-    };
-  }, [showSideBar]);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 0);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
 
   return (
     <Layout heading="Projects List" sub_heading="Projects">
