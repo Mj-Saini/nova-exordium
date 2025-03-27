@@ -87,7 +87,7 @@ const SurveyData: React.FC<SurveyDataProps> = ({ setIsSurvyModel }) => {
     <>
       <div className="overflow-y-scroll h-[90vh] hide-scrollbar">
         <section
-          className={`${inter.className}  min-h-[50vh] overflow-y-scroll hide-scrollbar`}
+          className={`${inter.className}  min-h-[40vh] bg-white p-6 rounded-lg overflow-y-scroll hide-scrollbar`}
         >
           <div className="flex justify-between items-center mb-4 pb-4 border-b border-b-[#9A9999]">
             <h2 className="text-[#333] text-xl tracking-[0.4px] font-semibold leading-[90%]">

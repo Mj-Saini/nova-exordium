@@ -200,7 +200,7 @@ const CreateSurvey: React.FC<CreateSurveyProps> = ({ isModalOpen, setIsModalOpen
                 damping: 20,
                 stiffness: 300,
               }}
-              className="bg-white rounded-lg p-6 w-full max-w-[955px] z-10"
+              className=" h-fit   w-full max-w-[955px] z-10"
             >
               <SurveyData
                 isSurvyModel={isSurveyModel}
