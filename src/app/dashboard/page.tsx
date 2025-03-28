@@ -108,6 +108,7 @@ const DashboardPage = () => {
                   </div>
                   <div>
                     <CommonBtn
+                      path="/survey"
                       btnName="Send a Survey"
                       btnStyling="bg-white !rounded-full !py-2 text-sm font-bold text-[#213737]"
                       arrowIcon="hidden"

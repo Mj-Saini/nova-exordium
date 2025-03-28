@@ -1,4 +1,5 @@
 {
   "editor.wordWrap": "on",
-  "markdown.validate.enabled": true
+  "markdown.validate.enabled": true,
+  "editor.experimental.preferTreeSitter.typescript": true
 }

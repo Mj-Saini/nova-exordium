@@ -22,7 +22,6 @@ const Testimonial: React.FC = () => {
     slidesToShow: 3,
     slidesToScroll: 1,
     responsive: [
-
       {
         breakpoint: 768,
         settings: {
@@ -30,8 +29,7 @@ const Testimonial: React.FC = () => {
           slidesToShow: 2,
           slidesToScroll: 2,
           initialSlide: 2,
-
-        }
+        },
       },
       {
         breakpoint: 480,
@@ -39,13 +37,12 @@ const Testimonial: React.FC = () => {
           dots: true,
           slidesToShow: 1,
           slidesToScroll: 1,
-
-        }
-      }
-    ]
+        },
+      },
+    ],
   };
   return (
-    <section className="py-12 lg:mt-[170px]">
+    <section id="testimonials" className="py-12 lg:mt-[170px]">
       <div className="custom_container">
         <div className=" text-center">
           <h2
@@ -60,10 +57,16 @@ const Testimonial: React.FC = () => {
 
         <div className="relative mt-8 lg:mt-[60px]">
           <div className="xl:block hidden">
-            <span onClick={() => mySlider.current?.slickPrev()} className="absolute cursor-pointer -left-10 top-1/2 -translate-y-1/2">
+            <span
+              onClick={() => mySlider.current?.slickPrev()}
+              className="absolute cursor-pointer -left-10 top-1/2 -translate-y-1/2"
+            >
               <SliderArrowsIcon />
             </span>
-            <span onClick={() => mySlider.current?.slickNext()} className="absolute cursor-pointer -right-10 top-1/2 -translate-y-1/2 -scale-105">
+            <span
+              onClick={() => mySlider.current?.slickNext()}
+              className="absolute cursor-pointer -right-10 top-1/2 -translate-y-1/2 -scale-105"
+            >
               <SliderArrowsIcon />
             </span>
           </div>

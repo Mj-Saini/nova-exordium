@@ -160,13 +160,13 @@ const Table: React.FC = () => {
               {surveyTableData.map((survey: any) => (
                 <tr
                   key={survey.id}
-                  className="hover:bg-gray-50 border-b border-b-[#EAEBEB] cursor-pointer"
+                  className="hover:bg-gray-50 border-b border-b-[#EAEBEB]"
                 >
                   <td
                     onClick={() => (window.location.href = "/individual")} // Navigate on row click
                     className="py-3 px-5"
                   >
-                    <span>{survey.name}</span>
+                    <span className="cursor-pointer text-blue-400">{survey.name}</span>
                   </td>
                   <td className="py-3 px-5">
                     <span className="!text-[#213737]">

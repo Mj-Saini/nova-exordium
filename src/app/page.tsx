@@ -31,6 +31,7 @@ export default function Home() {
         </div>
         <StatsSection />
         <FeaturedCommonSections
+         
           img={dashboard_img}
           label="dashboard"
           heading="Lorem ipsum dolor sit amet consectetur"
@@ -43,7 +44,7 @@ export default function Home() {
         />
         <FeaturedCommonSections
           img={project_img}
-          label="Projects"
+          label="projects"
           heading="Lorem ipsum dolor sit amet consectetur"
           descriptions=" Lorem ipsum dolor sit amet consectetur. Dignissim velit egestas
                 ac risus maecenas magna risus tellus adipiscing. Magna nunc
@@ -55,7 +56,7 @@ export default function Home() {
         />
         <FeaturedCommonSections
           img={template_img}
-          label="Templates"
+          label="templates"
           heading="Lorem ipsum dolor sit amet consectetur"
           descriptions=" Lorem ipsum dolor sit amet consectetur. Dignissim velit egestas
                 ac risus maecenas magna risus tellus adipiscing. Magna nunc
@@ -65,7 +66,7 @@ export default function Home() {
         />
         <FeaturedCommonSections
           img={notifications_img}
-          label="Notifications"
+          label="notifications"
           heading="Lorem ipsum dolor sit amet consectetur"
           descriptions=" Lorem ipsum dolor sit amet consectetur. Dignissim velit egestas
                 ac risus maecenas magna risus tellus adipiscing. Magna nunc
