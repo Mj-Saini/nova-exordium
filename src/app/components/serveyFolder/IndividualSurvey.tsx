@@ -86,7 +86,7 @@ const IndividualSurvey = () => {
               Quick Insights Survey
             </h2>
 
-            <p className="block text-base text-[#333] font-normal leading-[125%] pb-5">
+            <p className="block text-base text-[#333] font-normal leading-[125%] pb-5 border-b border-b-[#F0F0F0]">
               Quick Insights Survey is about gathering brief and valuable
               feedback from users. The goal is to understand their experiences,
               preferences, and suggestions to improve the apps design, features,
