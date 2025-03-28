@@ -46,7 +46,7 @@ const Footer: React.FC = () => {
           <div className="w-full md:w-1/2 lg:px-3 mt-4  lg:mt-0">
             {/* Center - Navigation Links */}
             <div className="flex flex-wrap justify-end gap-6">
-              <Link href="#" className="font-medium text-base text-white">
+              <Link href="/dashboard" className="font-medium text-base text-white">
                 Dashboard
               </Link>
               <Link href="#" className="font-medium text-base text-white">

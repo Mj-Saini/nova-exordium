@@ -35,7 +35,7 @@ const Header: React.FC<HeaderProps> = ({btnStyling,headerStyling,btnName,toggleF
     <>
       <div className={`custom_container mx-auto !pt-6 max-lg:!pb-6`}>
         <div
-          className={` flex items-center gap-6 justify-between !bg-white border-white border rounded-3xl xl:bg-transparent xl:border-transparent  px-6 py-4 xl:p-0 !pe-6 ${headerStyling} w-full lg:max-w-[1080px] 2xl:w-[1080px] custom_shadow`}
+          className={` flex items-center gap-6 justify-between !bg-white border-white border rounded-3xl xl:bg-transparent xl:border-transparent  px-6 py-2.5 lg:py-4 xl:p-0 !pe-6 ${headerStyling} w-full lg:max-w-[1080px] 2xl:w-[1080px] custom_shadow`}
         >
           <div className="flex gap-10 items-center bg-white border-white border rounded-3xl xl:px-6 xl:py-4 ">
             <Link href="/">
@@ -55,6 +55,7 @@ const Header: React.FC<HeaderProps> = ({btnStyling,headerStyling,btnName,toggleF
               {headerData.map((tab, index) => (
                 <div key={index} className="relative">
                   <Link
+                    onClick={() => setToggleNav(false)}
                     href={tab.path}
                     className={`font-medium text-base capitalize flex items-center gap-3 justify-between duration-300 hover:text-[#2C4C4B]  ${
                       pathName === tab.path
@@ -68,12 +69,14 @@ const Header: React.FC<HeaderProps> = ({btnStyling,headerStyling,btnName,toggleF
               ))}
               <div className={`flex flex-col gap-6 items-center 2xl:absolute right-[84px] lg:hidden  ${btnStyling}`}>
                 <Link
-                  href={"/"}
+  onClick={() => setToggleNav(false)}
+                  href={"/auth"}
                   className={`capitalize font-bold text-[#333333] whitespace-nowrap`}
                 >
                  {btnName}
                 </Link>
                 <Link
+                  onClick={() => setToggleNav(false)}
                   href={"/auth"}
                   className={`capitalize font-bold text-[#fff] bg-[#2C4C4B] rounded-2xl px-5 py-3  whitespace-nowrap`}
                 >
@@ -84,6 +87,7 @@ const Header: React.FC<HeaderProps> = ({btnStyling,headerStyling,btnName,toggleF
           </div>
           <div className={`hidden gap-6 items-center lg:flex ${btnStyling}`}>
             <button
+              
               onClick={toggleForm}
               className={`capitalize font-bold text-[#333333] whitespace-nowrap cursor-pointer ${buttonClr}`}
             >
@@ -91,6 +95,7 @@ const Header: React.FC<HeaderProps> = ({btnStyling,headerStyling,btnName,toggleF
             </button>
             <Link
               href={"/auth"}
+              onClick={() => setToggleNav(false)}
               className={`capitalize font-bold text-[#fff] bg-[#2C4C4B] rounded-2xl px-5 py-3  whitespace-nowrap`}
             >
               Sign Up
