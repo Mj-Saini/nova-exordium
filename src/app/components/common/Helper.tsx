@@ -4,7 +4,8 @@ import {
   AdminNotificationsIcon,
   AdminProjectIcon,
   AdminTempletIcon,
-  CloneIcons,
+
+  CopyIcons,
   DashboardIcon,
   DeletIcon,
   EditIcon,
@@ -592,7 +593,7 @@ export const templates = [
     UpdateDate: "Today",
     Action: <EditIcon />,
     delet: <DeletIcon />,
-    Clone: <CloneIcons />,
+    Clone: <CopyIcons />,
   },
   {
     id: 2,
@@ -601,7 +602,7 @@ export const templates = [
     UpdateDate: "Today",
     Action: <EditIcon />,
     delet: <DeletIcon />,
-    Clone: <CloneIcons />,
+    Clone: <CopyIcons />,
   },
   {
     id: 3,
@@ -610,7 +611,7 @@ export const templates = [
     UpdateDate: "2/3/2025",
     Action: <EditIcon />,
     delet: <DeletIcon />,
-    Clone: <CloneIcons />,
+    Clone: <CopyIcons />,
   },
   {
     id: 4,
@@ -619,7 +620,7 @@ export const templates = [
     UpdateDate: "2/3/2025",
     Action: <EditIcon />,
     delet: <DeletIcon />,
-    Clone: <CloneIcons />,
+    Clone: <CopyIcons />,
   },
   {
     id: 5,
@@ -628,7 +629,7 @@ export const templates = [
     UpdateDate: "2/3/2025",
     Action: <EditIcon />,
     delet: <DeletIcon />,
-    Clone: <CloneIcons />,
+    Clone: <CopyIcons />,
   },
   {
     id: 6,
@@ -637,7 +638,7 @@ export const templates = [
     UpdateDate: "2/3/2025",
     Action: <EditIcon />,
     delet: <DeletIcon />,
-    Clone: <CloneIcons />,
+    Clone: <CopyIcons />,
   },
   {
     id: 7,
@@ -646,7 +647,7 @@ export const templates = [
     UpdateDate: "2/3/2025",
     Action: <EditIcon />,
     delet: <DeletIcon />,
-    Clone: <CloneIcons />,
+    Clone: <CopyIcons />,
   },
   {
     id: 8,
@@ -655,7 +656,7 @@ export const templates = [
     UpdateDate: "2/3/2025",
     Action: <EditIcon />,
     delet: <DeletIcon />,
-    Clone: <CloneIcons />,
+    Clone: <CopyIcons />,
   },
   {
     id: 9,
@@ -664,7 +665,7 @@ export const templates = [
     UpdateDate: "2/3/2025",
     Action: <EditIcon />,
     delet: <DeletIcon />,
-    Clone: <CloneIcons />,
+    Clone: <CopyIcons />,
   },
   {
     id: 10,
@@ -673,7 +674,7 @@ export const templates = [
     UpdateDate: "2/3/2025",
     Action: <EditIcon />,
     delet: <DeletIcon />,
-    Clone: <CloneIcons />,
+    Clone: <CopyIcons />,
   },
   {
     id: 11,
@@ -682,7 +683,7 @@ export const templates = [
     UpdateDate: "2/3/2025",
     Action: <EditIcon />,
     delet: <DeletIcon />,
-    Clone: <CloneIcons />,
+    Clone: <CopyIcons />,
   },
   {
     id: 12,
@@ -691,7 +692,7 @@ export const templates = [
     UpdateDate: "2/3/2025",
     Action: <EditIcon />,
     delet: <DeletIcon />,
-    Clone: <CloneIcons />,
+    Clone: <CopyIcons />,
     img: "/images/png/project_card_img.png",
     number: "  Project #1",
     heading: "   Lorem ipsum dolor",

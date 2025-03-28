@@ -67,7 +67,7 @@ const SurveyData: React.FC<SurveyDataProps> = ({ setIsSurvyModel }) => {
   const options = [
     { id: 1, label: "Short answer", icon: <ShortAnsIcons /> },
     { id: 2, label: "Paragraph", icon: <ParagraphIcons /> },
-    { id: 3, label: "Rating", icon: <RatingIcons /> },
+    { id: 3, label: "Rating", icon: <RatingIcons/> },
     { id: 4, label: "Checkboxes", icon: <CheckboxIcons /> },
     { id: 5, label: "File upload", icon: <UploadfileIcons /> },
   ];

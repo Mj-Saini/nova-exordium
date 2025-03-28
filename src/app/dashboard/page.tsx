@@ -9,8 +9,6 @@ import CommonBtn from "../components/common/CommonBtn";
 import { completionData, CSAT_Score_data, dashboard_notifications, dashboard_User_Engagement_data, progressData, Totalwork_data_dashboard } from "../components/common/Helper";
 import CsatGraph from "../components/CsatGraph";
 import Layout from "../components/common/Layout";
-import { Bar } from "react-chartjs-2";
-import Chart from "chart.js/auto";
 import Barcharts from "../components/Barcharts";
 
 const inter = Inter({
@@ -257,9 +255,9 @@ const DashboardPage = () => {
             </div>
           </div>
         </div>
-        <div className="flex flex-wrap mt-6  ">
-          <div className="w-full xl:w-1/2 2xl:w-5/12 px-2.5 xl:px-3 xl:mt-0 ">
-            <div className="px-3 2xl:px-6 py-4 rounded-2xl bg-white custom_shadow h-full custom_chart_bg">
+      <div className="flex flex-wrap  mt-6  ">
+          <div className="w-full xl:w-[45%] 2xl:w-5/12 px-2.5 xl:px-3 xl:mt-0 ">
+            <div className="px-3 2xl:px-6 py-4 user_engagement rounded-2xl bg-white custom_shadow h-full custom_chart_bg">
               <Barcharts/>
 
               <div className="mt-6">
@@ -290,8 +288,8 @@ const DashboardPage = () => {
               </div>
             </div>
           </div>
-          <div className="w-full xl:w-1/2 2xl:w-7/12 px-2.5 xl:px-3 mt-6 xl:mt-0">
-            <div className="px-3 2xl:px-6 py-4 rounded-2xl bg-white custom_shadow h-full">
+          <div className="w-full xl:w-[55%] 2xl:w-7/12 px-2.5 xl:px-3 mt-6 xl:mt-0">
+            <div className="px-3 2xl:px-6 py-4  CSAT_Score rounded-2xl bg-white custom_shadow h-full">
               <h2 className="ff_helvetica font-bold text-base lg:text-lg text-[#213737] leading-[140%]">
                 CSAT Score
               </h2>

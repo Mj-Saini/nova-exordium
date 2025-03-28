@@ -8,7 +8,6 @@ import MangTable from '../components/tableData/MangTable';
 import AddTask from '../components/popues/AddTask';
 import Newtaskgroup from '../components/popues/Newtaskgroup';
 import Changestatus from '../components/popues/Changestatus';
-import AdminHeader from '../components/AdminHeader';
 import Layout from '../components/common/Layout';
 
 const Page = () => {

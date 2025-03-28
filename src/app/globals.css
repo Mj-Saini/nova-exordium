@@ -102,6 +102,51 @@ td {
   @apply text-sm text-[#213737] leading-[140%] font-bold;
 }
 
+/* barchart css start here  */
+
+.css-1qdzy9k-MuiBarElement-root {
+  width: 7px !important;
+  fill: #ffffff !important;
+}
+
+
+.user_engagement .css-172kpif-MuiResponsiveChart-container {
+  width: 100%;
+  height: 250px !important;
+
+}
+.CSAT_Score .css-172kpif-MuiResponsiveChart-container {
+  width: 100%;
+  height: 350px !important;
+
+}
+
+
+
+.user_engagement .css-172kpif-MuiResponsiveChart-container>svg {
+  background: linear-gradient(81.62deg, #2C4C4B 2.25%, #213737 79.87%);
+  border-radius: 12px;
+}
+
+.user_engagement .css-1x2wln8-MuiChartsAxis-root-MuiChartsXAxis-root {
+  display: none;
+}
+
+
+.css-175e1i1-MuiChartsAxis-root-MuiChartsYAxis-root .MuiChartsAxis-line {
+  display: none;
+}
+
+.MuiChartsAxis-tick {
+  display: none;
+}
+
+.user_engagement .css-175e1i1-MuiChartsAxis-root-MuiChartsYAxis-root .MuiChartsAxis-tickLabel {
+
+  fill: rgba(255, 255, 255, 0.87) !important;
+}
+
+/* barchart css ends here  */
 label .servy_label {
   @apply text-base text-[#213737] font-medium !leading-[140%] pb-1;
 }

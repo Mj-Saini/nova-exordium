@@ -307,11 +307,10 @@ const Table: React.FC = () => {
                   <div>
                     <p className="text-sm text-gray-500">Average CSAT Score</p>
                     <p
-                      className={`font-medium ${
-                        selectedSurvey.averageScore < 50
+                      className={`font-medium ${selectedSurvey.averageScore < 50
                           ? "text-red-500"
                           : "text-green-500"
-                      }`}
+                        }`}
                     >
                       {selectedSurvey.averageScore}%
                     </p>
