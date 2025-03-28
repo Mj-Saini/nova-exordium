@@ -7,16 +7,9 @@ import AdminForm from "../components/adminsetting/AdminForm";
 import { motion, AnimatePresence } from "framer-motion";
 import Layout from "../components/common/Layout";
 
-interface ProfileData {
-  fullName: string;
-  email: string;
-}
 
-interface DashboardPageProps {
-  profileData: ProfileData;
-}
 
-const DashboardPage: React.FC<DashboardPageProps> = ({ profileData }) => {
+const AdminSettings = () => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
   return (
@@ -42,10 +35,10 @@ const DashboardPage: React.FC<DashboardPageProps> = ({ profileData }) => {
               </div>
               <div>
                 <h3 className="text-base lg:text-lg font-bold text-[#213737]">
-                  {profileData?.fullName || "Gregory Hodkiewicz"}
+                  Gregory Hodkiewicz
                 </h3>
                 <p className="text-sm font-normal text-[#9A9999]">
-                  {profileData?.email || "Gregory68@gmail.com"}
+                  Gregory68@gmail.com
                 </p>
               </div>
             </div>
@@ -90,4 +83,4 @@ const DashboardPage: React.FC<DashboardPageProps> = ({ profileData }) => {
   );
 };
 
-export default DashboardPage;
+export default AdminSettings;

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import * as React from 'react';
 import Box from '@mui/material/Box';
 
@@ -8,12 +9,7 @@ export default function Barcharts() {
   const [itemNb, setItemNb] = React.useState(9);
   const [skipAnimation, setSkipAnimation] = React.useState(false);
 
-  const handleItemNbChange = (event: Event, newValue: number | number[]) => {
-    if (typeof newValue !== 'number') {
-      return;
-    }
-    setItemNb(newValue);
-  };
+ 
   const handleSeriesNbChange = (event: Event, newValue: number | number[]) => {
     if (typeof newValue !== 'number') {
       return;
@@ -37,8 +33,6 @@ export default function Barcharts() {
 }
 
 const highlightScope = {
-  // highlight: 'series',
-  // fade: 'global',
 } as const;
 
 const series = [

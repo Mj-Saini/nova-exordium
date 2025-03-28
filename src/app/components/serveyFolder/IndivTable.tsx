@@ -24,12 +24,12 @@ const inter = Inter({
 });
 
 const IndivTable: React.FC = () => {
-  const [responses, setResponses] =
-    useState<IndividualResponse[]>(individualData);
+  const [responses, setResponses] = useState<IndividualResponse[]>(
+    individualData as IndividualResponse[]
+  );
 
-  // const handleView = (response: IndividualResponse) => {
-  //   console.log("Viewing details for:", response.name);
-  // };
+
+ 
 
   const removeResponse = (id: number) => {
     setResponses(responses.filter((response) => response.id !== id));
