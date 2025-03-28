@@ -26,7 +26,7 @@ const Layout: React.FC<Survey> = ({ children, heading, sub_heading }) => {
   }, []);
 
   return (
-    <div className="h-screen overflow-hidden">
+    <div className="h-screen overflow-clip">
       <div className="flex flex-wrap h-full">
         {/* Sidebar */}
         <div
@@ -43,13 +43,13 @@ const Layout: React.FC<Survey> = ({ children, heading, sub_heading }) => {
         <div className="w-full md:w-[calc(100%-200px)] h-[calc(100vh-20px)] overflow-auto lg:w-[calc(100%-296px)] px-2.5 lg:px-5">
           <div className="pb-5 h-full">
             <div
-              className={`sticky top-0 z-10 px-6 transition-all !bg-[#F0F0F0] duration-300 ease-in-out ${
+              className={`fixed h-auto top-0 w-full md:w-[calc(100%-200px)] lg:w-[calc(100%-296px)] z-10 px-6 transition-all !bg-[#F0F0F0] duration-300 ease-in-out ${
                 isScrolled ? "" : "bg-transparent"
               }`}
             >
               <AdminHeader heading={heading} sub_heading={sub_heading} />
             </div>
-            <div>{children}</div>
+            <div className="mt-[100px]">{children}</div>
           </div>
         </div>
       </div>

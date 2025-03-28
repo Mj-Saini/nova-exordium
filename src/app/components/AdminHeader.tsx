@@ -23,7 +23,7 @@ interface AdminHeaderProps {
 
 const AdminHeader: React.FC<AdminHeaderProps> = ({ heading, sub_heading }) => {
   return (
-    <div className="py-[22px] top-0 sticky flex items-center justify-between">
+    <div className="py-[22px] flex items-center justify-between">
       <div>
         <h2 className="font-normal text-lg lg:text-2xl leading-[150%] text-[#213737] capitalize">
           <span className="text-xs text-[#9A9999]">Pages</span> / {heading}
